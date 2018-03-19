@@ -6,13 +6,15 @@
 
 ## Server:
 
-Terminal:
+Terminal 1:
 
     git --version  
 
     node -v
 
     git clone https://github.com/WasteNotCSULB/WebApp.git
+
+    cd WebApp/
 
     cd server/
         
@@ -31,7 +33,7 @@ Browser:
 
 ## Client
 
-Terminal:
+Terminal 2:
 
     cd client/WasteNotCSULB
 
