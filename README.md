@@ -1,8 +1,10 @@
 # WebApp
 
-## nodemon is recommended:
+    nodemon is recommended:
 
     npm install nodemon -g
+
+## Server:
 
 Terminal:
 
@@ -26,6 +28,17 @@ Browser:
 
     go to http://localhost:3030    
     
+
+## Client
+
 Terminal:
 
-    ctrl + C
+    cd client/WasteNotCSULB
+
+    npm install
+    
+    ng serve
+
+Browser: 
+
+    go to http://localhost:4200  
