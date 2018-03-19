@@ -12,10 +12,10 @@ Terminal:
 
     node -v
 
-    cd server/
-    
     git clone https://github.com/WasteNotCSULB/WebApp.git
-    
+
+    cd server/
+        
     npm install 
     
     node server.js 
