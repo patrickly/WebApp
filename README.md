@@ -14,6 +14,8 @@ Terminal:
     
     git clone https://github.com/WasteNotCSULB/WebApp.git
     
+    npm install 
+    
     node server.js 
     
     ctrl + C
