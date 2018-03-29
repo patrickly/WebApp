@@ -35,11 +35,12 @@ Browser:
 
 Terminal 2:
 
-    cd client/WasteNotCSULB
+    cd client/
+    cd WasteNotCSULB/
 
     npm install
     
-    ng serve
+    ng serve --open
 
 Browser: 
 
