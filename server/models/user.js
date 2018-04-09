@@ -10,14 +10,6 @@ const UserSchema = new Schema({
   password: String,
   picture: String,
   isAdmin: { type: Boolean, default: false },
-  address: {
-    addr1: String,
-    addr2: String,
-    city: String,
-    state: String,
-    country: String,
-    postalCode: String
-  },
   created: { type: Date, default: Date.now }
 });
 
