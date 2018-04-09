@@ -9,11 +9,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { NewsComponent } from './news/news.component';
+import { ItemsComponent } from './items/items.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    QuizComponent,
+    NewsComponent,
+    ItemsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
