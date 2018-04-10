@@ -36,7 +36,6 @@ router.post('/signup', (req, res, next) => {
     res.json({
       success: true,
       message: 'Sign up successful. Enjoy your token',
-      message: 'Enjoy your token',
       token: token
     });
   }
