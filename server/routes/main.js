@@ -5,6 +5,7 @@ const Product = require('../models/product');
 const Item = require('../models/item');
 
 
+// amazono
 router.get('/products', (req, res, next) => {
   const perPage = 10;
   const page = req.query.page;
@@ -41,14 +42,47 @@ router.get('/products', (req, res, next) => {
 
 });
 
-// need get items
-// Need Item id
-router.get('/items', (req, res, next) => {
-  res.json({
-    message: 'get items route is under construction'}
-  );
+// waste not
+// status: not tested yet
+router.get('/itemsZ', (req, res, next) => {
+  const perPage = 10;
+  const page = req.query.page;
+  async.parallel([
+    function(callback) {
+      Item.count({}, (err, count) => {
+        var totalItems = count;
+        callback(err, totalItems);
+      });
+    },
+    function(callback) {
+      Item.find({})
+        .skip(perPage * page)
+        .limit(perPage)
+        .populate('category')
+        .populate('owner')
+        .exec((err, items) => {
+          if(err) return next(err);
+          callback(err, items);
+        });
+    }
+  ], function(err, results) {
+    var totalItems = results[0];
+    var items = results[1];
+
+
+    res.json({
+      success: true,
+      message: 'category',
+      items: items,
+      totalItems: totalItems,
+      pages: Math.ceil(totalItems / perPage)
+    });
+  });
+
 });
 
+//  status GET: good
+//  status POST: good
 router.route('/categories')
   .get((req, res, next) => {
     Category.find({}, (err, categories) => {
@@ -79,8 +113,8 @@ router.route('/categories')
     });
   });
 
+// amazono
 
-// change product to item
   router.get('/categories/:id', (req, res, next) => {
     const perPage = 10;
     const page = req.query.page;
@@ -123,15 +157,18 @@ router.route('/categories')
 
   });
 
-  // change product to item
+  // waste not
+ // status: good
+
     router.get('/categoriesZ/:id', (req, res, next) => {
       const perPage = 10;
       const page = req.query.page;
       async.parallel([
         function(callback) {
-          Product.count({ category: req.params.id }, (err, count) => {
-            var totalProducts = count;
-            callback(err, totalProducts);
+          Item.count({ category: req.params.id }, (err, count) => {
+            var totalItems = count;
+            callback(err, totalItems);
+
           });
         },
         function(callback) {
@@ -166,6 +203,7 @@ router.route('/categories')
     });
 
 
+    // amazono
 
   router.get('/product/:id', (req, res, next) => {
     Product.findById({ _id: req.params.id })
@@ -188,9 +226,10 @@ router.route('/categories')
       });
   });
 
-  // Need Item id
+  // wastenot
   router.get('/item/:id', (req, res, next) => {
-    Product.findById({ _id: req.params.id })
+    Item.findById({ _id: req.params.id })
+
       .populate('category')
       .exec((err, item) => {
         if (err) {

@@ -26,7 +26,7 @@ var upload = multer({
   })
 });
 
-
+// amazono
 router.route('/products')
   .get(checkJWT, (req, res, next) => {
     Product.find({ owner: req.decoded.user._id })
@@ -59,6 +59,36 @@ router.route('/products')
     });
   });
 
+// waste not
+  router.route('/items')
+    .get(checkJWT, (req, res, next) => {
+      Item.find({ owner: req.decoded.user._id })
+        .populate('category')
+        .exec((err, items) => {
+          if (items) {
+            res.json({
+              success: true,
+              message: "Items",
+              items: items
+            });
+          }
+        });
+    })
+    .post([checkJWT, upload.single('item_picture')], (req, res, next) => {
+      console.log(upload);
+      console.log(req.file);
+      let item = new Item();
+      item.category = req.body.categoryId;
+      item.title = req.body.title;
+      item.description = req.body.description;
+      item.image = req.file.location;
+      item.save();
+      res.json({
+        success: true,
+        message: 'Successfully Added the item'
+      });
+    });
+
 /* Just for testing */
 router.get('/faker/test',(req, res, next) => {
   for (i = 0; i < 20; i++) {
@@ -70,6 +100,23 @@ router.get('/faker/test',(req, res, next) => {
     product.description = faker.lorem.words();
     product.price = faker.commerce.price();
     product.save();
+  }
+
+  res.json({
+    message: "Successfully added 20 pictures"
+  });
+
+});
+
+
+router.get('/fakerZ/test',(req, res, next) => {
+  for (i = 0; i < 20; i++) {
+    let item = new Item();
+    item.category = "5ac52811c3e9ee45206f2fa2";
+    item.image = faker.image.food();
+    item.title = faker.commerce.productName();
+    item.description = faker.lorem.words();
+    item.save();
   }
 
   res.json({

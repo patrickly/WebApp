@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const ItemSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: 'Category'},
   title: String,
+  image: String,
   description: String,
   created: { type: Date, default: Date.now }
 });

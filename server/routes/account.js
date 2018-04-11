@@ -8,7 +8,7 @@ const checkJWT = require('../middlewares/check-jwt');
 
 
 
-
+// Status: good
 router.post('/signup', (req, res, next) => {
  let user = new User();
  user.name = req.body.name;
@@ -43,6 +43,8 @@ router.post('/signup', (req, res, next) => {
  });
 });
 
+// 4.11.18 2:25 pm login route works
+// Status: Good
 router.post('/login', (req, res, next) => {
 
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -79,6 +81,8 @@ router.post('/login', (req, res, next) => {
   });
 });
 
+// status GET: Good but must be logged in
+// status POST: Good 
 router.route('/profile')
   .get(checkJWT, (req, res, next) => {
     User.findOne({ _id: req.decoded.user._id }, (err, user) => {
@@ -107,5 +111,4 @@ router.route('/profile')
     });
   });
 
-  
 module.exports = router;
