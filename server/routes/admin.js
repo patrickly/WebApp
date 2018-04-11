@@ -60,9 +60,13 @@ router.route('/products')
   });
 
 // waste not
+// status: GET good
+// status: POST good
+// In the amazono web app, we have to find the owner of the item,
+// but in the zero waste item, there is no sellers so we don't need owners
   router.route('/items')
     .get(checkJWT, (req, res, next) => {
-      Item.find({ owner: req.decoded.user._id })
+      Item.find({})
         .populate('category')
         .exec((err, items) => {
           if (items) {
@@ -89,7 +93,7 @@ router.route('/products')
       });
     });
 
-/* Just for testing */
+/* Just for testing amazono */
 router.get('/faker/test',(req, res, next) => {
   for (i = 0; i < 20; i++) {
     let product = new Product();
@@ -109,10 +113,10 @@ router.get('/faker/test',(req, res, next) => {
 });
 
 
-router.get('/fakerZ/test',(req, res, next) => {
+router.get('/faker/CompostItemTest',(req, res, next) => {
   for (i = 0; i < 20; i++) {
     let item = new Item();
-    item.category = "5ac52811c3e9ee45206f2fa2";
+    item.category = "5ace82a94561ae0ecf27a16a"; // compost
     item.image = faker.image.food();
     item.title = faker.commerce.productName();
     item.description = faker.lorem.words();
@@ -120,7 +124,7 @@ router.get('/fakerZ/test',(req, res, next) => {
   }
 
   res.json({
-    message: "Successfully added 20 pictures"
+    message: "Successfully added 20 compost pictures for testing purposes"
   });
 
 });
