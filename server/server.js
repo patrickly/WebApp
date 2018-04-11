@@ -23,12 +23,10 @@ app.use(cors());
 
 const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/account');
-const sellerRoutes = require('./routes/seller');
 const adminRoutes = require('./routes/admin');
 
 app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
-app.use('/api/seller', sellerRoutes);
 app.use('/api/admin', adminRoutes);
 
 

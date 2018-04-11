@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Product = require('../models/product');
 const Item = require('../models/item');
 
 
@@ -26,44 +25,12 @@ var upload = multer({
   })
 });
 
-// amazono
-router.route('/products')
-  .get(checkJWT, (req, res, next) => {
-    Product.find({ owner: req.decoded.user._id })
-      .populate('owner')
-      .populate('category')
-      .exec((err, products) => {
-        if (products) {
-          res.json({
-            success: true,
-            message: "Products",
-            products: products
-          });
-        }
-      });
-  })
-  .post([checkJWT, upload.single('product_picture')], (req, res, next) => {
-    console.log(upload);
-    console.log(req.file);
-    let product = new Product();
-    product.owner = req.decoded.user._id;
-    product.category = req.body.categoryId;
-    product.title = req.body.title;
-    product.price = req.body.price;
-    product.description = req.body.description;
-    product.image = req.file.location;
-    product.save();
-    res.json({
-      success: true,
-      message: 'Successfully Added the product'
-    });
-  });
-
 // waste not
 // status: GET good
 // status: POST good
 // In the amazono web app, we have to find the owner of the item,
 // but in the zero waste item, there is no sellers so we don't need owners
+// However the user must be admin to post or add a new item
   router.route('/items')
     .get(checkJWT, (req, res, next) => {
       Item.find({})
@@ -93,30 +60,11 @@ router.route('/products')
       });
     });
 
-/* Just for testing amazono */
-router.get('/faker/test',(req, res, next) => {
-  for (i = 0; i < 20; i++) {
-    let product = new Product();
-    product.category = "5ac52811c3e9ee45206f2fa2";
-    product.owner = "5abe57c5bfa3491e5ccf176e";
-    product.image = faker.image.cats();
-    product.title = faker.commerce.productName();
-    product.description = faker.lorem.words();
-    product.price = faker.commerce.price();
-    product.save();
-  }
-
-  res.json({
-    message: "Successfully added 20 pictures"
-  });
-
-});
-
-
+/* Just for testing Waste Not Compost Items */
 router.get('/faker/CompostItemTest',(req, res, next) => {
   for (i = 0; i < 20; i++) {
     let item = new Item();
-    item.category = "5ace82a94561ae0ecf27a16a"; // compost
+    item.category = "5ace82a94561ae0ecf27a16a"; // compostId
     item.image = faker.image.food();
     item.title = faker.commerce.productName();
     item.description = faker.lorem.words();
