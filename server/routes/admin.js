@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const Product = require('../models/product');
+const Item = require('../models/item');
+
 
 const aws = require('aws-sdk'); // aws is a library for communicating with our services, s3
 const multer = require('multer'); // multer ia a library for uploading images
