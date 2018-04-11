@@ -6,6 +6,7 @@ const aws = require('aws-sdk'); // aws is a library for communicating with our s
 const multer = require('multer'); // multer ia a library for uploading images
 const multerS3 = require('multer-s3'); // multer is a library for uploading directly to s3
 const s3 = new aws.S3({ accessKeyId: "AKIAJMQNBEXTEX22COGA", secretAccessKey: "VNqW9UXLr84eSgFdUz10yH0WXsFsMu3V6XnDw/eI"});
+// s3 key above was deleted on AWS for security reasons
 
 const faker = require('faker');
 
@@ -27,7 +28,7 @@ var upload = multer({
 
 // waste not
 // status: GET good
-// status: POST good
+// status: POST Not Working
 // In the amazono web app, we have to find the owner of the item,
 // but in the zero waste item, there is no sellers so we don't need owners
 // However the user must be admin to post or add a new item
