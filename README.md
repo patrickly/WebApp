@@ -25,12 +25,7 @@ Terminal 1:
     ctrl + C
     
     nodemon
-    
-Browser: 
-
-    go to http://localhost:3030    
-    
-
+  
 ## Client
 
 Terminal 2:
@@ -41,7 +36,3 @@ Terminal 2:
     npm install
     
     ng serve --open
-
-Browser: 
-
-    go to http://localhost:4200  
