@@ -28,7 +28,7 @@ var upload = multer({
 
 // waste not
 // status: GET good
-// status: POST Not Working
+// status: POST good
 // In the amazono web app, we have to find the owner of the item,
 // but in the zero waste item, there is no sellers so we don't need owners
 // However the user must be admin to post or add a new item
@@ -46,18 +46,16 @@ var upload = multer({
           }
         });
     })
-    .post([checkJWT, upload.single('item_picture')], (req, res, next) => {
-      console.log(upload);
-      console.log(req.file);
+    .post(checkJWT, (req, res, next) => {
       let item = new Item();
       item.category = req.body.categoryId;
       item.title = req.body.title;
       item.description = req.body.description;
-      item.image = req.file.location;
+      item.image = req.body.image;
       item.save();
       res.json({
         success: true,
-        message: 'Successfully Added the item'
+        message: 'Successfully Added the item',
       });
     });
 
