@@ -1,10 +1,6 @@
-WasteNot Developer Guide
 
 CSULB WasteNot
 ==============
-
-Developer Guide
-===============
 
 ![wastenot-logo](https://s3-us-west-2.amazonaws.com/s.cdpn.io/454412/wastenot_new_logo.png)
 
