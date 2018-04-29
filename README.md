@@ -7,7 +7,7 @@ CSULB WasteNot
 What is it?
 -----------
 
-WasteNot is a web-based application for quick and acessible recycling information and protocol, developed for the California State University, Long Beach campus.
+WasteNot is a web-based application for quick and accessible recycling information and protocol, developed for the California State University, Long Beach campus.
 
 Features
 --------
