@@ -102,4 +102,4 @@ This project uses open-source programs and software licensed under the MIT Licen
 Contact
 -------
 
-If you have any questions, inqueries, or found any bugs. Please let us know by contacting us on CSULBWasteNot.support@gmail.com. Thank you.
+If you have any questions, inqueries, or found any bugs. Please let us know by contacting us on CSULBWasteNot@gmail.com. Thank you.
