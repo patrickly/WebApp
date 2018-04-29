@@ -41,32 +41,8 @@ Documentation
 
 For latest documentation, please visit the WasteNot Github [project page](https://github.com/WasteNotCSULB) where you can find documentation information.
 
-Contribute
-----------
 
-[https://github.com/WasteNotCSULB/WebApp](https://github.com/WasteNotCSULB/WebApp)
-
-Active Maintenance
-------------------
-
-WasteNot is currently maintained by Group 9 from CESC491A Section 01:
-
-*   [Greg Paolo Violan](https://github.com/violangreg)
-*   [Patrick Ly](https://github.com/patrickly)
-*   [Brian To](https://github.com/bto96)
-*   [Bryson Sherman](https://github.com/brysonsherman)
-
-License
--------
-
-This project uses open-source programs and software licensed under the MIT License. More information regarding licensing can be found at the WasteNot Github [project page](https://github.com/WasteNotCSULB) .
-
-Contact
--------
-
-If you have any questions, inqueries, or found any bugs. Please let us know by contacting us on CSULBWasteNot.support@gmail.com. Thank you.
-
-Instructions for running the WebApp
+Instructions for Running the WebApp
 -----------------------------------
 
     nodemon is recommended:
@@ -105,3 +81,29 @@ Terminal 2:
     npm install
     
     ng serve --open
+
+
+Contribute
+----------
+
+[https://github.com/WasteNotCSULB/WebApp](https://github.com/WasteNotCSULB/WebApp)
+
+Active Maintenance
+------------------
+
+WasteNot is currently maintained by Group 9 from CESC491A Section 01:
+
+*   [Greg Paolo Violan](https://github.com/violangreg)
+*   [Patrick Ly](https://github.com/patrickly)
+*   [Brian To](https://github.com/bto96)
+*   [Bryson Sherman](https://github.com/brysonsherman)
+
+License
+-------
+
+This project uses open-source programs and software licensed under the MIT License. More information regarding licensing can be found at the WasteNot Github [project page](https://github.com/WasteNotCSULB) .
+
+Contact
+-------
+
+If you have any questions, inqueries, or found any bugs. Please let us know by contacting us on CSULBWasteNot.support@gmail.com. Thank you.
