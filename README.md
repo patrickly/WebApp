@@ -27,20 +27,14 @@ Components and Dependencies
 The WasteNot system is developed through the MEAN software stack:
 
 *   MongoDB: NoSQL database
-![](https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png)  
-  
+   
 *   Express.js: Web framework for backend application development
-![](https://s3-us-west-2.amazonaws.com/s.cdpn.io/454412/express.png)  
   
 *   Angular: Front-end web design framework for desktop applications
-![](https://s3-us-west-2.amazonaws.com/s.cdpn.io/454412/angular-card.png)  
   
 *   Node.js: Server framework for backend application development
-![](https://s3-us-west-2.amazonaws.com/s.cdpn.io/454412/node%20.png)  
-  
 
 *   Ionic: Front-end web design development for mobile applications
-![](https://s3-us-west-2.amazonaws.com/s.cdpn.io/454412/Ionic_Logo.svg_.png)
 
 Documentation
 -------------
@@ -72,7 +66,8 @@ Contact
 
 If you have any questions, inqueries, or found any bugs. Please let us know by contacting us on CSULBWasteNot.support@gmail.com. Thank you.
 
-# WebApp
+Instructions for running the WebApp
+-----------------------------------
 
     nodemon is recommended:
 
