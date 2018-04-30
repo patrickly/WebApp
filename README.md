@@ -20,7 +20,7 @@ Features
 Components and Dependencies
 ---------------------------
 
-The WasteNot system is developed through the MEAN software stack:
+The WasteNot system is developed through the MEAN software stack along with the Ionic Framework:
 
 *   MongoDB: NoSQL database
    
