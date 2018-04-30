@@ -35,7 +35,7 @@ import { ProfileComponent } from './profile/profile.component';
     RegistrationComponent,
     LoginComponent,
     RegistrationComponent,
-    ProfileComponent
+    ProfileComponent,
     RegistrationComponent
   ],
   imports: [
