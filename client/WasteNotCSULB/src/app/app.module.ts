@@ -20,6 +20,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
