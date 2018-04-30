@@ -7,6 +7,8 @@ import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+
 
 
 const routes: Routes = [
@@ -17,6 +19,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'quiz',
