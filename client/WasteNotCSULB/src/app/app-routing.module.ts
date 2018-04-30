@@ -8,6 +8,9 @@ import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+
+import { AuthGuardService } from './auth-guard.service';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -28,6 +31,18 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuardService]
   },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  /*
+  {
+    path: 'profile/postitem',
+    component: PostItemComponent,
+    canActivate: [AuthGuardService],
+  },
+  */
   {
     path: 'quiz',
     component: QuizComponent

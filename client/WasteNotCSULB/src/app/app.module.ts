@@ -19,6 +19,8 @@ import { MessageComponent } from './message/message.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { AuthGuardService } from './auth-guard.service';
     MessageComponent,
     RegistrationComponent,
     LoginComponent,
+    RegistrationComponent,
+    ProfileComponent
     RegistrationComponent
   ],
   imports: [
