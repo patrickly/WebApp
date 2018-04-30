@@ -38,8 +38,8 @@ Documentation
 For latest documentation, please visit the WasteNot Github [project page](https://github.com/WasteNotCSULB) where you can find documentation information.
 
 
-Instructions for Running the WebApp
------------------------------------
+Running 
+-------
 
     nodemon is recommended:
 
