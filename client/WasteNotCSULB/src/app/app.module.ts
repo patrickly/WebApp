@@ -13,6 +13,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RestApiService } from './rest-api.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CategoriesComponent } from './categories/categories.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [RestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
