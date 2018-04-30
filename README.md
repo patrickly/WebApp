@@ -30,7 +30,7 @@ The WasteNot system is developed through the MEAN software stack along with the 
   
 *   Node.js: Server framework for backend application development
 
-*   Ionic: Front-end web design development for mobile applications
+*   Ionic: Front-end web design framework for mobile applications
 
 Documentation
 -------------
