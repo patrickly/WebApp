@@ -13,5 +13,19 @@
       {{ category.name }}
       </a>
     </div>
+    <hr style="margin-top: 15rem;">
+    <div class="card bg-light mt-5">
+      <div class="card-body">
+        <h4 class="card-title">Add New Category</h4>
+        <hr>
+        <div class="form">
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" name="newCategory" class="form-control" [(ngModel)]="newCategory">
+          </div>
+          <button type="button" class="btn btn-info" (click)="addCategory()" [disabled]="btnDisabled">Add Category</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
