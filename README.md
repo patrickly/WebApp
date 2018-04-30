@@ -44,7 +44,7 @@ Running
 
     npm install nodemon -g
 
-## Server:
+## Server
 
 Terminal 1:
 
