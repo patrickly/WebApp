@@ -16,6 +16,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { MessageComponent } from './message/message.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MessageComponent } from './message/message.component';
     NewsComponent,
     ItemsComponent,
     CategoriesComponent,
-    MessageComponent
+    MessageComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

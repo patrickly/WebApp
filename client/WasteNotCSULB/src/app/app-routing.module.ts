@@ -6,11 +6,17 @@ import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
   },
   {
     path: 'quiz',
