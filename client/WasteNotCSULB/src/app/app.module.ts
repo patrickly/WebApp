@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PostItemComponent } from './post-item/post-item.component';
 
 
 
@@ -38,7 +39,8 @@ import { SettingsComponent } from './settings/settings.component';
     RegistrationComponent,
     ProfileComponent,
     RegistrationComponent,
-    SettingsComponent
+    SettingsComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,
