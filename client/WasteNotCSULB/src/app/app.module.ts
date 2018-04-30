@@ -14,6 +14,8 @@ import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RestApiService } from './rest-api.service';
+import { DataService } from './data.service';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RestApiService } from './rest-api.service';
     QuizComponent,
     NewsComponent,
     ItemsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { RestApiService } from './rest-api.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestApiService],
+  providers: [RestApiService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
