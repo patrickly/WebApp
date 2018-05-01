@@ -43,14 +43,14 @@ export class PostItemComponent implements OnInit {
   validate(item) {
     if (item.title) {
         if (item.categoryId) {
-          if (item.description) {
-            if (item.item_picture) {
+          if (item.item_picture) {
+            if (item.description ) {
               return true;
             } else {
-              this.data.error('Please enter a link for the item.');
+              this.data.error('Please enter description.');
             }
           } else {
-            this.data.error('Please enter description.');
+            this.data.error('Please enter a link for the item.');
           }
         } else {
           this.data.error('Please select category.');
