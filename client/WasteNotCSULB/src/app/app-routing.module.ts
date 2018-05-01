@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
+import { CategoryComponent } from './category/category.component';
 
 
 import { AuthGuardService } from './auth-guard.service';
@@ -60,6 +61,10 @@ const routes: Routes = [
   },
   { path: 'categories',
     component: CategoriesComponent
+  },
+  {
+    path: 'categories/:id',
+    component: CategoryComponent,
   },
   {
     path: '**',

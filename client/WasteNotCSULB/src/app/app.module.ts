@@ -22,6 +22,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
+import { CategoryComponent } from './category/category.component';
 
 
 
@@ -40,7 +41,8 @@ import { PostItemComponent } from './post-item/post-item.component';
     ProfileComponent,
     RegistrationComponent,
     SettingsComponent,
-    PostItemComponent
+    PostItemComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

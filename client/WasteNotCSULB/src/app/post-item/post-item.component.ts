@@ -41,6 +41,9 @@ export class PostItemComponent implements OnInit {
   }
 
   validate(item) {
+
+   // console.log("33post-item " + item);
+   //  console.log(JSON.stringify(item));
     if (item.title) {
         if (item.categoryId) {
           if (item.item_picture) {
@@ -67,6 +70,8 @@ export class PostItemComponent implements OnInit {
     this.btnDisabled = true;
     try {
       if (this.validate(this.item)) {
+
+        console.log("$$$$ categoryID is " + this.item.categoryId);
         const data = await this.rest.post(
           'http://localhost:3030/api/admin/items',
           { category: this.item.categoryId,

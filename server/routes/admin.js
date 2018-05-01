@@ -48,7 +48,12 @@ var upload = multer({
     })
     .post(checkJWT, (req, res, next) => {
       let item = new Item();
-      item.category = req.body.categoryId;
+      item.category = req.body.category;
+     // console.log("204 reqbody " + req.body.category);
+     // console.log(JSON.stringify(req.body));
+
+    //  console.log("404 title reqbody " + req.body.title);
+
       item.title = req.body.title;
       item.description = req.body.description;
       item.image = req.body.image;

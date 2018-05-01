@@ -1,0 +1,40 @@
+<section id="category">
+  <div class="container p-3 p-md-5">
+    <app-message></app-message>
+    <div *ngIf="!category" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <h3 *ngIf="category && !category.items.length" class="display-2 text-center mt-5">No Items inside Category</h3>
+    <div *ngIf="category && category.items.length">
+      <p>{{ lower }}-{{ upper }} of {{ category.totalItems }} items in {{ category.categoryName }}</p>
+      <hr>
+      <div class="item" *ngFor="let item of category.items">
+        <div class="row">
+          <div class="col-5 col-md-2">
+            <a routerLink="/item/{{ item._id }}">
+              <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
+            </a>
+          </div>
+          <div class="col-5 col-md-8">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <h5>
+                  <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
+                </h5>
+                <p>
+                  <small class="text-muted">{{ item.category.id }}</small>
+                </p>
+              </div>
+              <div class="col-md-6">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <ngb-pagination [collectionSize]="category.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+    </div>
+  </div>
+</section>
