@@ -1,3 +1,17 @@
-<p>
-  Items works!
-</p>
+<section id="items">
+  <div class="container p-5">
+    <app-message></app-message>
+    <h4 class="display-4">Items</h4>
+    <hr>
+    <div *ngIf="!items" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div *ngIf="items" class="list-group">
+      <a *ngFor="let item of items" routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+      {{ item.title }}
+      </a>
+    </div>
+  </div>
+</section>
