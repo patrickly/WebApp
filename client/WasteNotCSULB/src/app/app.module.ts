@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { CategoryComponent } from './category/category.component';
+import { ItemComponent } from './item/item.component';
 
 
 
@@ -42,7 +43,8 @@ import { CategoryComponent } from './category/category.component';
     RegistrationComponent,
     SettingsComponent,
     PostItemComponent,
-    CategoryComponent
+    CategoryComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

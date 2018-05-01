@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
+import { ItemComponent } from './item/item.component';
 import { ItemsComponent } from './items/items.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -58,6 +59,9 @@ const routes: Routes = [
   },
   { path: 'items',
     component: ItemsComponent
+  },
+  { path: 'item/:id',
+    component: ItemComponent
   },
   { path: 'categories',
     component: CategoriesComponent
