@@ -16,6 +16,8 @@ Features
 *   News and information page presenting information regarding recycling protocol or campus updates from the CSULB Sustainability Office.
 *   Quiz game to test your knowledge on the ins-and-outs of recycling. Fun and helpful in teaching a thing or two about recycling.
 
+![Alt Text](https://i.imgur.com/QL7njWH.gif)
+
 Components and Dependencies
 ---------------------------
 
