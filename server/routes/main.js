@@ -148,7 +148,7 @@ router.route('/categories')
           });
         },
         function(callback) {
-          Item.find({ category: req.params.id })
+          Item.find({ category: req.params.id }).collation({locale:'en',strength: 2}).sort({title:1}) ///
             .skip(perPage * page)
             .limit(perPage)
             .populate('category')
