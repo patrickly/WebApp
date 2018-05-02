@@ -1,0 +1,72 @@
+.myClass {
+    padding: 10px;
+    font-weight: bold;
+}
+
+input {
+
+    border: 1px solid black;
+
+}
+
+h2 {
+
+    margin-left: 200px;
+    text-decoration: underline;
+    margin-top: 1px;
+}
+p, div {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+img {
+    margin-left: 250px;
+}
+
+#imageChoice {
+    margin-left: 70px;
+}
+
+.summaryClass {
+    margin-top: 5px;
+}
+
+body {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 150%;
+  text-shadow: 0 2px 2px #b6701e;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.container {
+  display: grid;
+}
+
+.left-half {
+  grid-column: 1;
+  border: 1px solid black;
+
+}
+
+.right-half {
+  grid-column: 2;
+  border: 1px solid black;
+
+}
+
+.nextButton {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.scoreScore {
+    font-size: 36px;
+}

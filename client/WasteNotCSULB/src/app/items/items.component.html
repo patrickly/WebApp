@@ -1,17 +1,44 @@
+
 <section id="items">
-  <div class="container p-5">
-    <app-message></app-message>
-    <h4 class="display-4">Items</h4>
-    <hr>
-    <div *ngIf="!items" class="m-auto">
-      <h1 class="text-center display-3 mt-5">
-        <i class="fa fa-spinner fa-spin"></i>
-      </h1>
+    <div class="container p-3 p-md-5">
+      <app-message></app-message>
+      <div *ngIf="!itemData" class="m-auto">
+        <h1 class="text-center display-3 mt-5">
+          <i class="fa fa-spinner fa-spin"></i>
+        </h1>
+      </div>
+      
+      <h3 *ngIf="itemData && !itemData.items.length" class="display-2 text-center mt-5">No Items</h3>
+      <div *ngIf="itemData && itemData.items.length">
+        <p>{{ lower }}-{{ upper }} of {{ itemData.totalItems }} items</p>
+        <hr>
+        <div class="item" *ngFor="let item of itemData.items">
+          <div class="row">
+            <div class="col-5 col-md-2">
+              <a routerLink="/item/{{ item._id }}">
+                <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            <div class="col-5 col-md-8">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <h5>
+                    <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
+                  </h5>
+                  <p>
+                    <small class="text-muted">{{ item.id }}</small>
+                  </p>
+                </div>
+                <div class="col-md-6">
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <ngb-pagination [collectionSize]="itemData.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      </div>
     </div>
-    <div *ngIf="items" class="list-group">
-      <a *ngFor="let item of items" routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
-      {{ item.title }}
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
+  
+

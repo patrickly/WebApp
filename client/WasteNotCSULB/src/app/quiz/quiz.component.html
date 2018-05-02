@@ -1,3 +1,206 @@
-<p>
-  quiz works!
-</p>
+<section class="container">
+    <div class="left-half">
+
+                <div *ngIf="items">
+
+                    <h2 *ngIf="!quizFinished"> Which bin should this item go into?</h2>
+
+                <div [ngSwitch]="idx">
+                    <h3 *ngSwitchCase = "0"> 1) {{items[0].title}}</h3>
+
+                    <div *ngSwitchCase = "0" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+
+                    <div class = "myClass" *ngIf = "items[0].answered && idx == 0" >  Correct choice is  {{items[0].category.name}} </div>
+
+                    <p *ngIf="!quizFinished && idx == 0"> Select your choice:</p>
+
+
+
+                    <input id="imageChoice" type="image" alt="image"
+                src="./assets/img/wastenot_compost.png" (click)="submitAnswer(0, 7)" [disabled]="items[0].answered" *ngSwitchCase = "0" height="150" width="150">
+                <input id="imageChoice" type="image" alt="image"
+                src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(0, 8)" [disabled]="items[0].answered" *ngSwitchCase = "0" height="150" width="150">
+                <input id="imageChoice" type="image" alt="image"
+                src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(0, 9)" [disabled]="items[0].answered" *ngSwitchCase = "0" height="150" width="150">
+                    
+                
+                    <h3  *ngSwitchCase = "1"> 2) {{items[1].title}}</h3>
+
+                    <div *ngSwitchCase = "1" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+
+
+                    <div class = "myClass" *ngIf = "items[1].answered && idx == 1" >  Correct choice is  {{items[1].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 1"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(1, 7)" [disabled]="items[1].answered" *ngSwitchCase = "1" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(1, 8)" [disabled]="items[1].answered" *ngSwitchCase = "1" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(1, 9)" [disabled]="items[1].answered" *ngSwitchCase = "1" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "2"> 3) {{items[2].title}}</h3>
+
+                    <div *ngSwitchCase = "2" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+
+                    <div class = "myClass" *ngIf = "items[2].answered && idx == 2" >  Correct choice is  {{items[2].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 2"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(2, 7)" [disabled]="items[2].answered" *ngSwitchCase = "2" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(2, 8)" [disabled]="items[2].answered" *ngSwitchCase = "2" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(2, 9)" [disabled]="items[2].answered" *ngSwitchCase = "2" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "3"> 4) {{items[3].title}}</h3>
+
+                    <div *ngSwitchCase = "3" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+
+                    <div class = "myClass" *ngIf = "items[3].answered && idx == 3" >  Correct choice is  {{items[3].category.name}} </div>
+                
+                    <p *ngIf="!quizFinished && idx == 3"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(3, 7)" [disabled]="items[3].answered" *ngSwitchCase = "3" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(3, 8)" [disabled]="items[3].answered" *ngSwitchCase = "3" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(3, 9)" [disabled]="items[3].answered" *ngSwitchCase = "3" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "4"> 5) {{items[4].title}}</h3>
+
+                    <div *ngSwitchCase = "4" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[4].answered && idx == 4" >  Correct choice is  {{items[4].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 4"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(4, 7)" [disabled]="items[4].answered" *ngSwitchCase = "4" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(4, 8)" [disabled]="items[4].answered" *ngSwitchCase = "4" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(4, 9)" [disabled]="items[4].answered" *ngSwitchCase = "4" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "5"> 6) {{items[5].title}}</h3>
+                    <div *ngSwitchCase = "5" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[5].answered && idx == 5" >  Correct choice is  {{items[5].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 5"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(5, 7)" [disabled]="items[5].answered" *ngSwitchCase = "5" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(5, 8)" [disabled]="items[5].answered" *ngSwitchCase = "5" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(5, 9)" [disabled]="items[5].answered" *ngSwitchCase = "5" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "6"> 7) {{items[6].title}}</h3>
+                    <div *ngSwitchCase = "6" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[6].answered && idx == 6" >  Correct choice is  {{items[6].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 6"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(6, 7)" [disabled]="items[6].answered" *ngSwitchCase = "6" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(6, 8)" [disabled]="items[6].answered" *ngSwitchCase = "6" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(6, 9)" [disabled]="items[6].answered" *ngSwitchCase = "6" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "7"> 8) {{items[7].title}}</h3>
+                    <div *ngSwitchCase = "7" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[7].answered && idx == 7" >  Correct choice is  {{items[7].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 7"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(7, 7)" [disabled]="items[7].answered" *ngSwitchCase = "7" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(7, 8)" [disabled]="items[7].answered" *ngSwitchCase = "7" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(7, 9)" [disabled]="items[7].answered" *ngSwitchCase = "7" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "8"> 9) {{items[8].title}}</h3>
+                    <div *ngSwitchCase = "8" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[8].answered && idx == 8" >  Correct choice is  {{items[8].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 8"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(8, 7)" [disabled]="items[8].answered" *ngSwitchCase = "8" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(8, 8)" [disabled]="items[8].answered" *ngSwitchCase = "8" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(8, 9)" [disabled]="items[8].answered" *ngSwitchCase = "8" height="150" width="150">
+
+                    <h3  *ngSwitchCase = "9"> 10) {{items[9].title}}</h3>
+
+                    <div *ngSwitchCase = "9" >
+                        <img [src]="items[idx].image" height = "225" width = "225">
+                </div>
+                    <div class = "myClass" *ngIf = "items[9].answered && idx == 9" >  Correct choice is  {{items[9].category.name}} </div>
+                    
+                    <p *ngIf="!quizFinished && idx == 9"> Select your choice:</p>
+
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_compost.png" (click)="submitAnswer(9, 7)" [disabled]="items[9].answered" *ngSwitchCase = "9" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(9, 8)" [disabled]="items[9].answered" *ngSwitchCase = "9" height="150" width="150">
+                    <input id="imageChoice" type="image" alt="image"
+                    src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(9, 9)" [disabled]="items[9].answered" *ngSwitchCase = "9" height="150" width="150">
+
+                </div>
+                </div>
+
+    </div>
+    <div class="right-half">
+                <button class="nextButton" type="button" *ngIf="!quizFinished" (click)="myFunction()" [disabled]="btnDisabled" >Next Question</button>
+
+                <div class="summaryClass" *ngIf="quizFinished">
+                    <h4>Summary</h4>
+                    <h4>Final Score: {{scorePercent | number : '1.2-2'}}%</h4>
+                    <button type="button" (click)="exitQuiz()">Exit Quiz</button>
+                    <button type="button" (click)="refresh()">Retake Quiz</button>
+
+                </div>
+
+
+
+                <div *ngIf="questionResultRight">
+                <h4 class="text-success">{{questionResultRight}}</h4>  
+                <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
+                </div>
+
+                <div *ngIf="questionResultWrong">
+                    <h4 class="text-danger" >{{questionResultWrong}}</h4>  
+                    <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
+                </div>
+    </div>
+</section>
+ 
+
+
+
+
+

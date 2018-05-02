@@ -17,7 +17,7 @@ router.get('/items', (req, res, next) => {
       });
     },
     function(callback) {
-      Item.find({})
+      Item.find({}).collation({locale:'en',strength: 2}).sort({title:1})
         .skip(perPage * page)
         .limit(perPage)
         .populate('category')
@@ -41,6 +41,65 @@ router.get('/items', (req, res, next) => {
   });
 
 });
+
+
+// waste not
+// status: good
+router.get('/itemsRandom', (req, res, next) => {
+  const perPage = 10;
+  const page = req.query.page;
+  async.parallel([
+    function(callback) {
+      Item.count({}, (err, count) => {
+        var totalItems = count;
+        callback(err, totalItems);
+      });
+    },
+    function(callback) {
+      Item.find({}).collation({locale:'en',strength: 2}).sort({title:1})
+        .populate('category')
+        .exec((err, items) => {
+          if(err) return next(err);
+          callback(err, items);
+        });
+    }
+  ], function(err, results) {
+    var totalItems = results[0];
+    var items = results[1];
+    shuffle(items);
+
+    res.json({
+      success: true,
+      message: 'category',
+      items: items,
+      totalItems: totalItems,
+      pages: Math.ceil(totalItems / perPage)
+    });
+  });
+
+});
+
+function shuffle(array) {
+
+  console.log("333shufffling" );
+  let counter = array.length;
+
+  // While there are elements in the array
+  while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+
+      // Decrease counter by 1
+      counter--;
+
+      // And swap the last element with it
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
+  }
+
+} // shuffle
+
 
 //  status GET: good
 //  status POST: good

@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { CategoryComponent } from './category/category.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 import { AuthGuardService } from './auth-guard.service';
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent
+  },
+  {
+    path: 'summary',
+    component: SummaryComponent
   },
   { path: 'news',
     component: NewsComponent

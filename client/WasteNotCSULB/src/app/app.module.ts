@@ -24,6 +24,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { CategoryComponent } from './category/category.component';
 import { ItemComponent } from './item/item.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 
@@ -44,7 +45,8 @@ import { ItemComponent } from './item/item.component';
     SettingsComponent,
     PostItemComponent,
     CategoryComponent,
-    ItemComponent
+    ItemComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
