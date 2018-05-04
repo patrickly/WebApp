@@ -25,6 +25,7 @@ import { PostItemComponent } from './post-item/post-item.component';
 import { CategoryComponent } from './category/category.component';
 import { ItemComponent } from './item/item.component';
 import { SummaryComponent } from './summary/summary.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -46,7 +47,8 @@ import { SummaryComponent } from './summary/summary.component';
     PostItemComponent,
     CategoryComponent,
     ItemComponent,
-    SummaryComponent
+    SummaryComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
