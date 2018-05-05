@@ -1,13 +1,15 @@
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
+// all dependencies that nodejs is using (nodejs acts like a white slate where
+// you add dependencies to teach nodejs how to do them)
+const express = require('express'); // for rerouting get/post/etc URL
+const morgan = require('morgan'); // for login authentication
+const bodyParser = require('body-parser'); // for parsing data
+const mongoose = require('mongoose'); //for database
+const cors = require('cors'); // middleware for communication between client and server / frontend and server
+const config = require('./config'); // requirement to establish connection with mlab for mongoose db
 
-const config = require('./config');
+const app = express(); // for connecting all the dependencies
 
-const app = express();
-
+ // connecting to mongoose db
 mongoose.connect(config.database, err => {
   if (err) {
     console.log(err);
