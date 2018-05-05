@@ -1,25 +1,27 @@
 <header>
   <div class="header-wrap">
   <nav class="nav-bar">
-    <img style="height: 75px; float: left;"src="/assets/img/logo2.png" alt="logo">
+    <a routerLink="/">
+      <img style="height: 75px; float: left;"src="/assets/img/logo2.png" alt="logo">
+    </a>
       <ul>
         <li>
-          <a href="">Home</a>
+          <a (click)="collapse()" routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
         </li>
         <li>
-          <a href="">News</a>
+          <a (click)="collapse()" routerLink="/news" routerLinkActive="active" class="nav-link">News</a>
         </li>
         <li>
-          <a href="">About</a>
+          <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
         </li>
         <li>
-          <a href="">Quiz</a>
+          <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
         </li>
         <li>
-          <a href="">Recycling Items</a>
+          <a (click)="collapse()" routerLink="/items" routerLinkActive="active" class="nav-link">Items</a>
         </li>
         <li>
-          <a href="">Recycling Categories</a>
+          <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Explore Categories</a>
         </li>
       </ul>
   </nav>
