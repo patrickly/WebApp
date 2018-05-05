@@ -9,7 +9,7 @@
     <h3 *ngIf="content && !content.nbHits" class="display-2 text-center mt-5">No Results</h3>
     <div *ngIf="content && content.nbHits">
       <p>{{ lower }}-{{ upper }} of {{ content.nbHits }} results for
-        <span class="text-warning">"{{ query }}"</span>
+        <span class="text-primary">"{{ query }}"</span>
       </p>
       <hr>
       <div class="item" *ngFor="let item of content.hits">
