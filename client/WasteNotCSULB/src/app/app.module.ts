@@ -26,6 +26,7 @@ import { CategoryComponent } from './category/category.component';
 import { ItemComponent } from './item/item.component';
 import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -48,7 +49,8 @@ import { AboutComponent } from './about/about.component';
     CategoryComponent,
     ItemComponent,
     SummaryComponent,
-    AboutComponent
+    AboutComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
