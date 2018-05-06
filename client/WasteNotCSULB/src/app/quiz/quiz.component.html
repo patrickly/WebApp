@@ -1,9 +1,7 @@
 <section class="container">
     <div class="left-half">
 
-        <h3 *ngIf="items && !items.length" class="display-2 text-center mt-5">Need more items in the database in order to take quiz</h3>
-
-        <div *ngIf="items.length >9">
+        <div *ngIf="items">
 
                     <h2 *ngIf="!quizFinished"> Which bin should this item go into?</h2>
 
