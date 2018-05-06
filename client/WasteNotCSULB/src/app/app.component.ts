@@ -41,5 +41,6 @@ export class AppComponent {
       this.collapse();
       this.router.navigate(['search', { query: this.searchTerm }]);
     }
+    this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
   }
 }

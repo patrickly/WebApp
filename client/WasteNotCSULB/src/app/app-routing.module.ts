@@ -15,6 +15,7 @@ import { PostItemComponent } from './post-item/post-item.component';
 import { CategoryComponent } from './category/category.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SearchComponent } from './search/search.component';
+import { AboutComponent } from './about/about.component';
 
 
 import { AuthGuardService } from './auth-guard.service';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'register',

@@ -1,33 +1,12 @@
 
-  <a routerLink="/categories">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Categories</h5>
-        </div>
-    </div>
-  </a>
-
-  <a routerLink="/items">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Items</h5>
-        </div>
-    </div>
-  </a>
 
 
-  <a routerLink="/news">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">News</h5>
-        </div>
-    </div>
-  </a>
+  <div id="page-wrap">
+      <form class="search-bar-wrap">
+        <input type="text" name="text" class="search" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search our database for items to dispose">
+      <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
+        <button class="btn btn-success submit" type="submit" [(ngModel)]="searchTerm" (click)="search()">Search</button>
 
-  <a routerLink="/quiz">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Quiz</h5>
-        </div>
+      </form>
     </div>
-  </a>
+
