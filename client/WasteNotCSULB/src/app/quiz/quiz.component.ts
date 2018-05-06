@@ -91,10 +91,10 @@ export class QuizComponent implements OnInit {
       
 
        if(tempChoice.includes(this.items[itemIndex].category.name)){
-            this.questionResultRight = "correct";
+            this.questionResultRight = "Correct";
             this.totalRight += 1;
        } else {
-            this.questionResultWrong = "incorrect";
+            this.questionResultWrong = "Incorrect";
        }
 
        this.items[itemIndex].answered = true;
