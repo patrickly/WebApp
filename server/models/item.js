@@ -14,7 +14,7 @@ const ItemSchema = new Schema({
 ItemSchema.plugin(mongooseAlgolia, {
   appId: 'EKCTT87239',
   apiKey: 'ad656ee62527848cbc0287fa2053e6e9',
-  indexName: 'wastenot',
+  indexName: 'wastenotdev',
   selector: '_id title image description created',
   mappings: {
     title: function(value) {

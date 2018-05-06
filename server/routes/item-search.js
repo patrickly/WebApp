@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const algoliasearch = require('algoliasearch');
 const client = algoliasearch('EKCTT87239', 'ad656ee62527848cbc0287fa2053e6e9');
-const index = client.initIndex('wastenot');
+const index = client.initIndex('wastenotdev');
 
 
 
