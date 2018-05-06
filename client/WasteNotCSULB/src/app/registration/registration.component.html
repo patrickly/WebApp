@@ -7,7 +7,7 @@
           <div class="card-body">
             <h4 class="text-center">Registration</h4>
             <hr>
-            <form>
+            <form (keyup.enter)="register()">
               <div class="form-group">
                 <label class="form-control-label">Name</label>
                 <input type="text" name="name" class="form-control" [(ngModel)]="name">

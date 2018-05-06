@@ -10,7 +10,7 @@
     </div>
     <div *ngIf="currentSettings" class="card bg-light">
       <div class="card-body">
-        <form>
+        <form (keyup.enter)="update()">
           <div class="form-group">
             <label class="form-control-label">Name</label>
             <input type="text" name="name" class="form-control" [(ngModel)]="currentSettings.name">

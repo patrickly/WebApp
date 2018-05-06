@@ -4,6 +4,7 @@ import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -70,6 +71,7 @@ export class RegistrationComponent implements OnInit {
           localStorage.setItem('token', data['token']);
           this.data.success('Registration successful!');
           await this.data.getProfile();
+          this.router.navigate(['/profile']);
         } else {
           this.data.error(data['message']);
         }
