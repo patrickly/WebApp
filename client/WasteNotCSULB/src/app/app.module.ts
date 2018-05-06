@@ -27,6 +27,7 @@ import { ItemComponent } from './item/item.component';
 import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 
 
@@ -50,7 +51,8 @@ import { SearchComponent } from './search/search.component';
     ItemComponent,
     SummaryComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,

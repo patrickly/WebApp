@@ -12,6 +12,7 @@ import { RestApiService } from '../rest-api.service';
 export class ItemComponent implements OnInit {
   item: any;
   binType: any;
+  btnDisabled = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -44,5 +45,45 @@ export class ItemComponent implements OnInit {
         })
         .catch(error => this.data.error(error['message']));
     });
-  }
-}
+  }; //ngOnInit
+
+
+  async delete() {
+    this.btnDisabled = true;
+
+  //  console.log(`${this.item['id']}`);
+  //  console.log(this.item);
+  
+  console.log("http://localhost:3030/api/itemDelete/" + this.item._id);
+
+   // const data = await this.rest.delete(`http://localhost:3030/api/itemDelete/${this.item['id']}`);
+
+
+   try {
+      const data = await this.rest.delete("http://localhost:3030/api/itemDelete/" + this.item._id);
+
+        if(data['success']){
+            console.log("item deleted");
+        } else {
+          this.data.error(data['message']);
+        }
+      } 
+        catch (error) {
+          this.data.error(error['message']);
+        }
+        this.btnDisabled = false;
+        this.router.navigate(['/items']);
+
+      } // delete
+
+
+
+      edit(){
+        console.log("http://localhost:3030/api/item/edit" + this.item._id);
+
+         this.router.navigate(["/item/edit/" + this.item._id]);
+      }
+  } // class
+
+
+

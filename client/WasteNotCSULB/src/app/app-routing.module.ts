@@ -16,6 +16,7 @@ import { CategoryComponent } from './category/category.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 
 import { AuthGuardService } from './auth-guard.service';
@@ -73,6 +74,10 @@ const routes: Routes = [
   },
   { path: 'item/:id',
     component: ItemComponent
+  },
+  {
+    path: 'item/edit/:id',
+    component: EditItemComponent
   },
   { path: 'categories',
     component: CategoriesComponent

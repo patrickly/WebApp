@@ -19,4 +19,8 @@ export class RestApiService {
   post(link: string, body: any) {
     return this.http.post(link, body, { headers: this.getHeaders() }).toPromise();
   }
+
+  delete(link: string) {
+    return this.http.delete(link, { headers: this.getHeaders() }).toPromise();
+  }
 }

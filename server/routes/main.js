@@ -201,4 +201,110 @@ router.route('/categories')
       });
   });
 
+
+  
+
+  router.delete('/itemDelete/:id', (req, res, next) => {
+
+     //console.log(JSON.stringify(req.body));
+     console.log(req.params.id);
+     Item.remove({ _id: req.params.id }, function (err){
+       if(err) {
+         return err;
+      } else {
+
+        res.json({
+          success: true,
+          message: 'Item deleted'
+        });
+      }
+        
+     });
+
+  });
+  
+  /*
+
+  router.route('/items')
+    .get(checkJWT, (req, res, next) => {
+      Item.find({})
+        .populate('category')
+        .exec((err, items) => {
+          if (items) {
+            res.json({
+              success: true,
+              message: "Items",
+              items: items
+            });
+          }
+        });
+    })
+    .post(checkJWT, (req, res, next) => {
+      let item = new Item();
+      item.category = req.body.category;
+     // console.log("204 reqbody " + req.body.category);
+     // console.log(JSON.stringify(req.body));
+
+    //  console.log("404 title reqbody " + req.body.title);
+
+      item.title = req.body.title;
+      item.description = req.body.description;
+      item.image = req.body.image;
+      item.save();
+      res.json({
+        success: true,
+        message: 'Successfully Added the item',
+      });
+    });
+
+
+    // status GET: Good but must be logged in
+// status POST: Good 
+router.route('/profile')
+  .get(checkJWT, (req, res, next) => {
+    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+      res.json({
+        success: true,
+        user: user,
+        message: "Successful"
+      });
+    });
+  })
+  .post(checkJWT, (req, res, next) => {
+    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
+      if (err) return next(err);
+
+      if (req.body.name) user.name = req.body.name;
+      if (req.body.email) user.email = req.body.email;
+      if (req.body.password) user.password = req.body.password;
+
+      user.isAdmin = req.body.isAdmin;
+
+      user.save();
+      res.json({
+        success: true,
+        message: 'Successfully edited your profile'
+      });
+    });
+  });
+*/
+
+
+router.post('/item/:id', (req, res, next) => {
+  Item.findOne({ _id: req.params.id }, (err, item) => {
+    if (err) return next(err);
+
+    if (req.body.title) item.title = req.body.title;
+    if (req.body.description) item.description = req.body.description;
+    if (req.body.image) item.image = req.body.image;
+    if(req.body.category) item.category = req.body.category;
+
+    item.save();
+    res.json({
+      success: true,
+      message: 'Successfully edited your item'
+    });
+  });
+});
+
 module.exports = router;
