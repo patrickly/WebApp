@@ -64,11 +64,7 @@ body {
 form {
   margin: auto;
 }
-.search {
-  width: 70%;
-  padding: 10px;
-  font-size: 20px;
-}
+
 .submit {
   width: 15%;
   padding: 10px;
@@ -76,19 +72,7 @@ form {
   background-color: #1f703d;
 }
 
-.search-bar-wrap {
-  padding-top: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} 
 
-#page-wrap {
-  background-color: #ddffea;
-  text-align: center;
-  width: 50%;
-  transform: translate(50%, 0);
-}
 
 .footer-text{
   text-align: center;
