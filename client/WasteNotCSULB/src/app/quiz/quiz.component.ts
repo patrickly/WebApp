@@ -47,9 +47,9 @@ export class QuizComponent implements OnInit {
           this.items.forEach(element => {
            element= Object.assign(element, this.obj4 );
 
-           console.log(JSON.stringify(element));
+           //console.log(JSON.stringify(element));
 
-         });
+          });
          this.shuffle(this.items);
 
         } else {

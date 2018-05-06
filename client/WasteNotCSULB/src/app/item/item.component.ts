@@ -11,6 +11,7 @@ import { RestApiService } from '../rest-api.service';
 })
 export class ItemComponent implements OnInit {
   item: any;
+  binType: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,6 +28,19 @@ export class ItemComponent implements OnInit {
           data['success']
             ? (this.item = data['item'])
             : this.router.navigate(['/']);
+          if(data['success']){
+            console.log(  this.item.category.name === "compost"
+            );
+
+            if(this.item.category.name === "compost") {
+              this.binType = 1;
+            } else if (this.item.category.name === "recycle"){
+              this.binType = 2;
+            } else if (this.item.category.name === "landfill") {
+              this.binType = 3;
+            }
+
+          }  
         })
         .catch(error => this.data.error(error['message']));
     });
