@@ -32,13 +32,16 @@
               <br>
               <br>
               <div [ngSwitch]="binType">
-                  <div class="card" *ngSwitchCase = "1"> <img src="./assets/img/wastenot_compost.png" height = "200" width = "190">
-                  </div>
-                  <div class="card" *ngSwitchCase = "2"> <img src="./assets/img/wastenot_recycle.png" height = "200" width = "190">
-                  </div>
-                  <div class="card" *ngSwitchCase = "3"> <img src="./assets/img/wastenot_landfill.png" height = "200" width = "190">
-                  </div>
+                <div class="card" *ngSwitchCase="1">
+                  <img src="./assets/img/wastenot_compost.png" height="200" width="190">
                 </div>
+                <div class="card" *ngSwitchCase="2">
+                  <img src="./assets/img/wastenot_recycle.png" height="200" width="190">
+                </div>
+                <div class="card" *ngSwitchCase="3">
+                  <img src="./assets/img/wastenot_landfill.png" height="200" width="190">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -48,13 +51,15 @@
         <!--
           <button type="button" class="btn btn-warning" routerLink="/item/edit/${item._id}"" [disabled]="btnDisabled">Edit</button>
         -->
-        <button type="button" class="btn btn-success" (click)="edit()" [disabled]="btnDisabled">Edit</button>
+        <div *ngIf="data.user">
+          <div *ngIf="data.user.isAdmin">
 
-        <button type="button" class="btn btn-danger" (click)="delete()" [disabled]="btnDisabled">Delete</button>
+            <button type="button" class="btn btn-success" (click)="edit()" [disabled]="btnDisabled">Edit</button>
 
+            <button type="button" class="btn btn-danger" (click)="delete()" [disabled]="btnDisabled">Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-
