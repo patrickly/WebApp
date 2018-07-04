@@ -52,11 +52,14 @@
           <button type="button" class="btn btn-warning" routerLink="/item/edit/${item._id}"" [disabled]="btnDisabled">Edit</button>
         -->
 
-        <div *ngIf="data.user.isAdmin">
+        <div *ngIf="data.user">
 
-          <button type="button" class="btn btn-success" (click)="edit()" [disabled]="btnDisabled">Edit</button>
+          <div *ngIf=" data.user.isAdmin ">
 
-          <button type="button" class="btn btn-danger" (click)="delete()" [disabled]="btnDisabled">Delete</button>
+            <button type="button " class="btn btn-success " (click)="edit() " [disabled]="btnDisabled ">Edit</button>
+
+            <button type="button " class="btn btn-danger " (click)="delete() " [disabled]="btnDisabled ">Delete</button>
+          </div>
         </div>
       </div>
     </div>
