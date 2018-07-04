@@ -1,6 +1,6 @@
 <section id="profile">
   <div class="container p-5">
-    <h4 class="display-4">My Profile</h4>
+    <h4 class="display-4 text-center">My Profile</h4>
     <hr>
     <app-message></app-message>
     <div *ngIf="!data.user" class="m-auto">
@@ -9,16 +9,17 @@
       </h1>
     </div>
     <div *ngIf="data.user" class="row mt-5">
-      <div class="col-md-3">
-        <img [src]="data.user.picture" alt="userimage" class="rounded-circle image">
-      </div>
+
       <div class="col-md-8 ml-3">
-        <p id="name" class="lead">{{ data.user.name }}</p>
+        <p id="name" class="lead">Username: {{ data.user.name }}</p>
         <br>
-        <a routerLink="/profile/settings" class="btn btn-warning">Change Account Settings</a>
+        <a routerLink="/profile/settings" class="btn btn-primary">Change Account Settings</a>
         <br>
         <div *ngIf="data.user.isAdmin">
-          <p class="lead">Admin Actions</p>
+          <p class="lead mt-5">Admin Actions</p>
+          <p>Note:</p>
+          <p> Having issues with admin actions?</p>
+          <p> Solution: Log out and log back in.</p>
           <hr>
           <div class="row">
             <div class="col-md-6 mb-3">
