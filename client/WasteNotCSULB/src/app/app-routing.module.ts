@@ -18,11 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 
-
 import { AuthGuardService } from './auth-guard.service';
-
-
-
 
 const routes: Routes = [
   {
@@ -46,17 +42,17 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile/settings',
     component: SettingsComponent,
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile/postitem',
     component: PostItemComponent,
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService]
   },
   {
     path: 'quiz',
@@ -66,25 +62,29 @@ const routes: Routes = [
     path: 'summary',
     component: SummaryComponent
   },
-  { path: 'news',
+  {
+    path: 'news',
     component: NewsComponent
   },
-  { path: 'items',
+  {
+    path: 'items',
     component: ItemsComponent
   },
-  { path: 'item/:id',
+  {
+    path: 'item/:id',
     component: ItemComponent
   },
   {
     path: 'item/edit/:id',
     component: EditItemComponent
   },
-  { path: 'categories',
+  {
+    path: 'categories',
     component: CategoriesComponent
   },
   {
     path: 'categories/:id',
-    component: CategoryComponent,
+    component: CategoryComponent
   },
   {
     path: 'search',
@@ -100,4 +100,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
