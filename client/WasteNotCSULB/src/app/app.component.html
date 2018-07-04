@@ -10,9 +10,9 @@
       id="navbarNav">
       <div class="w-100">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
-              </li>
+          <li class="nav-item">
+            <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+          </li>
           <li class="nav-item">
             <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
           </li>
@@ -26,9 +26,10 @@
             <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
           </li>
           <div class="form-inline">
-              <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search items">
-              <button class="btn btn-success" type="submit" [(ngModel)]="searchTerm" (click)="search()">Search</button>
-            </div>
+            <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search items"
+              ngDefaultControl>
+            <button class="btn btn-success" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>Search</button>
+          </div>
           <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
             <a class="nav-link dropdown-toggle" ngbDropdownToggle>
               <i class="fa fa-user mr-1"></i>
@@ -68,10 +69,10 @@
 
 
 <footer>
-    <div class="footer-text">
-      <p class="lead text-center">Copyright &copy; 2018 WasteNot</p>
-    </div>
-  </footer>
+  <div class="footer-text">
+    <p class="lead text-center">Copyright &copy; 2018 WasteNot</p>
+  </div>
+</footer>
 
 <!--
 <footer id="main-footer" class="footer-extra bg-main text-white mt-5 p-5">
