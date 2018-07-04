@@ -4,6 +4,7 @@ const Category = require('../models/category');
 const Item = require('../models/item');
 
 const checkJWT = require('../middlewares/check-jwt');
+const verifyAdmin = require('../middlewares/verifyAdmin');
 
 // waste not
 // status: good
@@ -208,7 +209,7 @@ router.get('/item/:id', (req, res, next) => {
     });
 });
 
-router.delete('/itemDelete/:id', checkJWT, (req, res, next) => {
+router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
   //console.log(JSON.stringify(req.body));
   console.log(req.params.id);
   Item.remove({ _id: req.params.id }, function(err) {
@@ -289,7 +290,7 @@ router.route('/profile')
   });
 */
 
-router.post('/item/:id', checkJWT, (req, res, next) => {
+router.post('/item/:id', checkJWT, verifyAdmin, (req, res, next) => {
   Item.findOne({ _id: req.params.id }, (err, item) => {
     if (err) return next(err);
 
