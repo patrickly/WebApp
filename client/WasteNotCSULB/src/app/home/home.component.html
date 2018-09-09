@@ -2,7 +2,7 @@
 
   <!-- search bar -->
   <div class="row">
-    <div class="col-sm-12 p-4">
+    <div class="col-sm-12 p-4" style="background-color:rgb(200, 216, 180);">
       <div class="input-group justify-content-center">
         <input type="text" name="text" class="search" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
           ngDefaultControl>
@@ -22,15 +22,20 @@
       <img src="\assets\img\wastenot_compost.png" alt="Compost icon" class="responsive"></div>
     <div class="col-sm-4" style="background-color:rgb(142, 202, 224);" routerLink="/categories/5ae79d9d027d2834db315428">
       <img src="\assets\img\wastenot_recycle.png" alt="Recycle icon" class="responsive"></div>
-    <div class="col-sm-4" style="background-color:rgb(152, 153, 151);" routerLink="/categories/5ae79d8e027d2834db315427">
+    <div class="col-sm-4" style="background-color:rgb(165, 165, 165);" routerLink="/categories/5ae79d8e027d2834db315427">
       <img src="\assets\img\wastenot_landfill.png" alt="Landfill icon" class="responsive"></div>
     <div class="col-sm-4" style="background-color:rgb(99, 168, 103);">
-      Items</div>
-    <div class="col-sm-4" style="background-color:rgb(255, 255, 255);">
-      Categories</div>
-    <div class="col-sm-4" style="background-color:rgb(94, 94, 94);">
-      <img src="\assets\img\newspaper.png" alt="Newspaper icon" class="responsive"></div>
-    </div>
+        <i class="fab fa-microsoft fa-7x" alt="Categorized icon"><br><h5>Categorize</h5></i></div>
+    <div class="col-sm-4" style="background-color:rgb(95, 153, 177);">
+        <i class="fas fa-align-justify fa-7x" alt="Browse icon"></i><br><h5>Browse</h5></div>
+    <div class="col-sm-4" style="background-color:rgb(146, 146, 146);">
+        <i class="fas fa-newspaper fa-7x" alt="Newspaper icon"></i><br><h5>News</h5></div>
+    <div class="col-sm-4" style="background-color:rgb(80, 122, 82);">
+        <i class="fas fa-map-marked-alt fa-7x" alt="Map icon"></i><br><h5>Map</h5></div>
+    <div class="col-sm-4" style="background-color:rgb(64, 116, 138);">
+        <i class="fas fa-cloud-upload-alt fa-7x" alt="Upload icon"></i><br><h5>Upload Item Photo</h5></div>
+    <div class="col-sm-4" style="background-color:rgb(124, 124, 124);">
+        <i class="fas fa-question-circle fa-7x" alt="About icon"></i><br><h5>About</h5></div>
   </div>
 
 </div>
