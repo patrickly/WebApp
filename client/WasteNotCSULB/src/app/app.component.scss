@@ -50,7 +50,11 @@
 #logo {
   width: 250px;
 }
-
+#wrap{
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
 .nav-item a {
   color: black;
 }
@@ -68,5 +72,14 @@ position: absolute;
   padding-bottom: 100px;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+
+@media (min-width: 900px) {
+  .footer-bar {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  }
+}
+
 
 
