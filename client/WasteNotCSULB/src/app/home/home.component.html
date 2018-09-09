@@ -1,9 +1,30 @@
-<div id="page-wrap">
-  <form class="search-bar-wrap">
-    <input type="text" name="text" class="search" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search our database for items to dispose"
-      ngDefaultControl>
-    <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-    <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>Search</button>
+<div class="container-fluid">
 
-  </form>
+    <!-- search bar -->
+    <div class="row">
+      <div class="col-sm-12 p-4">
+          <div class="input-group justify-content-center">
+          <input type="text" name="text" class="search" [(ngModel)]="searchTerm" 
+          (keyup.enter)="search()" placeholder="Search Items"
+          ngDefaultControl>
+          <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
+          <div class="input-group-append">
+            <button class="btn btn-success submit" type="submit" 
+            name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>
+            <i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- mobile-friendly quick access navs-->
+    <div class="row">
+      <div class="col-sm-4" style="background-color:rgb(200, 216, 180);">
+        <img src="\assets\img\wastenot_compost.png" alt="Compost icon" class="responsive"></div>
+      <div class="col-sm-4" style="background-color:rgb(142, 202, 224);">
+        <img src="\assets\img\wastenot_recycle.png" alt="Recycle icon" class="responsive"></div>
+      <div class="col-sm-4" style="background-color:rgb(152, 153, 151);">
+        <img src="\assets\img\wastenot_landfill.png" alt="Landfill icon" class="responsive"></div>
+    </div>
+
 </div>
