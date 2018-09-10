@@ -15,56 +15,67 @@
       <img src="/assets/img/logo2.png" alt="logo" id="logo">
     </a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
+
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column"
-      id="navbarNav">
-      <div class="w-100">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
-          </li>
-          <li class="nav-item">
-            <a (click)="collapse()" routerLink="/items" routerLinkActive="active" class="nav-link">Items</a>
-          </li>
-          <li class="nav-item">
-            <a (click)="collapse()" routerLink="/news" routerLinkActive="active" class="nav-link">News</a>
-          </li>
-          <li class="nav-item">
-            <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
-          </li>
-          <div class="form-inline">
-            <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search items"
+      </button>
+      <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column"
+        id="navbarNav">
+        <div class="w-100">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="collapse()" routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="collapse()" routerLink="/items" routerLinkActive="active" class="nav-link">Items</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="collapse()" routerLink="/news" routerLinkActive="active" class="nav-link">News</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
+            </li>
+            <div class="form-inline">
+              <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search items"
               ngDefaultControl>
-            <button class="btn btn-success" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>Search</button>
-          </div>
-          <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
-            <a class="nav-link dropdown-toggle" ngbDropdownToggle>
-              <i class="fa fa-user mr-1"></i>
-              <span *ngIf="!token">Accounts</span>
-              <span *ngIf="data.user">{{ data.user.name }}</span>
-            </a>
-            <div ngbDropdownMenu class="dropdown-menu">
-              <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
-                <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
-              </a>
-              <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
-                <i class="fa fa-key" aria-hidden="true"></i> Login
-              </a>
-              <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
-                <i class="fa fa-key" aria-hidden="true"></i> Logout
-              </a>
-              <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
-                <i class="fa fa-group" aria-hidden="true"></i> Register
-              </a>
+              <button class="btn btn-success" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>Search</button>
             </div>
-          </li>
-        </ul>
+            <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
+              <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                <i class="fa fa-user mr-1"></i>
+                <span *ngIf="!token">Accounts</span>
+                <span *ngIf="data.user">{{ data.user.name }}</span>
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu">
+                <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+                </a>
+                <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
+                  <i class="fa fa-key" aria-hidden="true"></i> Login
+                </a>
+                <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
+                  <i class="fa fa-key" aria-hidden="true"></i> Logout
+                </a>
+                <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
+                  <i class="fa fa-group" aria-hidden="true"></i> Register
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </nav>
 </div>
+<!--
+  <footer>
+    <div class="footer-text">
+      <p class="lead text-center">Copyright &copy; 2018 WasteNot</p>
+    </div>
+  </footer>
+</div>
+-->
+
