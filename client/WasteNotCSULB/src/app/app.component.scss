@@ -110,9 +110,7 @@ position: absolute;
 }
 
 .nav {
-  height: 100%;
-  padding-bottom: 100px;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: #ffffff;
 }
 
 @media (min-width: 900px) {
@@ -123,5 +121,7 @@ position: absolute;
   }
 }
 
-
+.container-fluid{
+  min-width: 50%;
+}
 
