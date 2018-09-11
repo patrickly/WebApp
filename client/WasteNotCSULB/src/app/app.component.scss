@@ -9,22 +9,6 @@
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
-#banner-items {
-  display: block;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  /*display: flex;*/  
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: .3rem .3rem;
-}
 #nav-banner {
   height: 40px;
   width: 100%;
@@ -42,33 +26,32 @@
   padding-left: 5px;
 }
 #logo-banner {
-  float: left;
   height: 30px;
   width: 30px;
+  float: left;
+  display: inline-block;
+  vertical-align: top;
   }
-
-#banner-items {
-  display: block;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  /*display: flex;*/  
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: .3rem .3rem;
+#wastenot-logo {
+  float: right;
+  height: 60%;
+  display: inline-block;
+  padding-top: 0.3em;
 }
+#banner-items {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  height: 40px;
+}
+
 #nav-banner {
   height: 40px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  background-color: #286445
+  background-color: #286445;
+  display: table;
 }
 #banner-text {
   color: #f9b525;
@@ -115,11 +98,16 @@ position: absolute;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .footer-bar {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
+  }
+}
+@media (max-width: 370px) {
+  #wastenot-logo {
+    display: none;
   }
 }
 

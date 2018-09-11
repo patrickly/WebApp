@@ -1,13 +1,13 @@
 <div id="wrap">
   <div id="nav-banner">
-    <nav id="banner-items">
+    <div id="banner-items">
       <a><img id="logo-banner" src="/assets/img/long-beach-state-logo.png" alt="beach-logo"></a>
       <a id="banner-text" href="https://www.csulb.edu/">CSU Long Beach</a>
-    </nav>
+      <img id="wastenot-logo" src="/assets/img/waste_not2.png" alt="waste-not">
+    </div>
   </div>
   <!-- routes the html of all the ..\app\.. -->
   <router-outlet> </router-outlet>
-
   <!-- nav-bar on top -->
   <nav class="footer-bar navbar navbar-expand-md navbar-dark bg-main fixed-bottom">
     <div class="container-fluid">
@@ -15,8 +15,7 @@
         <img src="/assets/img/logo2.png" alt="logo" id="logo">
       </a>
       <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
-
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
       <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column"
         id="navbarNav">
@@ -39,7 +38,7 @@
             </li>
             <div class="form-inline">
               <input type="text" name="search" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search items"
-                ngDefaultControl>
+              ngDefaultControl>
               <button class="btn btn-success" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>Search</button>
             </div>
             <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
