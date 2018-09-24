@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
 
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -57,13 +60,13 @@ export class SettingsComponent implements OnInit {
       this.data.error('Please enter your name.');
     }
   }
-  
+
   async update() {
     this.btnDisabled = true;
     try {
       if (this.validate(this.currentSettings)) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/profile',
+          BACKEND_URL + '/accounts/profile',
           {
             name: this.currentSettings['name'],
             email: this.currentSettings['email'],
@@ -81,5 +84,5 @@ export class SettingsComponent implements OnInit {
     }
     this.btnDisabled = false;
   }
-  
+
 }

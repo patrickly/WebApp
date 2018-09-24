@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
+
 
 @Component({
   selector: 'app-item',
@@ -19,13 +22,13 @@ export class ItemComponent implements OnInit {
     private data: DataService,
     private rest: RestApiService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     //ngOnInit() will be run everytime the page(item) is visited
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`http://localhost:3030/api/item/${res['id']}`)
+        .get(BACKEND_URL + `/item/${res['id']}`)
         .then(data => {
           data['success']
             ? (this.item = data['item'])
@@ -53,13 +56,13 @@ export class ItemComponent implements OnInit {
       //  console.log(`${this.item['id']}`);
       //  console.log(this.item);
 
-      console.log('http://localhost:3030/api/itemDelete/' + this.item._id);
+      //console.log('http://localhost:3030/api/itemDelete/' + this.item._id);
 
       // const data = await this.rest.delete(`http://localhost:3030/api/itemDelete/${this.item['id']}`);
 
       try {
         const data = await this.rest.delete(
-          'http://localhost:3030/api/itemDelete/' + this.item._id
+          BACKEND_URL + '/itemDelete/' + this.item._id
         );
 
         if (data['success']) {
@@ -76,7 +79,7 @@ export class ItemComponent implements OnInit {
   } // delete
 
   edit() {
-    console.log('http://localhost:3030/api/item/edit' + this.item._id);
+    //console.log('http://localhost:3030/api/item/edit' + this.item._id);
 
     this.router.navigate(['/item/edit/' + this.item._id]);
   }
