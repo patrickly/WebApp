@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
+
 
 @Component({
   selector: 'app-items',
@@ -45,9 +48,9 @@ export class ItemsComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        `http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/?page=${this
+        BACKEND_URL + `/items/?page=${this
           .page - 1}` ,
-        //"http://localhost:3030/api/items"
+        //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
 
       );
       data['success']
