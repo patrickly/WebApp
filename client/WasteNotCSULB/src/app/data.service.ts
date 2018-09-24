@@ -4,6 +4,10 @@ import { NavigationStart, Router } from '@angular/router';
 
 import { RestApiService } from './rest-api.service';
 
+import { environment } from "../environments/environment";
+
+const BACKEND_URL = environment.api;
+
 @Injectable()
 export class DataService {
   message = '';
@@ -39,7 +43,7 @@ export class DataService {
     try {
       if (localStorage.getItem('token')) {
         const data = await this.rest.get(
-          'http://localhost:3030/api/accounts/profile',
+          BACKEND_URL + '/accounts/profile',
         );
         this.user = data['user'];
         console.log(this.user);

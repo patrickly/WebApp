@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-category',
@@ -18,7 +20,7 @@ export class CategoryComponent implements OnInit {
     private data: DataService,
     private activatedRoute: ActivatedRoute,
     private rest: RestApiService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(res => {
@@ -41,7 +43,7 @@ export class CategoryComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        `http://localhost:3030/api/categories/${this.categoryId}?page=${this
+        BACKEND_URL + `/categories/${this.categoryId}?page=${this
           .page - 1}`,
       );
       data['success']
