@@ -45,7 +45,7 @@ export class ItemsComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        `http://localhost:3030/api/items/?page=${this
+        `http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/?page=${this
           .page - 1}` ,
         //"http://localhost:3030/api/items"
 
