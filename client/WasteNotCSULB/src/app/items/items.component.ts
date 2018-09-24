@@ -51,7 +51,6 @@ export class ItemsComponent implements OnInit {
         BACKEND_URL + `/items/?page=${this
           .page - 1}` ,
         //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
-
       );
       data['success']
         ? (this.itemData = data)
