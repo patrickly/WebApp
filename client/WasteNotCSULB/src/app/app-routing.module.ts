@@ -6,17 +6,19 @@ import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
 import { ItemComponent } from './item/item.component';
 import { ItemsComponent } from './items/items.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { BinsComponent } from './bins/bins.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
-import { CategoryComponent } from './category/category.component';
+import { BinComponent } from './bin/bin.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { TypeComponent } from './type/type.component';
+import { TypesComponent } from './types/types.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -79,12 +81,20 @@ const routes: Routes = [
     component: EditItemComponent
   },
   {
-    path: 'categories',
-    component: CategoriesComponent
+    path: 'bins',
+    component: BinsComponent
   },
   {
-    path: 'categories/:id',
-    component: CategoryComponent
+    path: 'bins/:id',
+    component: BinComponent
+  },
+  {
+    path: 'types/:id',
+    component: TypeComponent
+  },
+  {
+    path: 'types',
+    component: TypesComponent
   },
   {
     path: 'search',

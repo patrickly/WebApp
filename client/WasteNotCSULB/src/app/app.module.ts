@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { BinsComponent } from './bins/bins.component';
 import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { MessageComponent } from './message/message.component';
@@ -22,12 +22,14 @@ import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
-import { CategoryComponent } from './category/category.component';
+import { BinComponent } from './bin/bin.component';
 import { ItemComponent } from './item/item.component';
 import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
+import { TypeComponent } from './type/type.component';
+import { TypesComponent } from './types/types.component';
 
 
 
@@ -38,7 +40,7 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     QuizComponent,
     NewsComponent,
     ItemsComponent,
-    CategoriesComponent,
+    BinsComponent,
     MessageComponent,
     RegistrationComponent,
     LoginComponent,
@@ -47,12 +49,14 @@ import { EditItemComponent } from './edit-item/edit-item.component';
     RegistrationComponent,
     SettingsComponent,
     PostItemComponent,
-    CategoryComponent,
+    BinComponent,
     ItemComponent,
     SummaryComponent,
     AboutComponent,
     SearchComponent,
-    EditItemComponent
+    EditItemComponent, 
+    TypeComponent, 
+    TypesComponent
   ],
   imports: [
     BrowserModule,

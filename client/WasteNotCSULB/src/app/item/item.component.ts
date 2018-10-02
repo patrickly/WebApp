@@ -34,13 +34,13 @@ export class ItemComponent implements OnInit {
             ? (this.item = data['item'])
             : this.router.navigate(['/']);
           if (data['success']) {
-            console.log(this.item.category.name === 'compost');
+            console.log(this.item.bin.name === 'compost');
 
-            if (this.item.category.name === 'compost') {
+            if (this.item.bin.name === 'compost') {
               this.binType = 1;
-            } else if (this.item.category.name === 'recycle') {
+            } else if (this.item.bin.name === 'recycle') {
               this.binType = 2;
-            } else if (this.item.category.name === 'landfill') {
+            } else if (this.item.bin.name === 'landfill') {
               this.binType = 3;
             }
           }

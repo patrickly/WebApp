@@ -1,0 +1,33 @@
+<section id="types">
+  <div class="container p-5">
+    <app-message></app-message>
+    <h4 class="display-4">types</h4>
+    <hr>
+    <div *ngIf="!types" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div *ngIf="types" class="list-group">
+      <a *ngFor="let type of types" routerLink="/types/{{ type._id }}" class="list-group-item list-group-item-action">
+      {{ type.name }}
+      </a>
+    </div>
+    <hr style="margin-top: 15rem;">
+   <!--
+    <div class="card bg-light mt-5">
+      <div class="card-body">
+        <h4 class="card-title">Add New type</h4>
+        <hr>
+        <div class="form">
+          <div class="form-group">
+            <label>type</label>
+            <input type="text" name="newtype" class="form-control" [(ngModel)]="newtype">
+          </div>
+          <button type="button" class="btn btn-info" (click)="addtype()" [disabled]="btnDisabled">Add type</button>
+        </div>
+      </div>
+    </div>  
+  -->
+  </div>
+</section>

@@ -16,20 +16,22 @@
             <div class="col-6">
               <h4>{{ item.title }}</h4>
               <p class="m-0">
-                <small class="text-muted">{{ item.category.name }}</small>
+                <small class="text-muted">{{ item.bin.name }}</small>
               </p>
             </div>
             <div class="col-6">
             </div>
           </div>
           <hr>
-          <p class="lead">{{ item.description }}</p>
+          <p class="lead">{{ item.description }} </p>
         </div>
         <div class="col-lg-3">
           <div class="card bg-light">
             <div class="card-body">
-              <h5 class="card-title"> This item goes into the {{ item.category.name | uppercase }} bin.</h5>
+              <h5 class="card-title"> This item goes into the {{ item.bin.name | uppercase }} bin.</h5>
               <br>
+              <h5 class="card-title"> It is of type {{item.type.name | uppercase}}.
+              </h5>
               <br>
               <div [ngSwitch]="binType">
                 <div class="card" *ngSwitchCase="1">
