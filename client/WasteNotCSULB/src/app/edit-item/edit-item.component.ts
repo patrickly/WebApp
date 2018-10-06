@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-edit-item',
@@ -33,13 +35,13 @@ export class EditItemComponent implements OnInit {
     private rest: RestApiService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   async ngOnInit() {
     //ngOnInit() will be run everytime the page(item) is visited
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`http://localhost:3030/api/item/${res['id']}`)
+        .get(BACKEND_URL + `/item/${res['id']}`)
         .then(data => {
           data['success']
             ? (this.item = data['item'])
@@ -68,14 +70,14 @@ export class EditItemComponent implements OnInit {
             console.log(this.itemID);
             //   console.log(this.itemIDstr);
 
-            console.log('http://localhost:3030/api/items/' + this.itemID);
+
           }
         })
         .catch(error => this.data.error(error['message']));
     });
 
     try {
-      const data2 = await this.rest.get('http://localhost:3030/api/categories');
+      const data2 = await this.rest.get(BACKEND_URL + '/categories');
       data2['success']
         ? (this.categories = data2['categories'])
         : this.data.error(data2['message']);
@@ -90,7 +92,7 @@ export class EditItemComponent implements OnInit {
   /*
     try {
       const data2 = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        'http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/categories'
       );
       data2['success']
         ? (this.categories = data2['categories'])
@@ -127,7 +129,7 @@ export class EditItemComponent implements OnInit {
     }
   }
 
-  //             "http://localhost:3030/api/items/" + this.item._id,
+  //             "http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/" + this.item._id,
 
   async post() {
     this.btnDisabled = true;
@@ -136,9 +138,9 @@ export class EditItemComponent implements OnInit {
         console.log('$$$$ item  is ' + this.item);
         console.log(this.itemID);
 
-        console.log('#### ' + 'http://localhost:3030/api/item/' + this.itemID);
+
         const data = await this.rest.post(
-          'http://localhost:3030/api/item/' + this.itemID,
+          BACKEND_URL + '/item/' + this.itemID,
           {
             category: this.item.categoryId,
             title: this.item.title,
@@ -148,9 +150,9 @@ export class EditItemComponent implements OnInit {
         );
         data['success']
           ? this.router
-              .navigate(['/items/'])
-              .then(() => this.data.success(data['message']))
-              .catch(error => this.data.error(error))
+            .navigate(['/items/'])
+            .then(() => this.data.success(data['message']))
+            .catch(error => this.data.error(error))
           : this.data.error(data['message']);
       }
     } catch (error) {

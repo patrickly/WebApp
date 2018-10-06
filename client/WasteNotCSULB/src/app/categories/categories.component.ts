@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-categories',
@@ -22,7 +24,7 @@ export class CategoriesComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        BACKEND_URL + '/categories'
       );
       data['success']
         ? (this.categories = data['categories'])
@@ -36,7 +38,7 @@ export class CategoriesComponent implements OnInit {
     this.btnDisabled = true;
     try {
       const data = await this.rest.post(
-        'http://localhost:3030/api/categories',
+        BACKEND_URL + '/categories',
         { category: this.newCategory }
       );
       data['success']

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-post-item',
@@ -30,7 +32,7 @@ export class PostItemComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        BACKEND_URL + '/categories'
       );
       data['success']
         ? (this.categories = data['categories'])
@@ -42,23 +44,23 @@ export class PostItemComponent implements OnInit {
 
   validate(item) {
 
-   // console.log("33post-item " + item);
-   //  console.log(JSON.stringify(item));
+    // console.log("33post-item " + item);
+    //  console.log(JSON.stringify(item));
     if (item.title) {
-        if (item.categoryId) {
-          if (item.item_picture) {
-            if (item.description ) {
-              return true;
-            } else {
-              this.data.error('Please enter description.');
-            }
+      if (item.categoryId) {
+        if (item.item_picture) {
+          if (item.description) {
+            return true;
           } else {
-            this.data.error('Please enter a link for the item.');
+            this.data.error('Please enter description.');
           }
         } else {
-          this.data.error('Please select category.');
+          this.data.error('Please enter a link for the item.');
         }
-      
+      } else {
+        this.data.error('Please select category.');
+      }
+
     } else {
       this.data.error('Please enter a title.');
     }
@@ -73,11 +75,13 @@ export class PostItemComponent implements OnInit {
 
         console.log("$$$$ categoryID is " + this.item.categoryId);
         const data = await this.rest.post(
-          'http://localhost:3030/api/admin/items',
-          { category: this.item.categoryId,
+          BACKEND_URL + '/admin/items',
+          {
+            category: this.item.categoryId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.item_picture }
+            image: this.item.item_picture
+          }
         );
         data['success']
           ? this.router.navigate(['/profile/'])
