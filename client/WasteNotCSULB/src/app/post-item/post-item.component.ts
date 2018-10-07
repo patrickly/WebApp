@@ -15,12 +15,14 @@ export class PostItemComponent implements OnInit {
 
   item = {
     title: '',
-    categoryId: '',
+    binId: '',
+    typeId: '',
     description: '',
     item_picture: ''
   };
 
-  categories: any;
+  bins: any;
+  types: any;
   btnDisabled = false;
 
   constructor(
@@ -32,10 +34,10 @@ export class PostItemComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        BACKEND_URL + '/categories'
+        BACKEND_URL + '/bins'
       );
       data['success']
-        ? (this.categories = data['categories'])
+        ? (this.bins = data['bins'])
         : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);
@@ -47,18 +49,22 @@ export class PostItemComponent implements OnInit {
     // console.log("33post-item " + item);
     //  console.log(JSON.stringify(item));
     if (item.title) {
-      if (item.categoryId) {
-        if (item.item_picture) {
-          if (item.description) {
-            return true;
+      if (item.binId) {
+        if (item.typeId){
+          if (item.item_picture) {
+            if (item.description) {
+              return true;
+            } else {
+              this.data.error('Please enter description.');
+            }
           } else {
-            this.data.error('Please enter description.');
+            this.data.error('Please enter a link for the item.');
           }
-        } else {
-          this.data.error('Please enter a link for the item.');
+        } else{
+          this.data.error('Please select a type.');
         }
       } else {
-        this.data.error('Please select category.');
+        this.data.error('Please select a bin.');
       }
 
     } else {
@@ -73,11 +79,12 @@ export class PostItemComponent implements OnInit {
     try {
       if (this.validate(this.item)) {
 
-        console.log("$$$$ categoryID is " + this.item.categoryId);
+        console.log("$$$$ binID is " + this.item.binId);
         const data = await this.rest.post(
           BACKEND_URL + '/admin/items',
           {
-            category: this.item.categoryId,
+            bin: this.item.binId,
+            type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
             image: this.item.item_picture

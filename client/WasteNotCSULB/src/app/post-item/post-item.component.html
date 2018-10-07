@@ -3,12 +3,12 @@
     <h4 class="display-4">Add an Item</h4>
     <hr>
     <app-message></app-message>
-    <div *ngIf="!categories" class="m-auto">
+    <div *ngIf="!bins" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <div *ngIf="categories" class="card bg-light">
+    <div *ngIf="bins" class="card bg-light">
       <div class="card-body">
         <form>
           <div class="form-group">
@@ -16,10 +16,18 @@
             <input type="text" name="title" class="form-control" [(ngModel)]="item.title">
           </div>
           <div class="form-group">
-            <label>Category</label>
-            <select name="categoryId" [(ngModel)]="item.categoryId" class="custom-select">
-              <option *ngFor="let category of categories" [value]="category._id">
-                {{ category.name }}
+            <label>Bin</label>
+            <select name="binId" [(ngModel)]="item.binId" class="custom-select">
+              <option *ngFor="let bin of bins" [value]="bin._id">
+                {{ bin.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select name="typeId" [(ngModel)]="item.typeId" class="custom-select">
+              <option *ngFor="let type of types" [value]="type._id">
+                {{ type.name }}
               </option>
             </select>
           </div>
