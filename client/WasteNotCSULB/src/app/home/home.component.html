@@ -1,10 +1,12 @@
-<div class="container-fluid">
-
+<div class="container">
   <!-- search bar -->
   <div class="row">
-    <div class="col-sm-12 p-5" style="background-color:rgb(200, 216, 180);">
+    <div class="col-sm-12 p-5">
       <div class="input-group justify-content-center">
-        <input type="text" name="text" class="search" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
+        <div class="input-group-prepend">
+            <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
+        </div>
+        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
           ngDefaultControl>
         <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
         <div class="input-group-append">
@@ -18,19 +20,19 @@
 
   <!-- mobile-friendly quick access navs-->
   <div class="row">
-    <div class="col-4 col-sm-4" style="background-color:rgb(168, 202, 141);" routerLink="/categories/5ace82a94561ae0ecf27a16a">
+    <div class="col-4 col-sm-4" style="background-color:rgb(190, 223, 159);" routerLink="/categories/5ace82a94561ae0ecf27a16a">
 
-      <i class="fas fa-seedling fa-4x" alt="Compost icon"></i><br><h5>Compost</h5></div>
+      <img src="./assets/img/wastenot_compost.png" class="img-fluid" height="100" width="120" alt="Compost icon"></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(142, 202, 224);" routerLink="/categories/5ae79d9d027d2834db315428">
-      <i class="fas fa-recycle fa-4x" alt="Recycle icon"></i><br><h5>Recycle</h5></div>
+      <img src="./assets/img/wastenot_recycle.png" class="img-fluid" height="100" width="120" alt="Recycle icon"></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(165, 165, 165);" routerLink="/categories/5ae79d8e027d2834db315427">
-      <i class="far fa-trash-alt fa-4x" alt="Landfill icon"></i><br><h5>Landfill</h5></div>
+      <img src="./assets/img/wastenot_landfill.png" class="img-fluid" height="100" width="120" alt="Landfill icon"></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(99, 168, 103);" routerLink="/items">
         <i class="fas fa-align-justify fa-4x" alt="Browse icon"></i><br><h5>Browse</h5></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(95, 153, 177);" routerLink="/categories">
-        <i class="fab fa-microsoft fa-4x" alt="Categorized icon"></i><br><h5>Categorize</h5></div>
-    <div class="col-4 col-sm-4" style="background-color:rgb(146, 146, 146);" routerLink="/news">
-        <i class="fas fa-newspaper fa-4x" alt="Newspaper icon"></i><br><h5>News</h5></div>
+        <i class="fab fa-microsoft fa-4x" alt="Categories icon"></i><br><h5>Categories</h5></div>
+    <div class="col-4 col-sm-4" style="background-color:rgb(146, 146, 146);" routerLink="/quiz">
+         <i class="fas fa-book fa-4x" alt="Quiz icon"></i><br><h5>Quiz</h5></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(80, 122, 82);">
         <i class="fas fa-map-marked-alt fa-4x" alt="Map icon"></i><br><h5>Map</h5></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(64, 116, 138);">

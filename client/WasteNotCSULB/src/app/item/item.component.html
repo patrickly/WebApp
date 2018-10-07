@@ -1,67 +1,65 @@
 <section id="item">
   <div class="container-fluid p-5">
+    
+    <!-- loading icon -->
     <app-message></app-message>
+    
     <div *ngIf="!item" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
+
     <div *ngIf="item">
-      <div class="row">
-        <div class="col-lg-4">
-          <img [src]="item.image" alt="itemImage" class="image img-thumbnail">
-        </div>
-        <div class="col-lg-5">
-          <div class="row">
-            <div class="col-6">
-              <h4>{{ item.title }}</h4>
-              <p class="m-0">
-                <small class="text-muted">{{ item.category.name }}</small>
-              </p>
-            </div>
-            <div class="col-6">
-            </div>
-          </div>
-          <hr>
-          <p class="lead">{{ item.description }}</p>
-        </div>
-        <div class="col-lg-3">
-          <div class="card bg-light">
-            <div class="card-body">
-              <h5 class="card-title"> This item goes into the {{ item.category.name | uppercase }} bin.</h5>
-              <br>
-              <br>
-              <div [ngSwitch]="binType">
-                <div class="card" *ngSwitchCase="1">
-                  <img src="./assets/img/wastenot_compost.png" height="200" width="190">
-                </div>
-                <div class="card" *ngSwitchCase="2">
-                  <img src="./assets/img/wastenot_recycle.png" height="200" width="190">
-                </div>
-                <div class="card" *ngSwitchCase="3">
-                  <img src="./assets/img/wastenot_landfill.png" height="200" width="190">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-
-
-        <!--
-          <button type="button" class="btn btn-warning" routerLink="/item/edit/${item._id}"" [disabled]="btnDisabled">Edit</button>
-        -->
-
-        <div *ngIf="data.user">
-
-          <div *ngIf=" data.user.isAdmin ">
-
-            <button type="button " class="btn btn-success " (click)="edit() " [disabled]="btnDisabled ">Edit</button>
-
-            <button type="button " class="btn btn-danger " (click)="delete() " [disabled]="btnDisabled ">Delete</button>
-          </div>
+      <div class="row m-3">
+        <div class="col text-center ">
+          <img [src]="item.image" alt="itemImage" class="img-fluid rounded mw-75">
         </div>
       </div>
+
+      
+      <div class="row text-center m-3"> 
+
+        <div class="col-12 mb-1 mt-1">
+          <h4>{{ item.title }}</h4>
+        </div>
+
+        <div class="col m-1">
+          <div [ngSwitch]="binType">
+              <div *ngSwitchCase="1">
+                <img src="./assets/img/wastenot_compost.png" height="100" width="120">
+              </div>
+              <div  *ngSwitchCase="2">
+                <img src="./assets/img/wastenot_recycle.png" height="100" width="120">
+              </div>
+              <div *ngSwitchCase="3">
+                <img src="./assets/img/wastenot_landfill.png" height="100" width="120">
+              </div>  
+          </div>
+        </div>
+
+      </div>
+      
+      <hr>
+
+      <div class="row mt-2 mb-3">
+        <div class="col">
+          <p class="lead">{{ item.description }}</p>
+        </div>
+      </div>
+
+      <!--
+        <button type="button" class="btn btn-warning" routerLink="/item/edit/${item._id}"" [disabled]="btnDisabled">Edit</button>
+        - For admin editing/deleting
+      -->
+      <div *ngIf="data.user">
+        <div *ngIf=" data.user.isAdmin ">
+          <button type="button " class="btn btn-success " (click)="edit() " [disabled]="btnDisabled ">Edit</button>
+          <button type="button " class="btn btn-danger " (click)="delete() " [disabled]="btnDisabled ">Delete</button>
+        </div>
+      </div>
+  
     </div>
   </div>
 </section>
