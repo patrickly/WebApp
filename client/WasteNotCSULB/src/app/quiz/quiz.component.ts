@@ -78,7 +78,7 @@ export class QuizComponent implements OnInit {
       tempChoice = 'landfill';
     }
 
-    if (tempChoice.includes(this.items[itemIndex].category.name)) {
+    if (tempChoice.includes(this.items[itemIndex].bin.name)) {
       this.questionResultRight = 'Correct';
       this.totalRight += 1;
     } else {

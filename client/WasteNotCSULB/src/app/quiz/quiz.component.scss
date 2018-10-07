@@ -5,12 +5,18 @@
   //margin-top: 2px;
 }
 .compost {
+	max-height: 100px;
+	max-width: 100px;
 	background-color: rgb(168, 202, 141);
 }
 .recycle {
+	max-height: 100px;
+	max-width: 100px;
 	background-color:rgb(142, 202, 224);
 }
 .landfill {
+	max-height: 100px;
+	max-width: 100px;
 	background-color:rgb(165, 165, 165);
 }
 #imageChoice {
@@ -78,3 +84,14 @@
   margin-bottom: 100px;
 }
 
+@media (min-width: 768px) {
+	.answer-box {
+		display: inline-block;
+	}
+	.next-button {
+		display: inline-block;
+	}
+	.answer-score {
+		display: inline-block;
+	}
+  }
