@@ -1,16 +1,16 @@
-<section id="category">
+<section id="bin">
   <div class="container p-3 p-md-5">
     <app-message></app-message>
-    <div *ngIf="!category" class="m-auto">
+    <div *ngIf="!bin" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <h3 *ngIf="category && !category.items.length" class="display-2 text-center mt-5">No Items inside Category</h3>
-    <div *ngIf="category && category.items.length">
-      <p>{{ lower }}-{{ upper }} of {{ category.totalItems }} items in {{ category.categoryName }}</p>
+    <h3 *ngIf="bin && !bin.items.length" class="display-2 text-center mt-5">No Items inside bin</h3>
+    <div *ngIf="bin && bin.items.length">
+      <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
       <hr>
-      <div class="item" *ngFor="let item of category.items">
+      <div class="item" *ngFor="let item of bin.items">
         <div class="row">
           <div class="col-5 col-md-2">
             <a routerLink="/item/{{ item._id }}">
@@ -24,7 +24,7 @@
                   <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
                 </h5>
                 <p>
-                  <small class="text-muted">{{ item.category.id }}</small>
+                  <small class="text-muted">{{ item.bin.id }}</small>
                 </p>
               </div>
               <div class="col-md-6">
@@ -34,7 +34,7 @@
         </div>
         <hr>
       </div>
-      <ngb-pagination [collectionSize]="category.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
     </div>
   </div>
 </section>

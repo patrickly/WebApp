@@ -1,0 +1,33 @@
+<section id="bins">
+  <div class="container p-5">
+    <app-message></app-message>
+    <h4 class="display-4">bins</h4>
+    <hr>
+    <div *ngIf="!bins" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div *ngIf="bins" class="list-group">
+      <a *ngFor="let bin of bins" routerLink="/bins/{{ bin._id }}" class="list-group-item list-group-item-action">
+      {{ bin.name }}
+      </a>
+    </div>
+    <hr style="margin-top: 15rem;">
+   <!--
+    <div class="card bg-light mt-5">
+      <div class="card-body">
+        <h4 class="card-title">Add New bin</h4>
+        <hr>
+        <div class="form">
+          <div class="form-group">
+            <label>bin</label>
+            <input type="text" name="newbin" class="form-control" [(ngModel)]="newbin">
+          </div>
+          <button type="button" class="btn btn-info" (click)="addbin()" [disabled]="btnDisabled">Add bin</button>
+        </div>
+      </div>
+    </div>  
+  -->
+  </div>
+</section>
