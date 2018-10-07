@@ -1,514 +1,324 @@
-<div *ngIf="items">
+<div id="quiz-wrap">
+    <div *ngIf="items">
+        <!--
+        <div class="container">
+            <h4 *ngIf="!quizFinished" class="text-sm-center">{{idx+1}}. Which bin should this item go into?</h4>
+        </div>
+        -->
+        <div [ngSwitch]="idx">
+            <!--
+            Question #1
+            
+            -->
+            <div *ngSwitchCase="0" class="item-title rounded text-center"> {{items[0].title}}</div>
 
+            <div class="container">
+                <div class="row">
+                    <div class="mx-auto" id="quizimage">
+                        <div *ngSwitchCase="0">
+                            <img class="rounded image-obj" [src]="items[idx].image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[0].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded compost" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost_BLACK.png" (click)="submitAnswer(0, 7)"
+                        *ngSwitchCase="0">
+                        <img class="p-1 item-hl rounded recycle" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle_BLACK.png" (click)="submitAnswer(0, 8)"
+                        *ngSwitchCase="0">
+                        <img class="p-1 item-hl rounded landfill" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill_BLACK.png" (click)="submitAnswer(0, 9)"
+                        *ngSwitchCase="0">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #2
+            
+            -->
+            <div *ngSwitchCase="1" class="item-title rounded text-center"> {{items[1].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="mx-auto" id="quizimage">
+                        <div *ngSwitchCase="1">
+                            <img class="rounded image-obj" [src]="items[idx].image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[1].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(1, 7)"
+                        *ngSwitchCase="1">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(1, 8)"
+                        *ngSwitchCase="1">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(1, 9)"
+                        *ngSwitchCase="1">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #3
+            
+            -->
+            <div *ngSwitchCase="2" class="item-title rounded text-center"> {{items[2].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="mx-auto" id="quizimage">
+                        <div *ngSwitchCase="2">
+                            <img class="rounded image-obj" [src]="items[idx].image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[2].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(2, 7)"
+                        *ngSwitchCase="2">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(2, 8)"
+                        *ngSwitchCase="2">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(2, 9)"
+                        *ngSwitchCase="2">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #4
+            
+            -->
+            <div *ngSwitchCase="3" class="item-title rounded text-center"> {{items[3].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="3">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[3].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(3, 7)"
+                        *ngSwitchCase="3" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(3, 8)"
+                        *ngSwitchCase="3" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(3, 9)"
+                        *ngSwitchCase="3" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #5
+            
+            -->
+            <div *ngSwitchCase="4" class="item-title rounded text-center"> {{items[4].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="4">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[4].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(4, 7)"
+                        *ngSwitchCase="4" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(4, 8)"
+                        *ngSwitchCase="4" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(4, 9)"
+                        *ngSwitchCase="4" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #6
+            
+            -->
+            <div *ngSwitchCase="5" class="item-title rounded text-center"> {{items[5].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="5">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[5].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(5, 7)"
+                        *ngSwitchCase="5" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(5, 8)"
+                        *ngSwitchCase="5" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(5, 9)"
+                        *ngSwitchCase="5" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #7
+            
+            -->
+            <div *ngSwitchCase="6" class="item-title rounded text-center"> {{items[6].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="6">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[6].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(6, 7)"
+                        *ngSwitchCase="6" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(6, 8)"
+                        *ngSwitchCase="6" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(6, 9)"
+                        *ngSwitchCase="6" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #8
+            
+            -->
+            <div *ngSwitchCase="7" class="item-title rounded text-center"> {{items[7].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="7">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[7].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(7, 7)"
+                        *ngSwitchCase="7" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(7, 8)"
+                        *ngSwitchCase="7" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(7, 9)"
+                        *ngSwitchCase="7" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #9
+            
+            -->
+            <div *ngSwitchCase="8" class="item-title rounded text-center"> {{items[8].title}}</div>
+          
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="8">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[8].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(8, 7)"
+                        *ngSwitchCase="8" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(8, 8)"
+                        *ngSwitchCase="8" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(8, 9)"
+                        *ngSwitchCase="8" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!--
+            Question #10
+            
+            -->
+            <div *ngSwitchCase="9" class="item-title rounded text-center"> {{items[9].title}}</div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 mx-auto" id="quizimage">
+                        <div *ngSwitchCase="9">
+                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!items[9].answered" class="container">
+                <div id="answerchoices">
+                    <div class="d-flex justify-content-center">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(9, 7)"
+                        *ngSwitchCase="9" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(9, 8)"
+                        *ngSwitchCase="9" height="140" width="140">
+                        <img class="p-1 item-hl rounded" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(9, 9)"
+                        *ngSwitchCase="9" height="140" width="140">
+                    </div>
+                </div>
+            </div>
+            <!-- No more questions -->
+        </div>
+        <!-- idx-->
+    </div>
+    <!-- items -->
     <div class="container">
-
-
-        <h4 *ngIf="!quizFinished" class="text-sm-center">{{idx+1}}. Which bin should this item go into?</h4>
-
-    </div>
-
-    <div [ngSwitch]="idx">
-
-
-        <!--
-
-         Question #1               
-    
-        -->
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="0" class="text-sm-center"> {{items[0].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="0">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
+        <div class="row">
+            <div class=" mx-auto mt-5 text-center">
+                <div *ngIf="!btnDisabled">
+                    <button class="buttonlol btn" type="button " (click)="myFunction() " [disabled]="btnDisabled">Next Question</button>
                 </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[0].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(0, 7)"
-                        *ngSwitchCase="0" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(0, 8)"
-                        *ngSwitchCase="0" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(0, 9)"
-                        *ngSwitchCase="0" height="140" width="140">
-
+                <div class="rounded answer-score text-center" *ngIf="questionResultRight ">
+                    <h4 class="text-success ">{{questionResultRight}}</h4>
+                    <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
                 </div>
-            </div>
-        </div>
-
-        <!--
-
-         Question #2               
-    
-
-        -->
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="1" class="text-sm-center"> {{items[1].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="1">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
+                <div class="rounded answer-score text-center" *ngIf="questionResultWrong ">
+                    <h4 class="text-danger ">{{questionResultWrong}}</h4>
+                    <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
                 </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[1].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(1, 7)"
-                        *ngSwitchCase="1" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(1, 8)"
-                        *ngSwitchCase="1" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(1, 9)"
-                        *ngSwitchCase="1" height="140" width="140">
-
+                <div class="rounded answer-box" *ngIf="questionResultWrong">
+                    <h4 *ngIf="items[0].answered && idx==0"> Correct choice: {{items[0].category.name}} </h4>
+                    <h4 *ngIf="items[1].answered && idx==1"> Correct choice: {{items[1].category.name}} </h4>
+                    <h4 *ngIf="items[2].answered && idx==2"> Correct choice: {{items[2].category.name}} </h4>
+                    <h4 *ngIf="items[3].answered && idx==3"> Correct choice: {{items[3].category.name}} </h4>
+                    <h4 *ngIf="items[4].answered && idx==4"> Correct choice: {{items[4].category.name}} </h4>
+                    <h4 *ngIf="items[5].answered && idx==5"> Correct choice: {{items[5].category.name}} </h4>
+                    <h4 *ngIf="items[6].answered && idx==6"> Correct choice: {{items[6].category.name}} </h4>
+                    <h4 *ngIf="items[7].answered && idx==7"> Correct choice: {{items[7].category.name}} </h4>
+                    <h4 *ngIf="items[8].answered && idx==8"> Correct choice: {{items[8].category.name}} </h4>
+                    <h4 *ngIf="items[9].answered && idx==9"> Correct choice: {{items[9].category.name}} </h4>
                 </div>
-            </div>
-        </div>
-
-
-
-        <!--
-
-         Question #3              
-    
-
-        -->
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="2" class="text-sm-center"> {{items[2].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="2">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[2].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(2, 7)"
-                        *ngSwitchCase="2" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(2, 8)"
-                        *ngSwitchCase="2" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(2, 9)"
-                        *ngSwitchCase="2" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-        <!--
-
-         Question #4              
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="3" class="text-sm-center"> {{items[3].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="3">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[3].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(3, 7)"
-                        *ngSwitchCase="3" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(3, 8)"
-                        *ngSwitchCase="3" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(3, 9)"
-                        *ngSwitchCase="3" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-        <!--
-
-         Question #5               
-    
-
-        -->
-
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="4" class="text-sm-center"> {{items[4].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="4">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[4].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(4, 7)"
-                        *ngSwitchCase="4" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(4, 8)"
-                        *ngSwitchCase="4" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(4, 9)"
-                        *ngSwitchCase="4" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <!--
-
-         Question #6              
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="5" class="text-sm-center"> {{items[5].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="5">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[5].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(5, 7)"
-                        *ngSwitchCase="5" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(5, 8)"
-                        *ngSwitchCase="5" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(5, 9)"
-                        *ngSwitchCase="5" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <!--
-
-         Question #7             
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="6" class="text-sm-center"> {{items[6].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="6">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[6].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(6, 7)"
-                        *ngSwitchCase="6" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(6, 8)"
-                        *ngSwitchCase="6" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(6, 9)"
-                        *ngSwitchCase="6" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <!--
-
-         Question #8               
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="7" class="text-sm-center"> {{items[7].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="7">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[7].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(7, 7)"
-                        *ngSwitchCase="7" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(7, 8)"
-                        *ngSwitchCase="7" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(7, 9)"
-                        *ngSwitchCase="7" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-        <!--
-
-         Question #9               
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="8" class="text-sm-center"> {{items[8].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="8">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[8].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(8, 7)"
-                        *ngSwitchCase="8" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(8, 8)"
-                        *ngSwitchCase="8" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(8, 9)"
-                        *ngSwitchCase="8" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-
-        <!--
-
-         Question #10              
-    
-
-        -->
-
-
-        <div class="container">
-
-            <h3 *ngSwitchCase="9" class="text-sm-center"> {{items[9].title}}</h3>
-
-            <div class="row">
-                <div class="col-xs-12 mx-auto" id="quizimage">
-                    <div *ngSwitchCase="9">
-                        <img class="none" [src]="items[idx].image" height="225" width="330">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div *ngIf="!items[9].answered" class="container">
-
-            <div id="answerchoices">
-
-                <div class="d-flex justify-content-center">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="compost bin" src="./assets/img/wastenot_compost.png" (click)="submitAnswer(9, 7)"
-                        *ngSwitchCase="9" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="recycle bin" src="./assets/img/wastenot_recycle.png" (click)="submitAnswer(9, 8)"
-                        *ngSwitchCase="9" height="140" width="140">
-
-                    <img class="p-4 item-hl" id="imageChoice" type="image" alt="landfill bin" src="./assets/img/wastenot_landfill.png" (click)="submitAnswer(9, 9)"
-                        *ngSwitchCase="9" height="140" width="140">
-
-                </div>
-            </div>
-        </div>
-
-        <!-- No more questions -->
-
-
-
-    </div>
-    <!-- idx-->
-
-</div>
-<!-- items -->
-
-<div class="container">
-
-    <div class="row">
-        <div class="text-sm-center mx-auto mt-5">
-            <div class="buttonlol" *ngIf="!btnDisabled">
-                <button class="btn btn-primary" type="button " (click)="myFunction() " [disabled]="btnDisabled">Next Question</button>
-
-
             </div>
         </div>
     </div>
-</div>
-
-
-
-<div class="container">
-
-    <div class="row">
-        <div class="text-sm-center mx-auto">
-
-
-            <div *ngIf="questionResultRight ">
-                <h4 class="text-success ">{{questionResultRight}}</h4>
-                <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
-            </div>
-
-            <div *ngIf="questionResultWrong ">
-                <h4 class="text-danger ">{{questionResultWrong}}</h4>
-                <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
-            </div>
-
-
-
-
-            <div *ngIf="items ">
-                <h4 *ngIf="items[0].answered && idx==0 "> Correct choice is {{items[0].category.name}} </h4>
-                <h4 *ngIf="items[1].answered && idx==1 "> Correct choice is {{items[1].category.name}} </h4>
-                <h4 *ngIf="items[2].answered && idx==2 "> Correct choice is {{items[2].category.name}} </h4>
-                <h4 *ngIf="items[3].answered && idx == 3"> Correct choice is {{items[3].category.name}} </h4>
-                <h4 *ngIf="items[4].answered && idx == 4"> Correct choice is {{items[4].category.name}} </h4>
-                <h4 *ngIf="items[5].answered && idx == 5"> Correct choice is {{items[5].category.name}} </h4>
-                <h4 *ngIf="items[6].answered && idx == 6"> Correct choice is {{items[6].category.name}} </h4>
-                <h4 *ngIf="items[7].answered && idx == 7"> Correct choice is {{items[7].category.name}} </h4>
-                <h4 *ngIf="items[8].answered && idx == 8"> Correct choice is {{items[8].category.name}} </h4>
-                <h4 *ngIf="items[9].answered && idx == 9"> Correct choice is {{items[9].category.name}} </h4>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="text-sm-center mx-auto">
-            <div class="summaryClass " *ngIf="quizFinished ">
-                <h4>Summary</h4>
-                <h4>Final Score: {{scorePercent | number : '1.2-2'}}%</h4>
-                <button class="btn" type="button" (click)="exitQuiz() ">Exit Quiz</button>
-                <button class="btn" type="button" (click)="refresh() ">Retake Quiz</button>
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <div class="summaryClass " *ngIf="quizFinished ">
+                    <h4>Summary</h4>
+                    <h4>Final Score: {{scorePercent | number : '1.2-2'}}%</h4>
+                    <button class="btn" type="button" (click)="exitQuiz() ">Exit Quiz</button>
+                    <button class="btn" type="button" (click)="refresh() ">Retake Quiz</button>
+                </div>
             </div>
         </div>
     </div>
