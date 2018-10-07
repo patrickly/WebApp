@@ -3,26 +3,28 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss'],
+  selector: 'app-bin',
+  templateUrl: './bin.component.html',
+  styleUrls: ['./bin.component.scss'],
 })
-export class CategoryComponent implements OnInit {
-  categoryId: any;
-  category: any;
+export class BinComponent implements OnInit {
+  binId: any;
+  bin: any;
   page = 1;
 
   constructor(
     private data: DataService,
     private activatedRoute: ActivatedRoute,
     private rest: RestApiService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(res => {
-      this.categoryId = res['id'];
+      this.binId = res['id'];
       this.getItems();
     });
   }
@@ -32,20 +34,20 @@ export class CategoryComponent implements OnInit {
   }
 
   get upper() {
-    return Math.min(10 * this.page, this.category.totalItems);
+    return Math.min(10 * this.page, this.bin.totalItems);
   }
 
   async getItems(event?: any) {
     if (event) {
-      this.category = null;
+      this.bin = null;
     }
     try {
       const data = await this.rest.get(
-        `http://localhost:3030/api/categories/${this.categoryId}?page=${this
+        BACKEND_URL + `/bins/${this.binId}?page=${this
           .page - 1}`,
       );
       data['success']
-        ? (this.category = data)
+        ? (this.bin = data)
         : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);

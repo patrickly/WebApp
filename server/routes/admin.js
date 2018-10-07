@@ -38,6 +38,7 @@ router
   .route('/items')
   .get(checkJWT, (req, res, next) => {
     Item.find({})
+      .populate('type')
       .populate('category')
       .exec((err, items) => {
         if (items) {
@@ -51,7 +52,8 @@ router
   })
   .post(checkJWT, verifyAdmin, (req, res, next) => {
     let item = new Item();
-    item.category = req.body.category;
+    item.type = req.body.type;
+    item.bin = req.body.bin
     // console.log("204 reqbody " + req.body.category);
     // console.log(JSON.stringify(req.body));
 

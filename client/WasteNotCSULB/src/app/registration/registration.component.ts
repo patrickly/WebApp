@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
-
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +25,7 @@ export class RegistrationComponent implements OnInit {
     private router: Router,
     private data: DataService,
     private rest: RestApiService,
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
@@ -59,7 +60,7 @@ export class RegistrationComponent implements OnInit {
     try {
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/signup',
+          BACKEND_URL + '/accounts/signup',
           {
             name: this.name,
             email: this.email,

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-edit-item',
@@ -12,19 +14,19 @@ import { DataService } from '../data.service';
 export class EditItemComponent implements OnInit {
   item = {
     title: '',
-    categoryId: '',
+    binId: '',
     description: '',
     item_picture: '',
     image: ''
   };
 
-  currentCategoryID: any = null;
-  currentCategoryName: any = null;
+  currentBinID: any = null;
+  currentBinName: any = null;
 
   itemID: any = null;
   itemIDstr: string = null;
 
-  categories: any;
+  bins: any;
   btnDisabled = false;
 
   constructor(
@@ -33,13 +35,13 @@ export class EditItemComponent implements OnInit {
     private rest: RestApiService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   async ngOnInit() {
     //ngOnInit() will be run everytime the page(item) is visited
     this.activatedRoute.params.subscribe(res => {
       this.rest
-        .get(`http://localhost:3030/api/item/${res['id']}`)
+        .get(BACKEND_URL + `/item/${res['id']}`)
         .then(data => {
           data['success']
             ? (this.item = data['item'])
@@ -48,17 +50,17 @@ export class EditItemComponent implements OnInit {
             console.log('ngOnInit in editItem component');
             console.log(res);
             console.log(this.item);
-            //     this.currentCategory = data['item'].category.name;
-            console.log(data['item'].category.name);
-            console.log(data['item'].category);
+            //     this.currentBin = data['item'].bin.name;
+            console.log(data['item'].bin.name);
+            console.log(data['item'].bin);
 
-            this.currentCategoryID = data['item'].category._id;
-            this.item.categoryId = data['item'].category._id;
+            this.currentBinID = data['item'].bin._id;
+            this.item.binId = data['item'].bin._id;
 
-            this.currentCategoryName = data['item'].category.name;
+            this.currentBinName = data['item'].bin.name;
 
-            console.log(this.currentCategoryID);
-            console.log(this.currentCategoryName);
+            console.log(this.currentBinID);
+            console.log(this.currentBinName);
 
             this.item.item_picture = data['item'].image;
 
@@ -68,19 +70,19 @@ export class EditItemComponent implements OnInit {
             console.log(this.itemID);
             //   console.log(this.itemIDstr);
 
-            console.log('http://localhost:3030/api/items/' + this.itemID);
+
           }
         })
         .catch(error => this.data.error(error['message']));
     });
 
     try {
-      const data2 = await this.rest.get('http://localhost:3030/api/categories');
+      const data2 = await this.rest.get(BACKEND_URL + '/bins');
       data2['success']
-        ? (this.categories = data2['categories'])
+        ? (this.bins = data2['bins'])
         : this.data.error(data2['message']);
 
-      console.log(this.categories);
+      console.log(this.bins);
       console.log(this.item);
     } catch (error) {
       this.data.error(error['message']);
@@ -90,10 +92,10 @@ export class EditItemComponent implements OnInit {
   /*
     try {
       const data2 = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        'http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/bins'
       );
       data2['success']
-        ? (this.categories = data2['categories'])
+        ? (this.bins = data2['bins'])
         : this.data.error(data2['message']);
     } catch (error) {
       this.data.error(error['message']);
@@ -105,11 +107,11 @@ export class EditItemComponent implements OnInit {
     console.log('33post-item ' + item);
     console.log(JSON.stringify(item));
 
-    console.log('checking for category id: ' + item.categoryId); // undefined
-    console.log('checking for category id agains: ' + item.category._id); // id is printed
+    console.log('checking for bin id: ' + item.binId); // undefined
+    console.log('checking for bin id agains: ' + item.bin._id); // id is printed
 
     if (item.title) {
-      if (item.category._id) {
+      if (item.bin._id) {
         if (item.item_picture) {
           if (item.description) {
             return true;
@@ -120,14 +122,14 @@ export class EditItemComponent implements OnInit {
           this.data.error('Please enter a link for the item.');
         }
       } else {
-        this.data.error('Please select category.');
+        this.data.error('Please select bin.');
       }
     } else {
       this.data.error('Please enter a title.');
     }
   }
 
-  //             "http://localhost:3030/api/items/" + this.item._id,
+  //             "http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/" + this.item._id,
 
   async post() {
     this.btnDisabled = true;
@@ -136,11 +138,11 @@ export class EditItemComponent implements OnInit {
         console.log('$$$$ item  is ' + this.item);
         console.log(this.itemID);
 
-        console.log('#### ' + 'http://localhost:3030/api/item/' + this.itemID);
+
         const data = await this.rest.post(
-          'http://localhost:3030/api/item/' + this.itemID,
+          BACKEND_URL + '/item/' + this.itemID,
           {
-            category: this.item.categoryId,
+            bin: this.item.binId,
             title: this.item.title,
             description: this.item.description,
             image: this.item.item_picture
@@ -148,9 +150,9 @@ export class EditItemComponent implements OnInit {
         );
         data['success']
           ? this.router
-              .navigate(['/items/'])
-              .then(() => this.data.success(data['message']))
-              .catch(error => this.data.error(error))
+            .navigate(['/items/'])
+            .then(() => this.data.success(data['message']))
+            .catch(error => this.data.error(error))
           : this.data.error(data['message']);
       }
     } catch (error) {

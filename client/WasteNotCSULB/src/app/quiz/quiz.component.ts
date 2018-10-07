@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-quiz',
@@ -31,11 +33,11 @@ export class QuizComponent implements OnInit {
     private data: DataService,
     private rest: RestApiService,
     private router: Router
-  ) {}
+  ) { }
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://localhost:3030/api/itemsRandom');
+      const data = await this.rest.get(BACKEND_URL + '/itemsRandom');
       data['success']
         ? (this.items = data['items'])
         : this.data.error(data['message']);

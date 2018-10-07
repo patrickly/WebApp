@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  selector: 'app-bins',
+  templateUrl: './bins.component.html',
+  styleUrls: ['./bins.component.scss']
 })
-export class CategoriesComponent implements OnInit {
-  categories: any;
+export class BinsComponent implements OnInit {
+  bins: any;
 
-  newCategory = '';
+  newBin = '';
   btnDisabled = false;
 
   constructor(
@@ -22,22 +24,22 @@ export class CategoriesComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        BACKEND_URL + '/bins'
       );
       data['success']
-        ? (this.categories = data['categories'])
+        ? (this.bins = data['bins'])
         : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);
     }
   }
 
-  async addCategory() {
+  async addBin() {
     this.btnDisabled = true;
     try {
       const data = await this.rest.post(
-        'http://localhost:3030/api/categories',
-        { category: this.newCategory }
+        BACKEND_URL + '/bins',
+        { bin: this.newBin }
       );
       data['success']
         ? this.data.success(data['message'])
