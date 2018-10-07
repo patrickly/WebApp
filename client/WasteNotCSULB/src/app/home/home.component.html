@@ -4,13 +4,14 @@
     <div class="col-sm-12 p-5">
       <div class="input-group justify-content-center">
         <div class="input-group-prepend">
-            <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
+          <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
         </div>
-        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
-          ngDefaultControl>
+        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
+          placeholder="Search Items" ngDefaultControl>
         <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
         <div class="input-group-append">
-          <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>
+          <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
+            ngDefaultControl>
             <i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
@@ -20,25 +21,37 @@
 
   <!-- mobile-friendly quick access navs-->
   <div class="row">
-    <div class="col-4 col-sm-4" style="background-color:rgb(190, 223, 159);" routerLink="/categories/5ace82a94561ae0ecf27a16a">
+    <div class="col-4 col-sm-4" style="background-color:rgb(190, 223, 159);" routerLink="/bins/5ace82a94561ae0ecf27a16a">
 
       <img src="./assets/img/wastenot_compost.png" class="img-fluid" height="100" width="120" alt="Compost icon"></div>
-    <div class="col-4 col-sm-4" style="background-color:rgb(142, 202, 224);" routerLink="/categories/5ae79d9d027d2834db315428">
+    <div class="col-4 col-sm-4" style="background-color:rgb(142, 202, 224);" routerLink="/bins/5ae79d9d027d2834db315428">
       <img src="./assets/img/wastenot_recycle.png" class="img-fluid" height="100" width="120" alt="Recycle icon"></div>
-    <div class="col-4 col-sm-4" style="background-color:rgb(165, 165, 165);" routerLink="/categories/5ae79d8e027d2834db315427">
+    <div class="col-4 col-sm-4" style="background-color:rgb(165, 165, 165);" routerLink="/bins/5ae79d8e027d2834db315427">
       <img src="./assets/img/wastenot_landfill.png" class="img-fluid" height="100" width="120" alt="Landfill icon"></div>
     <div class="col-4 col-sm-4" style="background-color:rgb(99, 168, 103);" routerLink="/items">
-        <i class="fas fa-align-justify fa-4x" alt="Browse icon"></i><br><h5>Browse</h5></div>
+      <i class="fas fa-align-justify fa-4x" alt="Browse icon"></i><br>
+      <h5>Browse</h5>
+    </div>
     <div class="col-4 col-sm-4" style="background-color:rgb(95, 153, 177);" routerLink="/categories">
-        <i class="fab fa-microsoft fa-4x" alt="Categories icon"></i><br><h5>Categories</h5></div>
+      <i class="fab fa-microsoft fa-4x" alt="Categories icon"></i><br>
+      <h5>Categories</h5>
+    </div>
     <div class="col-4 col-sm-4" style="background-color:rgb(146, 146, 146);" routerLink="/quiz">
-         <i class="fas fa-book fa-4x" alt="Quiz icon"></i><br><h5>Quiz</h5></div>
+      <i class="fas fa-book fa-4x" alt="Quiz icon"></i><br>
+      <h5>Quiz</h5>
+    </div>
     <div class="col-4 col-sm-4" style="background-color:rgb(80, 122, 82);">
-        <i class="fas fa-map-marked-alt fa-4x" alt="Map icon"></i><br><h5>Map</h5></div>
+      <i class="fas fa-map-marked-alt fa-4x" alt="Map icon"></i><br>
+      <h5>Map</h5>
+    </div>
     <div class="col-4 col-sm-4" style="background-color:rgb(64, 116, 138);">
-        <i class="fas fa-cloud-upload-alt fa-4x" alt="Upload icon"></i><br><h5>Upload Item Photo</h5></div>
+      <i class="fas fa-cloud-upload-alt fa-4x" alt="Upload icon"></i><br>
+      <h5>Upload Item Photo</h5>
+    </div>
     <div class="col-4 col-sm-4" style="background-color:rgb(124, 124, 124);" routerLink="/about">
-        <i class="fas fa-question-circle fa-4x" alt="About icon"></i><br><h5>About</h5></div>
+      <i class="fas fa-question-circle fa-4x" alt="About icon"></i><br>
+      <h5>About</h5>
+    </div>
   </div>
 
 </div>

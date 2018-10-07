@@ -8,7 +8,7 @@ module.exports = {
 
 module.exports = {
   database:
-  'mongodb://csulbDevs:491@ds117539.mlab.com:17539/wastenotwebapp',
+    'mongodb://csulbdevs:491491b@ds125453.mlab.com:25453/wastenotwebapptwo',
   port: 3030,
   secret: 'CsulbDevs2012312321'
 };
