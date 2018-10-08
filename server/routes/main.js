@@ -2,7 +2,7 @@ const router = require('express').Router();
 const async = require('async');
 const Bin = require('../models/bin');
 const Item = require('../models/item');
-//const Type = require('../models/type');
+const Type = require('../models/type');
 
 const checkJWT = require('../middlewares/check-jwt');
 const verifyAdmin = require('../middlewares/verifyAdmin');
@@ -14,27 +14,27 @@ router.get('/items', (req, res, next) => {
   const page = req.query.page;
   async.parallel(
     [
-      function(callback) {
+      function (callback) {
         Item.count({}, (err, count) => {
           var totalItems = count;
           callback(err, totalItems);
         });
       },
-      function(callback) {
+      function (callback) {
         Item.find({})
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 })
           .skip(perPage * page)
           .limit(perPage)
           .populate('bin')
-          //.populate('type')
+          .populate('type')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
           });
       }
     ],
-    function(err, results) {
+    function (err, results) {
       var totalItems = results[0];
       var items = results[1];
 
@@ -57,13 +57,13 @@ router.get('/itemsRandom', (req, res, next) => {
   const page = req.query.page;
   async.parallel(
     [
-      function(callback) {
+      function (callback) {
         Item.count({}, (err, count) => {
           var totalItems = count;
           callback(err, totalItems);
         });
       },
-      function(callback) {
+      function (callback) {
         Item.find({})
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 })
@@ -75,7 +75,7 @@ router.get('/itemsRandom', (req, res, next) => {
           });
       }
     ],
-    function(err, results) {
+    function (err, results) {
       var totalItems = results[0];
       var items = results[1];
       shuffle(items);
@@ -143,7 +143,7 @@ router
     });
   });
 
-  router
+router
   .route('/types')
   .get((req, res, next) => {
     Type.find({}, (err, types) => {
@@ -156,7 +156,7 @@ router
   })
   .post((req, res, next) => {
     Type.find({ name: req.body.type }, (err, type) => {
-       https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value 
+      https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value 
       if (type[0]) {
         res.json({
           message: type[0].name + ' already exists'
@@ -181,16 +181,17 @@ router
 router.get('/bins/:id', (req, res, next) => {
   const perPage = 10;
   const page = req.query.page;
+
   async.parallel(
     [
-      function(callback) {
-        Item.count({ type: req.params.id }, (err, count) => {
+      function (callback) {
+        Item.count({ bin: req.params.id }, (err, count) => {
           var totalItems = count;
           callback(err, totalItems);
         });
       },
-      function(callback) {
-        Item.find({ type: req.params.id })
+      function (callback) {
+        Item.find({ bin: req.params.id })
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 }) ///
           .skip(perPage * page)
@@ -201,13 +202,13 @@ router.get('/bins/:id', (req, res, next) => {
             callback(err, items);
           });
       },
-      function(callback) {
-        type.findOne({ _id: req.params.id }, (err, type) => {
-          callback(err, type);
+      function (callback) {
+        Bin.findOne({ _id: req.params.id }, (err, bin) => {
+          callback(err, bin);
         });
       }
     ],
-    function(err, results) {
+    function (err, results) {
       var totalItems = results[0];
       var items = results[1];
       var bin = results[2];
@@ -228,13 +229,13 @@ router.get('/types/:id', (req, res, next) => {
   const page = req.query.page;
   async.parallel(
     [
-      function(callback) {
+      function (callback) {
         Item.count({ type: req.params.id }, (err, count) => {
           var totalItems = count;
           callback(err, totalItems);
         });
       },
-      function(callback) {
+      function (callback) {
         Item.find({ type: req.params.id })
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 }) ///
@@ -246,13 +247,13 @@ router.get('/types/:id', (req, res, next) => {
             callback(err, items);
           });
       },
-      function(callback) {
-        type.findOne({ _id: req.params.id }, (err, type) => {
+      function (callback) {
+        Type.findOne({ _id: req.params.id }, (err, type) => {
           callback(err, type);
         });
       }
     ],
-    function(err, results) {
+    function (err, results) {
       var totalItems = results[0];
       var items = results[1];
       var bin = results[2];
@@ -294,7 +295,7 @@ router.get('/item/:id', (req, res, next) => {
 router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
   //console.log(JSON.stringify(req.body));
   console.log(req.params.id);
-  Item.remove({ _id: req.params.id }, function(err) {
+  Item.remove({ _id: req.params.id }, function (err) {
     if (err) {
       return err;
     } else {
@@ -307,7 +308,7 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
 });
 
 /*
-
+ 
   router.route('/items')
     .get(checkJWT, (req, res, next) => {
       Item.find({})
@@ -327,9 +328,9 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
       item.type = req.body.type;
      // console.log("204 reqbody " + req.body.type);
      // console.log(JSON.stringify(req.body));
-
+ 
     //  console.log("404 title reqbody " + req.body.title);
-
+ 
       item.title = req.body.title;
       item.description = req.body.description;
       item.image = req.body.image;
@@ -339,8 +340,8 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
         message: 'Successfully Added the item',
       });
     });
-
-
+ 
+ 
     // status GET: Good but must be logged in
 // status POST: Good 
 router.route('/profile')
@@ -356,13 +357,13 @@ router.route('/profile')
   .post(checkJWT, (req, res, next) => {
     User.findOne({ _id: req.decoded.user._id }, (err, user) => {
       if (err) return next(err);
-
+ 
       if (req.body.name) user.name = req.body.name;
       if (req.body.email) user.email = req.body.email;
       if (req.body.password) user.password = req.body.password;
-
+ 
       user.isAdmin = req.body.isAdmin;
-
+ 
       user.save();
       res.json({
         success: true,
