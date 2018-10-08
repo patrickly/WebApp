@@ -1,83 +1,24 @@
-// .myClass {
-//     padding: 10px;
-//     font-weight: bold;
-// }
-
-// input {
-
-//     border: 1px solid black;
-
-// }
-
-// h2 {
-
-//     margin-left: 200px;
-//     text-decoration: underline;
-//     margin-top: 1px;
-// }
-// p, div {
-//     font-size: 16px;
-//     margin-left: 10px;
-// }
-
-// img {
-//     margin-left: 250px;
-// }
-
-// #imageChoice {
-//     margin-left: 70px;
-// }
-
-// .summaryClass {
-//     margin-top: 5px;
-// }
-
-// body {
-//   color: #fff;
-//   font-family: sans-serif;
-//   font-size: 1.25rem;
-//   line-height: 150%;
-//   text-shadow: 0 2px 2px #b6701e;
-// }
-
-// h1 {
-//   font-size: 1.75rem;
-//   margin: 0 0 0.75rem 0;
-// }
-
-// /* Pattern styles */
-// .container {
-//   display: grid;
-// }
-
-// .left-half {
-//   grid-column: 1;
-//   border: 1px solid black;
-
-// }
-
-// .right-half {
-//   grid-column: 2;
-//   border: 1px solid black;
-
-// }
-
-// .nextButton {
-//     margin-top: 5px;
-//     margin-left: 10px;
-// }
-
-// .scoreScore {
-//     font-size: 36px;
-// }
-
 #quizimage {
 }
 
 #answerchoices {
-  margin-top: 2px;
+  //margin-top: 2px;
 }
-
+.compost {
+	max-height: 100px;
+	max-width: 100px;
+	background-color: rgb(168, 202, 141);
+}
+.recycle {
+	max-height: 100px;
+	max-width: 100px;
+	background-color:rgb(142, 202, 224);
+}
+.landfill {
+	max-height: 100px;
+	max-width: 100px;
+	background-color:rgb(165, 165, 165);
+}
 #imageChoice {
   // margin-left: 100px;
 
@@ -89,5 +30,68 @@
 }
 
 .summaryClass {
+  //margin-bottom: 100px;
+}
+#quizimage {
+}
+
+.q-prompt {
+	position: absolute;
+	top: 80px;
+}
+.image-obj {
+	max-width: 100%;
+	height: 240px;
+}
+.answer-score {
+	padding: 1em 1em;
+	margin: 0.5em 0.5em;
+	background-color: rgba(81,169,216,0.85);
+	border: 1px solid black;
+}
+.answer-box {
+	background-color: rgba(152,154,165,0.85);
+	margin: 0.5em 0.5em;
+	padding: 0.5em 0.5em;
+	border: 1px solid black;
+}
+.buttonlol {
+	background-color: rgba(255,236,113,0.85);
+	color: black;
+	border-color: black;
+}
+.item-title {
+	background-color: #FFEC71;
+	width: 100%;
+	padding: 0.5em 0.5em;
+	font-size: 1.25rem;
+}
+
+#imageChoice {
+  // margin-left: 100px;
+
+  border-color: black;
+}
+
+.item-hl {
+  border: 1px solid #333;
+  width: 30%;
+  height: 30%;
+
+}
+
+.summaryClass {
   margin-bottom: 100px;
 }
+
+@media (min-width: 768px) {
+	.answer-box {
+		display: inline-block;
+	}
+	.next-button {
+		display: inline-block;
+	}
+	.answer-score {
+		display: inline-block;
+	}
+  }
