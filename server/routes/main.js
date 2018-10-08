@@ -182,17 +182,46 @@ router.get('/bins/:id', (req, res, next) => {
   const perPage = 10;
   const page = req.query.page;
 
-
-  Item.count({ bin: req.params.id }, (err, count) => {
-    res.json({
-      success: true,
-      message: "Success",
-      lalala: count
-    })
-  })
-
-
-
+  async.parallel(
+    [
+      function (callback) {
+        Item.count({ bin: req.params.id }, (err, count) => {
+          var totalItems = count;
+          callback(err, totalItems);
+        });
+      },
+      function (callback) {
+        Item.find({ bin: req.params.id })
+          .collation({ locale: 'en', strength: 2 })
+          .sort({ title: 1 }) ///
+          .skip(perPage * page)
+          .limit(perPage)
+          .populate('bin')
+          .exec((err, items) => {
+            if (err) return next(err);
+            callback(err, items);
+          });
+      },
+      function (callback) {
+        Bin.findOne({ _id: req.params.id }, (err, bin) => {
+          callback(err, bin);
+        });
+      }
+    ],
+    function (err, results) {
+      var totalItems = results[0];
+      var items = results[1];
+      var bin = results[2];
+      res.json({
+        success: true,
+        message: 'bin',
+        items: items,
+        binName: bin.name,
+        totalItems: totalItems,
+        pages: Math.ceil(totalItems / perPage)
+      });
+    }
+  );
 });
 
 router.get('/types/:id', (req, res, next) => {
@@ -279,7 +308,7 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
 });
 
 /*
-
+ 
   router.route('/items')
     .get(checkJWT, (req, res, next) => {
       Item.find({})
@@ -299,9 +328,9 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
       item.type = req.body.type;
      // console.log("204 reqbody " + req.body.type);
      // console.log(JSON.stringify(req.body));
-
+ 
     //  console.log("404 title reqbody " + req.body.title);
-
+ 
       item.title = req.body.title;
       item.description = req.body.description;
       item.image = req.body.image;
@@ -311,8 +340,8 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
         message: 'Successfully Added the item',
       });
     });
-
-
+ 
+ 
     // status GET: Good but must be logged in
 // status POST: Good 
 router.route('/profile')
@@ -328,13 +357,13 @@ router.route('/profile')
   .post(checkJWT, (req, res, next) => {
     User.findOne({ _id: req.decoded.user._id }, (err, user) => {
       if (err) return next(err);
-
+ 
       if (req.body.name) user.name = req.body.name;
       if (req.body.email) user.email = req.body.email;
       if (req.body.password) user.password = req.body.password;
-
+ 
       user.isAdmin = req.body.isAdmin;
-
+ 
       user.save();
       res.json({
         success: true,
