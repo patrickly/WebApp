@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-post-item',
@@ -13,12 +15,14 @@ export class PostItemComponent implements OnInit {
 
   item = {
     title: '',
-    categoryId: '',
+    binId: '',
+    typeId: '',
     description: '',
     item_picture: ''
   };
 
-  categories: any;
+  bins: any;
+  types: any;
   btnDisabled = false;
 
   constructor(
@@ -30,10 +34,10 @@ export class PostItemComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        'http://localhost:3030/api/categories'
+        BACKEND_URL + '/bins'
       );
       data['success']
-        ? (this.categories = data['categories'])
+        ? (this.bins = data['bins'])
         : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);
@@ -42,12 +46,13 @@ export class PostItemComponent implements OnInit {
 
   validate(item) {
 
-   // console.log("33post-item " + item);
-   //  console.log(JSON.stringify(item));
+    // console.log("33post-item " + item);
+    //  console.log(JSON.stringify(item));
     if (item.title) {
-        if (item.categoryId) {
+      if (item.binId) {
+        if (item.typeId){
           if (item.item_picture) {
-            if (item.description ) {
+            if (item.description) {
               return true;
             } else {
               this.data.error('Please enter description.');
@@ -55,10 +60,13 @@ export class PostItemComponent implements OnInit {
           } else {
             this.data.error('Please enter a link for the item.');
           }
-        } else {
-          this.data.error('Please select category.');
+        } else{
+          this.data.error('Please select a type.');
         }
-      
+      } else {
+        this.data.error('Please select a bin.');
+      }
+
     } else {
       this.data.error('Please enter a title.');
     }
@@ -71,13 +79,16 @@ export class PostItemComponent implements OnInit {
     try {
       if (this.validate(this.item)) {
 
-        console.log("$$$$ categoryID is " + this.item.categoryId);
+        console.log("$$$$ binID is " + this.item.binId);
         const data = await this.rest.post(
-          'http://localhost:3030/api/admin/items',
-          { category: this.item.categoryId,
+          BACKEND_URL + '/admin/items',
+          {
+            bin: this.item.binId,
+            type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.item_picture }
+            image: this.item.item_picture
+          }
         );
         data['success']
           ? this.router.navigate(['/profile/'])

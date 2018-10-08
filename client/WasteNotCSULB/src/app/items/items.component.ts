@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
+
 
 @Component({
   selector: 'app-items',
@@ -11,20 +15,22 @@ import { DataService } from '../data.service';
 })
 export class ItemsComponent implements OnInit {
 
+  searchTerm = '';
   itemData: any;
-  totalItems:any;
+  totalItems: any;
   page = 1;
 
   constructor(
     private data: DataService,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private rest: RestApiService) { }
 
-    ngOnInit() {
-      this.activatedRoute.params.subscribe(res => {
-        this.getItems();
-      });
-    }
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(res => {
+      this.getItems();
+    });
+  }
 
 
 
@@ -42,10 +48,9 @@ export class ItemsComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-       `http://localhost:3030/api/items/?page=${this
-           .page - 1}` ,
-      //"http://localhost:3030/api/items"
-
+        BACKEND_URL + `/items/?page=${this
+          .page - 1}` ,
+        //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );
       data['success']
         ? (this.itemData = data)
@@ -56,6 +61,11 @@ export class ItemsComponent implements OnInit {
     }
   }
 
+  search() {
+    if (this.searchTerm) {
+      this.router.navigate(['search', { query: this.searchTerm }]);
+    }
+    this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
+  }
+
 } // class
-
-

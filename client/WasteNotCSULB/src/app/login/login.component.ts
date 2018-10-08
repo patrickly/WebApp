@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from "../../environments/environment";
+const BACKEND_URL = environment.api;
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private rest: RestApiService,
     private data: DataService,
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
     try {
       if (this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/login',
+          BACKEND_URL + '/accounts/login',
           {
             email: this.email,
             password: this.password,

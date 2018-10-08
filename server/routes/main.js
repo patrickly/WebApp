@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const async = require('async');
-const Category = require('../models/category');
+const Bin = require('../models/bin');
 const Item = require('../models/item');
+//const Type = require('../models/type');
 
 const checkJWT = require('../middlewares/check-jwt');
 const verifyAdmin = require('../middlewares/verifyAdmin');
@@ -25,7 +26,8 @@ router.get('/items', (req, res, next) => {
           .sort({ title: 1 })
           .skip(perPage * page)
           .limit(perPage)
-          .populate('category')
+          .populate('bin')
+          //.populate('type')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
@@ -38,7 +40,8 @@ router.get('/items', (req, res, next) => {
 
       res.json({
         success: true,
-        message: 'category',
+        message: 'bin',
+        //message: 'type',
         items: items,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
@@ -64,7 +67,8 @@ router.get('/itemsRandom', (req, res, next) => {
         Item.find({})
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 })
-          .populate('category')
+          .populate('bin')
+          //.populate('type')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
@@ -78,7 +82,8 @@ router.get('/itemsRandom', (req, res, next) => {
 
       res.json({
         success: true,
-        message: 'category',
+        message: 'bin',
+        //message: 'type',
         items: items,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
@@ -109,27 +114,57 @@ function shuffle(array) {
 //  status GET: good
 //  status POST: good
 router
-  .route('/categories')
+  .route('/bins')
   .get((req, res, next) => {
-    Category.find({}, (err, categories) => {
+    Bin.find({}, (err, bins) => {
       res.json({
         success: true,
         message: 'Success',
-        categories: categories
+        bins: bins
       });
     });
   })
   .post((req, res, next) => {
-    Category.find({ name: req.body.category }, (err, category) => {
+    Bin.find({ name: req.body.bin }, (err, bin) => {
       /* https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value */
-      if (category[0]) {
+      if (bin[0]) {
         res.json({
-          message: category[0].name + ' already exists'
+          message: bin[0].name + ' already exists'
         });
       } else {
-        let category = new Category();
-        category.name = req.body.category;
-        category.save();
+        let bin = new Bin();
+        bin.name = req.body.bin;
+        bin.save();
+        res.json({
+          success: true,
+          message: 'Successful, please refresh the page to see updated changes'
+        });
+      }
+    });
+  });
+
+  router
+  .route('/types')
+  .get((req, res, next) => {
+    Type.find({}, (err, types) => {
+      res.json({
+        success: true,
+        message: 'Success',
+        types: types
+      });
+    });
+  })
+  .post((req, res, next) => {
+    Type.find({ name: req.body.type }, (err, type) => {
+       https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value 
+      if (type[0]) {
+        res.json({
+          message: type[0].name + ' already exists'
+        });
+      } else {
+        let type = new type();
+        type.name = req.body.type;
+        type.save();
         res.json({
           success: true,
           message: 'Successful, please refresh the page to see updated changes'
@@ -141,44 +176,91 @@ router
 // waste not
 // status: good
 
-router.get('/categories/:id', (req, res, next) => {
+// Change to "Type"
+
+router.get('/bins/:id', (req, res, next) => {
   const perPage = 10;
   const page = req.query.page;
   async.parallel(
     [
       function(callback) {
-        Item.count({ category: req.params.id }, (err, count) => {
+        Item.count({ type: req.params.id }, (err, count) => {
           var totalItems = count;
           callback(err, totalItems);
         });
       },
       function(callback) {
-        Item.find({ category: req.params.id })
+        Item.find({ type: req.params.id })
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 }) ///
           .skip(perPage * page)
           .limit(perPage)
-          .populate('category')
+          .populate('bin')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
           });
       },
       function(callback) {
-        Category.findOne({ _id: req.params.id }, (err, category) => {
-          callback(err, category);
+        type.findOne({ _id: req.params.id }, (err, type) => {
+          callback(err, type);
         });
       }
     ],
     function(err, results) {
       var totalItems = results[0];
       var items = results[1];
-      var category = results[2];
+      var bin = results[2];
       res.json({
         success: true,
-        message: 'category',
+        message: 'bin',
         items: items,
-        categoryName: category.name,
+        binName: bin.name,
+        totalItems: totalItems,
+        pages: Math.ceil(totalItems / perPage)
+      });
+    }
+  );
+});
+
+router.get('/types/:id', (req, res, next) => {
+  const perPage = 10;
+  const page = req.query.page;
+  async.parallel(
+    [
+      function(callback) {
+        Item.count({ type: req.params.id }, (err, count) => {
+          var totalItems = count;
+          callback(err, totalItems);
+        });
+      },
+      function(callback) {
+        Item.find({ type: req.params.id })
+          .collation({ locale: 'en', strength: 2 })
+          .sort({ title: 1 }) ///
+          .skip(perPage * page)
+          .limit(perPage)
+          .populate('type')
+          .exec((err, items) => {
+            if (err) return next(err);
+            callback(err, items);
+          });
+      },
+      function(callback) {
+        type.findOne({ _id: req.params.id }, (err, type) => {
+          callback(err, type);
+        });
+      }
+    ],
+    function(err, results) {
+      var totalItems = results[0];
+      var items = results[1];
+      var bin = results[2];
+      res.json({
+        success: true,
+        message: 'type',
+        items: items,
+        binName: bin.name,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
       });
@@ -190,8 +272,8 @@ router.get('/categories/:id', (req, res, next) => {
 // status: good
 router.get('/item/:id', (req, res, next) => {
   Item.findById({ _id: req.params.id })
-
-    .populate('category')
+    .populate('bin')
+    //.populate('type')
     .exec((err, item) => {
       if (err) {
         res.json({
@@ -229,7 +311,7 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
   router.route('/items')
     .get(checkJWT, (req, res, next) => {
       Item.find({})
-        .populate('category')
+        .populate('type')
         .exec((err, items) => {
           if (items) {
             res.json({
@@ -242,8 +324,8 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
     })
     .post(checkJWT, (req, res, next) => {
       let item = new Item();
-      item.category = req.body.category;
-     // console.log("204 reqbody " + req.body.category);
+      item.type = req.body.type;
+     // console.log("204 reqbody " + req.body.type);
      // console.log(JSON.stringify(req.body));
 
     //  console.log("404 title reqbody " + req.body.title);
@@ -297,7 +379,8 @@ router.post('/item/:id', checkJWT, verifyAdmin, (req, res, next) => {
     if (req.body.title) item.title = req.body.title;
     if (req.body.description) item.description = req.body.description;
     if (req.body.image) item.image = req.body.image;
-    if (req.body.category) item.category = req.body.category;
+    //if (req.body.type) item.type = req.body.type;
+    if (req.body.bin) item.bin = req.body.bin;
 
     item.save();
     res.json({

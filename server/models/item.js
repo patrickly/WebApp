@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const mongooseAlgolia = require('mongoose-algolia');
 
 const ItemSchema = new Schema({
-  category: { type: Schema.Types.ObjectId, ref: 'Category' },
+  bin: { type: Schema.Types.ObjectId, ref: 'Bin' },
+  type: { type: Schema.Types.ObjectId, ref: 'Type' },
   title: String,
   image: String,
   description: String,
