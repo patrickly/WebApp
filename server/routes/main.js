@@ -2,7 +2,7 @@ const router = require('express').Router();
 const async = require('async');
 const Bin = require('../models/bin');
 const Item = require('../models/item');
-//const Type = require('../models/type');
+const Type = require('../models/type');
 
 const checkJWT = require('../middlewares/check-jwt');
 const verifyAdmin = require('../middlewares/verifyAdmin');
@@ -27,7 +27,7 @@ router.get('/items', (req, res, next) => {
           .skip(perPage * page)
           .limit(perPage)
           .populate('bin')
-          //.populate('type')
+          .populate('type')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
@@ -248,7 +248,7 @@ router.get('/types/:id', (req, res, next) => {
           });
       },
       function (callback) {
-        type.findOne({ _id: req.params.id }, (err, type) => {
+        Type.findOne({ _id: req.params.id }, (err, type) => {
           callback(err, type);
         });
       }
