@@ -22,9 +22,24 @@
       <a href="http://www.csulb.edu/sustainability/news" target="_blank" class="nav-item nav-link ">
         <i class="fas fa-newspaper fa-2x"  style="color: #f9b525" alt="Newspaper icon"></i>
       </a>
-      <a class="nav-item nav-link" href="#" routerLinkActive="active">
-        <i class="fas fa-chevron-circle-up fa-2x" style="color: #f9b525"></i>
-      </a>
+
+      <div class="btn-group dropup">
+        <button type="button" style="background-color: #286445" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-chevron-circle-up fa-2x" style="color: #f9b525"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="nav-item nav-link" routerLink="/bins/5ace82a94561ae0ecf27a16a" routerLinkActive="active">Compost</a>
+          <a class="nav-item nav-link" routerLink="/categories/5ae79d9d027d2834db315428" routerLinkActive="active">Recycle</a>
+          <a class="nav-item nav-link" routerLink="/categories/5ae79d8e027d2834db315427" routerLinkActive="active">Landfill</a>
+          <a class="nav-item nav-link" routerLink="/items" routerLinkActive="active">Browse</a>
+          <a class="nav-item nav-link" routerLink="/categories" routerLinkActive="active">Categories</a>
+          <a class="nav-item nav-link" routerLink="/quiz" routerLinkActive="active">Quiz</a>
+          <a class="nav-item nav-link" href="#" routerLinkActive="active">Map</a>
+          <a class="nav-item nav-link" href="#" routerLinkActive="active">Upload photo</a>
+          <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+        </div>
+      </div>
+
     </nav>
   </div>
 </div>
