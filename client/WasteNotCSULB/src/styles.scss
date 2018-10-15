@@ -2,9 +2,17 @@
 	font-family: Din Next Pro; 
 	src: url('DINNextLTPro-Regular.otf'); 
 } 
+
 #wrap {
 	width: 100%;
 	max-width: 900px;
 	margin: 0 auto;
 	position: relative;
-  }
+	background-color: rgb(200, 216, 180);
+}
+
+body {
+	background-image:url(http://www.daily49er.com/wp-content/uploads/2018/02/Web-trash-0111-900x600.jpg);
+	background-attachment: fixed;
+	color: black;
+}

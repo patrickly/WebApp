@@ -1,45 +1,62 @@
-<div id="wrap">
-  <div class="container">
-    <!-- search bar -->
-    <div class="row">
-      <div class="col-sm-12 p-5">
-        <div class="input-group justify-content-center">
-          <div class="input-group-prepend">
-              <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
-          </div>
-          <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
-            ngDefaultControl>
-          <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-          <div class="input-group-append">
-            <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>
-              <i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
+<div class="container text-center p-5">
+    <h1 class="display-4">Waste Not</h1>
+    <p class="lead">
+        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+      </p>
+  <!-- search bar -->
+  <div class="row p-5">
+    <div class="col-sm-12">
+      <div class="input-group justify-content-center">
+        <div class="input-group-prepend">
+            <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
+        </div>
+        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
+          ngDefaultControl>
+        <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
+        <div class="input-group-append">
+          <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()" ngDefaultControl>
+            <i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
-
-
-    <!-- mobile-friendly quick access navs-->
-    <div class="row">
-      <div class="col-4 col-sm-4" style="background-color:rgb(190, 223, 159);" routerLink="/categories/5ace82a94561ae0ecf27a16a">
-        <img src="./assets/img/wastenot_compost_notext.png" class="img-fluid" height="100" width="120" alt="Compost icon"><br><h5>Compost</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(142, 202, 224);" routerLink="/categories/5ae79d9d027d2834db315428">
-        <img src="./assets/img/wastenot_recycle_notext.png" class="img-fluid" height="100" width="120" alt="Recycle icon"><br><h5>Recycle</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(165, 165, 165);" routerLink="/categories/5ae79d8e027d2834db315427">
-        <img src="./assets/img/wastenot_landfill_notext.png" class="img-fluid" height="100" width="120" alt="Landfill icon"><br><h5>Landfill</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(99, 168, 103);" routerLink="/items">
-          <i class="fas fa-align-justify fa-4x" alt="Browse icon"></i><br><h5>Browse</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(95, 153, 177);" routerLink="/categories">
-          <i class="fab fa-microsoft fa-4x" alt="Categories icon"></i><br><h5>Categories</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(146, 146, 146);" routerLink="/quiz">
-          <i class="fas fa-book fa-4x" alt="Quiz icon"></i><br><h5>Quiz</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(80, 122, 82);">
-          <i class="fas fa-map-marked-alt fa-4x" alt="Map icon"></i><br><h5>Map</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(64, 116, 138);">
-          <i class="fas fa-cloud-upload-alt fa-4x" alt="Upload icon"></i><br><h5>Upload Item Photo</h5></div>
-      <div class="col-4 col-sm-4" style="background-color:rgb(124, 124, 124);" routerLink="/about">
-          <i class="fas fa-question-circle fa-4x" alt="About icon"></i><br><h5>About</h5></div>
-    </div>
-
   </div>
+</div>
+
+<!-- mobile-friendly quick access navs-->
+<div class="container pl-4 pr-4">
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <div class="card" routerLink="/bins/5ace82a94561ae0ecf27a16a">
+        <div class="card-body">
+          <img src="./assets/img/wastenot_compost_notext.png" class="img-fluid"
+            height="100" width="120" alt="Compost icon"><h5>Compost</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="card" routerLink="/bins/5ace82a94561ae0ecf27a16a">
+        <div class="card-body">
+          <img src="./assets/img/wastenot_recycle_notext.png" class="img-fluid" 
+            height="100" width="120" alt="Recycle icon"><h5>Recycle</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="card" routerLink="/bins/5ace82a94561ae0ecf27a16a">
+        <div class="card-body">
+          <img src="./assets/img/wastenot_landfill_notext.png" class="img-fluid" 
+            height="100" width="120" alt="Landfill icon"><h5>Landfill</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="my-4">
+
+<div class="container text-center p-3">
+    <h1 class="display-5">What is Waste Not?</h1>
+    <p class="lead">
+        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+    </p>
 </div>

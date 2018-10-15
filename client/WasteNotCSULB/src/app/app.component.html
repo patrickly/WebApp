@@ -1,46 +1,65 @@
-<div id="wrap">
-  <div id="nav-banner">
-    <div id="banner-items">
-      <a><img id="logo-banner" src="/assets/img/long-beach-state-logo.png" alt="beach-logo"></a>
-      <a id="banner-text" href="https://www.csulb.edu/">CSU Long Beach</a>
-      <img id="wastenot-logo" src="/assets/img/waste_not2.png" alt="waste-not">
-    </div>
-  </div>
-
-  <!-- routes the html of all the ..\app\.. -->
-  <router-outlet> </router-outlet>
-
-  <!-- nav-bar on bottom -->
-  <div style="background-color: #286445">
-    <nav class="nav fixed-bottom nav-justified" style="height: 50px; background-color: #286445;">
-      <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">
-        <i class="fas fa-home fa-2x" style="color: #f9b525"></i>
-      </a>
-      <a class="nav-item nav-link" routerLink="/items" routerLinkActive="active">
-        <i class="fas fa-search fa-2x" style="color: #f9b525"></i>
-      </a>
-      <a href="http://www.csulb.edu/sustainability/news" target="_blank" class="nav-item nav-link ">
-        <i class="fas fa-newspaper fa-2x"  style="color: #f9b525" alt="Newspaper icon"></i>
-      </a>
-
-      <div class="btn-group dropup">
-        <button type="button" style="background-color: #286445" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-chevron-circle-up fa-2x" style="color: #f9b525"></i>
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="nav-item nav-link" routerLink="/bins/5ace82a94561ae0ecf27a16a" routerLinkActive="active">Compost</a>
-          <a class="nav-item nav-link" routerLink="/categories/5ae79d9d027d2834db315428" routerLinkActive="active">Recycle</a>
-          <a class="nav-item nav-link" routerLink="/categories/5ae79d8e027d2834db315427" routerLinkActive="active">Landfill</a>
-          <a class="nav-item nav-link" routerLink="/items" routerLinkActive="active">Browse</a>
-          <a class="nav-item nav-link" routerLink="/categories" routerLinkActive="active">Categories</a>
-          <a class="nav-item nav-link" routerLink="/quiz" routerLinkActive="active">Quiz</a>
-          <a class="nav-item nav-link" href="#" routerLinkActive="active">Map</a>
-          <a class="nav-item nav-link" href="#" routerLinkActive="active">Upload photo</a>
-          <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
+<nav class="navbar navbar-light p-2">
+    <a class="navbar-brand p-2" routerLink="/" (click)="collapse()">
+        Waste Not
+    </a>
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" 
+        class="collapse navbar-collapse flex-column" id="navbarNav">
+        <div class="w-100">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="/items" routerLinkActive="active" class="nav-link">Browse</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="/types" routerLinkActive="active" class="nav-link">Types</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" href="http://www.csulb.edu/sustainability/news" target="_blank" class="nav-link">News</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="#" routerLinkActive="active" class="nav-link">Map</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="#" routerLinkActive="active" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+                </li>
+                <!-- ADMIN ACCOUNT
+                    <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                        <i class="fa fa-user mr-1"></i>
+                        <span *ngIf="!token">Accounts</span>
+                        <span *ngIf="data.user">{{ data.user.name }}</span>
+                    </a>
+                    <div ngbDropdownMenu class="dropdown-menu">
+                        <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+                        </a>
+                        <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
+                        <i class="fa fa-key" aria-hidden="true"></i> Login
+                        </a>
+                        <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
+                        <i class="fa fa-key" aria-hidden="true"></i> Logout
+                        </a>
+                        <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
+                        <i class="fa fa-group" aria-hidden="true"></i> Register
+                        </a>
+                    </div>
+                    </li>
+                -->
+            </ul>
         </div>
-      </div>
+    </div>            
+</nav>
 
-    </nav>
-  </div>
-</div>
+<!-- routes the html of all the ..\app\.. -->
+<router-outlet> </router-outlet>
+
+<div class="p-3" id="google_translate_element"></div>
 

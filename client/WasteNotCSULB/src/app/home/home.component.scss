@@ -1,5 +1,11 @@
-.container{
-  background-color:rgb(200, 216, 180);
+h5 {
+  color: black;
+}
+
+.card {
+  margin: 1em;
+  text-align: center;
+  background-color: whitesmoke;
 }
 
 .search {
@@ -10,24 +16,4 @@
 input::placeholder {
   font-size: 14px;
   text-align: center;
-}
-
-.container-fluid{
-  min-width: 50%;
-}
-
-.responsive {
-  width: 50%;
-  height: auto;
-}
-
-.col-sm-4 {
-  text-align: center;
-  padding: 10px;
-}
-#wrap {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  position: relative;
 }
