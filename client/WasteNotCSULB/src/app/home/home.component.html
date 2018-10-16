@@ -1,7 +1,10 @@
 <div class="container text-center p-5">
+    <!--
     <h1 class="display-4">Waste Not</h1>
+    -->
+    <img src="./assets/img/waste_not3.png" class="img-fluid">
     <p class="lead">
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        Want to learn where to dispose of something? Search for it here!<br>
       </p>
   <!-- search bar -->
   <div class="row pt-4">
@@ -10,7 +13,7 @@
         <div class="input-group-prepend">
             <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
         </div>
-        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search Items"
+        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()" placeholder="Search for disposable items"
           ngDefaultControl>
         <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
         <div class="input-group-append">
@@ -21,6 +24,9 @@
     </div>
   </div>
 </div>
+  <div class="container text-center">
+    <p class="lead">Or check out the main recycling categories below.</p>
+  </div>
 
 <!-- mobile-friendly quick access navs-->
 <div class="container pl-4 pr-4 pb-4">
