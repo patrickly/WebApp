@@ -1,5 +1,8 @@
 <div id="quiz-wrap">
     <div *ngIf="items">
+        <div class="container text-center rounded" style="background-color: whitesmoke;"> 
+            <i> Test your knowledge of proper disposal with 10 questions! </i>
+        </div>
         <!--
         <div class="container">
             <h4 *ngIf="!quizFinished" class="text-sm-center">{{idx+1}}. Which bin should this item go into?</h4>
@@ -10,7 +13,7 @@
             Question #1
             
             -->
-            <div *ngSwitchCase="0" class="item-title rounded text-center"> {{items[0].title}}</div>
+            <div *ngSwitchCase="0" class="item-title rounded text-center"> {{idx+1}}. {{items[0].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -37,7 +40,7 @@
             Question #2
             
             -->
-            <div *ngSwitchCase="1" class="item-title rounded text-center"> {{items[1].title}}</div>
+            <div *ngSwitchCase="1" class="item-title rounded text-center"> {{idx+1}}. {{items[1].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -64,7 +67,7 @@
             Question #3
             
             -->
-            <div *ngSwitchCase="2" class="item-title rounded text-center"> {{items[2].title}}</div>
+            <div *ngSwitchCase="2" class="item-title rounded text-center"> {{idx+1}}. {{items[2].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -91,7 +94,7 @@
             Question #4
             
             -->
-            <div *ngSwitchCase="3" class="item-title rounded text-center"> {{items[3].title}}</div>
+            <div *ngSwitchCase="3" class="item-title rounded text-center"> {{idx+1}}. {{items[3].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -118,7 +121,7 @@
             Question #5
             
             -->
-            <div *ngSwitchCase="4" class="item-title rounded text-center"> {{items[4].title}}</div>
+            <div *ngSwitchCase="4" class="item-title rounded text-center"> {{idx+1}}. {{items[4].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -145,7 +148,7 @@
             Question #6
             
             -->
-            <div *ngSwitchCase="5" class="item-title rounded text-center"> {{items[5].title}}</div>
+            <div *ngSwitchCase="5" class="item-title rounded text-center"> {{idx+1}}. {{items[5].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -172,7 +175,7 @@
             Question #7
             
             -->
-            <div *ngSwitchCase="6" class="item-title rounded text-center"> {{items[6].title}}</div>
+            <div *ngSwitchCase="6" class="item-title rounded text-center"> {{idx+1}}. {{items[6].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -199,7 +202,7 @@
             Question #8
             
             -->
-            <div *ngSwitchCase="7" class="item-title rounded text-center"> {{items[7].title}}</div>
+            <div *ngSwitchCase="7" class="item-title rounded text-center"> {{idx+1}}. {{items[7].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -226,7 +229,7 @@
             Question #9
             
             -->
-            <div *ngSwitchCase="8" class="item-title rounded text-center"> {{items[8].title}}</div>
+            <div *ngSwitchCase="8" class="item-title rounded text-center"> {{idx+1}}. {{items[8].title}}</div>
           
             <div class="container">
                 <div class="row">
@@ -253,7 +256,7 @@
             Question #10
             
             -->
-            <div *ngSwitchCase="9" class="item-title rounded text-center"> {{items[9].title}}</div>
+            <div *ngSwitchCase="9" class="item-title rounded text-center"> {{idx+1}}. {{items[9].title}}</div>
 
             <div class="container">
                 <div class="row">
