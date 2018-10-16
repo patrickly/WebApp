@@ -53,4 +53,5 @@ export class BinComponent implements OnInit {
       this.data.error(error['message']);
     }
   }
+
 }
