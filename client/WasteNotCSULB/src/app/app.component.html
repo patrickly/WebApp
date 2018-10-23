@@ -6,29 +6,39 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" 
-        class="collapse navbar-collapse flex-column" id="navbarNav">
+        class="collapse navbar-collapse flex-column">
         <div class="w-100">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a (click)="collapse()" routerLink="/items" routerLinkActive="active" class="nav-link">Browse</a>
+            <ul class="navbar-nav ml-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bins
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ace82a94561ae0ecf27a16a" routerLinkActive="active">Compost</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d9d027d2834db315428" routerLinkActive="active">Recycle</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d8e027d2834db315427" routerLinkActive="active">Landfill</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" routerLink="/types" routerLinkActive="active" class="nav-link">Types</a>
+                    <a class="nav-link" (click)="collapse()" routerLink="/items" routerLinkActive="active">Browse</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" routerLink="/quiz" routerLinkActive="active" class="nav-link">Quiz</a>
+                    <a class="nav-link" (click)="collapse()" routerLink="/types" routerLinkActive="active">Types</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" href="http://www.csulb.edu/sustainability/news" target="_blank" class="nav-link">News</a>
+                    <a class="nav-link" (click)="collapse()" routerLink="/quiz" routerLinkActive="active">Quiz</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" routerLink="#" routerLinkActive="active" class="nav-link">Map</a>
+                    <a class="nav-link" (click)="collapse()" href="http://www.csulb.edu/sustainability/news" target="_blank">News</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" routerLink="#" routerLinkActive="active" class="nav-link">Gallery</a>
+                    <a class="nav-link" (click)="collapse()" routerLink="#" routerLinkActive="active">Map</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="collapse()" routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+                    <a class="nav-link" (click)="collapse()" routerLink="#" routerLinkActive="active">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLink="/about" routerLinkActive="active">About</a>
                 </li>
                 <!-- ADMIN ACCOUNT
                     <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
