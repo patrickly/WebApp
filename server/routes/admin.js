@@ -75,6 +75,7 @@ router.get('/faker/CompostItemTest', (req, res, next) => {
     let item = new Item();
     item.bin = '5ace82a94561ae0ecf27a16a'; // compostId
     item.type = '333332a94561ae0ecf27a16e'; // testType
+    item.image = faker.image.food();
     item.title = faker.commerce.productName();
     item.description = faker.lorem.words();
     item.save();
