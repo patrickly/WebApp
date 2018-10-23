@@ -19,10 +19,10 @@ var upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: 'amazonowebapplicationcsulb',
-    metadata: function(req, file, cb) {
+    metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
     },
-    key: function(req, file, cb) {
+    key: function (req, file, cb) {
       cb(null, Date.now().toString());
     }
   })
@@ -71,17 +71,17 @@ router
 
 /* Just for testing Waste Not Compost Items */
 router.get('/faker/CompostItemTest', (req, res, next) => {
-  for (i = 0; i < 20; i++) {
+  for (i = 0; i < 10; i++) {
     let item = new Item();
-    item.category = '5ace82a94561ae0ecf27a16a'; // compostId
-    item.image = faker.image.food();
+    item.bin = '5ace82a94561ae0ecf27a16a'; // compostId
+    item.type = '333332a94561ae0ecf27a16e'; // testType
     item.title = faker.commerce.productName();
     item.description = faker.lorem.words();
     item.save();
   }
 
   res.json({
-    message: 'Successfully added 20 compost pictures for testing purposes'
+    message: 'Successfully added 10 compost pictures for testing purposes'
   });
 });
 
