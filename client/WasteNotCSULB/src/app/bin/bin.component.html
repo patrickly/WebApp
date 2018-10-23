@@ -1,40 +1,61 @@
 <section id="bin">
   <div class="container p-3 p-md-5">
     <app-message></app-message>
+
+    <!-- bin description -->
+    <div [ngSwitch]="binType">
+      <div *ngSwitchCase="1">
+        <h1 class="display-4 text-center p-2">Compost</h1>
+        <p class="lead">
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+      </div>
+      
+      <div *ngSwitchCase="2">
+        <h1 class="display-4 text-center p-2">Recycle</h1>
+        <p class="lead">
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+      </div>
+
+      <div *ngSwitchCase="3">
+        <h1 class="display-4 text-center p-2">Landfill</h1>
+        <p class="lead">
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+      </div>
+    </div>
+    <!-- bin description -->
+
+    <!-- loading spinner icon -->
     <div *ngIf="!bin" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <h3 *ngIf="bin && !bin.items.length" class="display-2 text-center mt-5">No Items inside bin</h3>
-    <div *ngIf="bin && bin.items.length">
-      <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
-      <hr>
-      <div class="item" *ngFor="let item of bin.items">
-        <div class="row">
-          <div class="col-5 col-md-2">
-            <a routerLink="/item/{{ item._id }}">
-              <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
-            </a>
-          </div>
-          <div class="col-5 col-md-8">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <h5>
-                  <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
-                </h5>
-                <p>
-                  <small class="text-muted">{{ item.bin.id }}</small>
-                </p>
-              </div>
-              <div class="col-md-6">
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- spinner -->
+
+    <!-- display item list -->
+      <!-- if there list is empty -->
+      <h3 *ngIf="bin && !bin.items.length" class="display-2 text-center mt-5">No Items inside bin</h3>
+    
+      <!-- if list is not empty -->
+      <div *ngIf="bin && bin.items.length">
         <hr>
+
+        <!-- display items -->
+        <div class="item list-group" *ngFor="let item of bin.items">
+          <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+        </div>
+
+        <hr>
+        <!-- page numbers -->
+        <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
+
+        <!-- display page numbers -->
+        <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="25" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
       </div>
-      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
-    </div>
+    <!-- display item list -->
+
   </div>
 </section>

@@ -1,63 +1,53 @@
-<div id="wrap">
-  <!-- search bar -->
-  <div class="row">
-      <div class="col-sm-12 p-5">
-        <div class="input-group justify-content-center">
-          <div class="input-group-prepend">
-            <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
-          </div>
-          <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
-            placeholder="Search Items" ngDefaultControl>
-          <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-          <div class="input-group-append">
-            <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
-              ngDefaultControl>
-              <i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
 <section id="items">
-    <div class="container p-3 p-md-5">
-      <app-message></app-message>
-      <div *ngIf="!itemData" class="m-auto">
-        <h1 class="text-center display-3 mt-5">
-          <i class="fa fa-spinner fa-spin"></i>
-        </h1>
-      </div>
-      
-      <h3 *ngIf="itemData && !itemData.items.length" class="display-2 text-center mt-5">No Items</h3>
-      <div *ngIf="itemData && itemData.items.length">
-        <p>{{ lower }}-{{ upper }} of {{ itemData.totalItems }} items</p>
-        <hr>
-        <div class="item" *ngFor="let item of itemData.items">
-          <div class="row">
-            <div class="col-5 col-md-2">
-              <a routerLink="/item/{{ item._id }}">
-                <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
-              </a>
+  <div class="container p-3 p-md-5">
+    <app-message></app-message>
+
+    <h1 class="display-4 text-center p-2">Browse</h1>
+    <p class="lead">
+      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+    </p>
+
+    <!-- search bar -->
+    <div class="row">
+        <div class="col-sm-12 p-5">
+          <div class="input-group justify-content-center">
+            <div class="input-group-prepend">
+              <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
             </div>
-            <div class="col-5 col-md-8">
-              <div class="row">
-                <div class="col-12 col-md-6">
-                  <h5>
-                    <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
-                  </h5>
-                  <p>
-                    <small class="text-muted">{{ item.id }}</small>
-                  </p>
-                </div>
-                <div class="col-md-6">
-                </div>
-              </div>
+            <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
+              placeholder="Search Items" ngDefaultControl>
+            <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
+            <div class="input-group-append">
+              <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
+                ngDefaultControl>
+                <i class="fa fa-search" aria-hidden="true"></i></button>
             </div>
           </div>
-          <hr>
         </div>
+      </div>
+
+    <!-- spinner icon -->
+    <div *ngIf="!itemData" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+      <h3 *ngIf="itemData && !itemData.items.length" class="display-2 text-center mt-5">No Items</h3>
+        <!-- spinner -->
+      
+      <div *ngIf="itemData && itemData.items.length">
+        <hr>
+        <!-- display items -->
+        <div class="item list-group" *ngFor="let item of itemData.items">
+            <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+        </div>
+        
+        <hr>
+        <!-- page count -->
+        <p>{{ lower }}-{{ upper }} of {{ itemData.totalItems }} items</p>
         <ngb-pagination [collectionSize]="itemData.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
       </div>
-    </div>
-  </section>
-</div>
+
+  </div>
+</section>
 
