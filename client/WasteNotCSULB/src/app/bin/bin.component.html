@@ -4,15 +4,13 @@
 
     <!-- bin description -->
     <div [ngSwitch]="binType">
-      
+      <div *ngSwitchCase="1">
         <h1 class="display-4 text-center p-2">Compost</h1>
         <p class="lead">
           Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
         </p>
-        
-      <div *ngSwitchCase="1">
       </div>
-
+      
       <div *ngSwitchCase="2">
         <h1 class="display-4 text-center p-2">Recycle</h1>
         <p class="lead">
@@ -21,7 +19,7 @@
       </div>
 
       <div *ngSwitchCase="3">
-        <h1 class="display-4 text-center p-2">Recycle</h1>
+        <h1 class="display-4 text-center p-2">Landfill</h1>
         <p class="lead">
           Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
         </p>
@@ -55,7 +53,7 @@
         <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
 
         <!-- display page numbers -->
-        <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+        <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="25" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
       </div>
     <!-- display item list -->
 
