@@ -16,7 +16,6 @@ export class EditItemComponent implements OnInit {
     title: '',
     binId: '',
     description: '',
-    item_picture: '',
     image: ''
   };
 
@@ -62,7 +61,7 @@ export class EditItemComponent implements OnInit {
             console.log(this.currentBinID);
             console.log(this.currentBinName);
 
-            this.item.item_picture = data['item'].image;
+            this.item.image = data['item'].image;
 
             this.itemID = res.id;
             //   this.itemIDstr = this.itemID.toString;
@@ -112,7 +111,7 @@ export class EditItemComponent implements OnInit {
 
     if (item.title) {
       if (item.bin._id) {
-        if (item.item_picture) {
+        if (item.image) {
           if (item.description) {
             return true;
           } else {
@@ -145,7 +144,7 @@ export class EditItemComponent implements OnInit {
             bin: this.item.binId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.item_picture
+            image: this.item.image
           }
         );
         data['success']
