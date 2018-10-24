@@ -18,7 +18,7 @@ export class PostItemComponent implements OnInit {
     binId: '',
     typeId: '',
     description: '',
-    item_picture: ''
+    image: ''
   };
 
   bins: any;
@@ -63,7 +63,7 @@ export class PostItemComponent implements OnInit {
     if (item.title) {
       if (item.binId) {
         if (item.typeId) {
-          if (item.item_picture) {
+          if (item.image) {
             if (item.description) {
               return true;
             } else {
@@ -99,7 +99,7 @@ export class PostItemComponent implements OnInit {
             type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.item_picture
+            image: this.item.image
           }
         );
         data['success']
