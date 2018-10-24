@@ -30,6 +30,7 @@ export class EditItemComponent implements OnInit {
   itemIDstr: string = null;
 
   bins: any;
+  types: any;
   btnDisabled = false;
 
   constructor(
@@ -102,6 +103,19 @@ export class EditItemComponent implements OnInit {
     } catch (error) {
       this.data.error(error['message']);
     }
+
+    try {
+      const data3 = await this.rest.get(BACKEND_URL + '/types');
+      data3['success']
+        ? (this.types = data3['types'])
+        : this.data.error(data3['message']);
+
+      console.log(this.types);
+      console.log(this.item);
+    } catch (error) {
+      this.data.error(error['message']);
+    }
+
   } //ngOnInit
 
   /*
