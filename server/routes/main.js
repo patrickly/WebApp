@@ -274,7 +274,7 @@ router.get('/types/:id', (req, res, next) => {
 router.get('/item/:id', (req, res, next) => {
   Item.findById({ _id: req.params.id })
     .populate('bin')
-    //.populate('type')
+    .populate('type')
     .exec((err, item) => {
       if (err) {
         res.json({
@@ -380,7 +380,7 @@ router.post('/item/:id', checkJWT, verifyAdmin, (req, res, next) => {
     if (req.body.title) item.title = req.body.title;
     if (req.body.description) item.description = req.body.description;
     if (req.body.image) item.image = req.body.image;
-    //if (req.body.type) item.type = req.body.type;
+    if (req.body.type) item.type = req.body.type;
     if (req.body.bin) item.bin = req.body.bin;
 
     item.save();

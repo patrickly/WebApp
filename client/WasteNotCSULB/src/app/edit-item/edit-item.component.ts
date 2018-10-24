@@ -15,18 +15,22 @@ export class EditItemComponent implements OnInit {
   item = {
     title: '',
     binId: '',
+    typeId: '',
     description: '',
-    item_picture: '',
     image: ''
   };
 
   currentBinID: any = null;
   currentBinName: any = null;
 
+  currentTypeID: any = null;
+  currentTypeName: any = null;
+
   itemID: any = null;
   itemIDstr: string = null;
 
   bins: any;
+  types: any;
   btnDisabled = false;
 
   constructor(
@@ -54,15 +58,27 @@ export class EditItemComponent implements OnInit {
             console.log(data['item'].bin.name);
             console.log(data['item'].bin);
 
+            console.log(data['item'].type.name);
+            console.log(data['item'].type);
+
+
             this.currentBinID = data['item'].bin._id;
             this.item.binId = data['item'].bin._id;
 
+            this.currentTypeID = data['item'].type._id;
+            this.item.typeId = data['item'].type._id;
+
             this.currentBinName = data['item'].bin.name;
+            this.currentTypeName = data['item'].type.name;
+
 
             console.log(this.currentBinID);
             console.log(this.currentBinName);
 
-            this.item.item_picture = data['item'].image;
+            console.log(this.currentTypeID);
+            console.log(this.currentTypeName);
+
+            this.item.image = data['item'].image;
 
             this.itemID = res.id;
             //   this.itemIDstr = this.itemID.toString;
@@ -87,6 +103,19 @@ export class EditItemComponent implements OnInit {
     } catch (error) {
       this.data.error(error['message']);
     }
+
+    try {
+      const data3 = await this.rest.get(BACKEND_URL + '/types');
+      data3['success']
+        ? (this.types = data3['types'])
+        : this.data.error(data3['message']);
+
+      console.log(this.types);
+      console.log(this.item);
+    } catch (error) {
+      this.data.error(error['message']);
+    }
+
   } //ngOnInit
 
   /*
@@ -110,9 +139,12 @@ export class EditItemComponent implements OnInit {
     console.log('checking for bin id: ' + item.binId); // undefined
     console.log('checking for bin id agains: ' + item.bin._id); // id is printed
 
+    console.log('checking for type id: ' + item.typeId); // undefined
+    console.log('checking for type id agains: ' + item.type._id); // id is printed
+
     if (item.title) {
       if (item.bin._id) {
-        if (item.item_picture) {
+        if (item.image) {
           if (item.description) {
             return true;
           } else {
@@ -143,9 +175,10 @@ export class EditItemComponent implements OnInit {
           BACKEND_URL + '/item/' + this.itemID,
           {
             bin: this.item.binId,
+            type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.item_picture
+            image: this.item.image
           }
         );
         data['success']
