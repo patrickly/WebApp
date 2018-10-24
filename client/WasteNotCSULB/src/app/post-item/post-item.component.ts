@@ -42,6 +42,18 @@ export class PostItemComponent implements OnInit {
     } catch (error) {
       this.data.error(error['message']);
     }
+
+    try {
+      const data = await this.rest.get(
+        BACKEND_URL + '/types'
+      );
+      data['success']
+        ? (this.types = data['types'])
+        : this.data.error(data['message']);
+    } catch (error) {
+      this.data.error(error['message']);
+    }
+
   }
 
   validate(item) {
@@ -50,7 +62,7 @@ export class PostItemComponent implements OnInit {
     //  console.log(JSON.stringify(item));
     if (item.title) {
       if (item.binId) {
-        if (item.typeId){
+        if (item.typeId) {
           if (item.item_picture) {
             if (item.description) {
               return true;
@@ -60,7 +72,7 @@ export class PostItemComponent implements OnInit {
           } else {
             this.data.error('Please enter a link for the item.');
           }
-        } else{
+        } else {
           this.data.error('Please select a type.');
         }
       } else {
