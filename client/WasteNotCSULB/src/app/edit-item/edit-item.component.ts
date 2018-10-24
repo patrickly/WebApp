@@ -139,6 +139,9 @@ export class EditItemComponent implements OnInit {
     console.log('checking for bin id: ' + item.binId); // undefined
     console.log('checking for bin id agains: ' + item.bin._id); // id is printed
 
+    console.log('checking for type id: ' + item.typeId); // undefined
+    console.log('checking for type id agains: ' + item.type._id); // id is printed
+
     if (item.title) {
       if (item.bin._id) {
         if (item.image) {
@@ -172,6 +175,7 @@ export class EditItemComponent implements OnInit {
           BACKEND_URL + '/item/' + this.itemID,
           {
             bin: this.item.binId,
+            type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
             image: this.item.image
