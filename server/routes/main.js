@@ -274,7 +274,7 @@ router.get('/types/:id', (req, res, next) => {
 router.get('/item/:id', (req, res, next) => {
   Item.findById({ _id: req.params.id })
     .populate('bin')
-    //.populate('type')
+    .populate('type')
     .exec((err, item) => {
       if (err) {
         res.json({

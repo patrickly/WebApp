@@ -15,12 +15,16 @@ export class EditItemComponent implements OnInit {
   item = {
     title: '',
     binId: '',
+    typeId: '',
     description: '',
     image: ''
   };
 
   currentBinID: any = null;
   currentBinName: any = null;
+
+  currentTypeID: any = null;
+  currentTypeName: any = null;
 
   itemID: any = null;
   itemIDstr: string = null;
@@ -53,13 +57,25 @@ export class EditItemComponent implements OnInit {
             console.log(data['item'].bin.name);
             console.log(data['item'].bin);
 
+            console.log(data['item'].type.name);
+            console.log(data['item'].type);
+
+
             this.currentBinID = data['item'].bin._id;
             this.item.binId = data['item'].bin._id;
 
+            this.currentTypeID = data['item'].type._id;
+            this.item.typeId = data['item'].type._id;
+
             this.currentBinName = data['item'].bin.name;
+            this.currentTypeName = data['item'].type.name;
+
 
             console.log(this.currentBinID);
             console.log(this.currentBinName);
+
+            console.log(this.currentTypeID);
+            console.log(this.currentTypeName);
 
             this.item.image = data['item'].image;
 
