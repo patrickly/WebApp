@@ -3,16 +3,11 @@
         <div class="container-fluid text-center pt-4 pb-3" style="background-color: #FFEC71;"> 
             <i> Test your knowledge of proper disposal with 10 questions! </i>
         </div>
-        <!--
-        <div class="container">
-            <h4 *ngIf="!quizFinished" class="text-sm-center">{{idx+1}}. Which bin should this item go into?</h4>
-        </div>
-        -->
+
+        <!-- Test begins here -->
         <div [ngSwitch]="idx">
-            <!--
-            Question #1
-            
-            -->
+
+            <!-- (begins) Question #1  -->
             <div *ngSwitchCase="0" class="item-title"> {{idx+1}}. {{items[0].title}}</div>
 
             <div class="container">
@@ -36,10 +31,9 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #2
-            
-            -->
+            <!-- (ends) Question #1 -->
+
+            <!-- Question #2 -->
             <div *ngSwitchCase="1" class="item-title"> {{idx+1}}. {{items[1].title}}</div>
 
             <div class="container">
@@ -63,10 +57,9 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #3
-            
-            -->
+            <!-- (ends) Question #2 -->
+
+            <!-- (begins) Question #3 -->
             <div *ngSwitchCase="2" class="item-title"> {{idx+1}}. {{items[2].title}}</div>
 
             <div class="container">
@@ -90,10 +83,9 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #4
-            
-            -->
+            <!-- (ends) Question #3 -->
+
+            <!-- (begins) Question #4 -->
             <div *ngSwitchCase="3" class="item-title"> {{idx+1}}. {{items[3].title}}</div>
 
             <div class="container">
@@ -117,10 +109,9 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #5
-            
-            -->
+            <!-- (ends) Question #4 -->
+
+            <!-- (begins) Question #5 -->
             <div *ngSwitchCase="4" class="item-title"> {{idx+1}}. {{items[4].title}}</div>
 
             <div class="container">
@@ -144,6 +135,8 @@
                     </div>
                 </div>
             </div>
+            <!-- (ends) Question #5 -->
+            
             <!--
             Question #6
             
@@ -325,4 +318,6 @@
             </div>
         </div>
     </div>
+
+    <hr style="margin-top: 15rem;">
 </div>

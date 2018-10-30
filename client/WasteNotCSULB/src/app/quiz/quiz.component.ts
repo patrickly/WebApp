@@ -71,13 +71,13 @@ export class QuizComponent implements OnInit {
     var tempChoice: string = '';
 
     if (choiceNum === 7) {
-      tempChoice = 'compost';
+      tempChoice = 'Compost';
     }
     if (choiceNum === 8) {
-      tempChoice = 'recycle';
+      tempChoice = 'Recycle';
     }
     if (choiceNum === 9) {
-      tempChoice = 'landfill';
+      tempChoice = 'Landfill';
     }
 
     if (tempChoice.includes(this.items[itemIndex].bin.name)) {
