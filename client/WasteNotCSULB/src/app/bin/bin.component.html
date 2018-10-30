@@ -45,7 +45,21 @@
 
         <!-- display items -->
         <div class="item list-group" *ngFor="let item of bin.items">
-          <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+          <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+            
+            <span [ngSwitch]="binType" class="pr-2">
+              <span *ngSwitchCase="1">
+                <i class="fas fa-seedling"></i>
+              </span>
+              <span *ngSwitchCase="2">
+                <i class="fas fa-recycle"></i>
+              </span>
+              <span *ngSwitchCase="3">
+                <i class="far fa-trash-alt"></i>
+              </span>
+            </span>
+
+            {{ item.title }}</a>
         </div>
 
         <hr>
