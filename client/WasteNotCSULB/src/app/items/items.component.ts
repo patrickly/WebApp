@@ -29,11 +29,11 @@ export class ItemsComponent implements OnInit {
   }
 
   get lower() {
-    return 10 * (this.page - 1) + 1;
+    return 25 * (this.page - 1) + 1;
   }
 
   get upper() {
-    return Math.min(10 * this.page, this.itemData.totalItems);
+    return Math.min(25 * this.page, this.itemData.totalItems);
   }
 
   async getItems(event?: any) {

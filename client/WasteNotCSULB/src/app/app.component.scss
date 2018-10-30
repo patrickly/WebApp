@@ -6,6 +6,17 @@
   color: royalblue;
 }
 
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #fff;
+}
+
 .navbar {
   background-color: whitesmoke;
 }
+
+.dropdown-menu {
+  margin: .125rem 2.5rem .125rem 1rem;
+}
+

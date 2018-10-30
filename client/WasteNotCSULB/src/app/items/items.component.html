@@ -14,17 +14,8 @@
           <div class="input-group-prepend">
             <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
           </div>
-          <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
-            placeholder="Search Items" ngDefaultControl>
-          <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-          <div class="input-group-append">
-            <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
-              ngDefaultControl>
-              <i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
         </div>
       </div>
-    </div>
 
     <!-- spinner icon -->
     <div *ngIf="!itemData" class="m-auto">
