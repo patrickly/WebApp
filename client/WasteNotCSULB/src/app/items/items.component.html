@@ -31,7 +31,11 @@
       <!-- display items -->
       <div class="item list-group" *ngFor="let item of itemData.items">
         <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
-          {{ item.title == 'Orange'}} <i *ngIf="item.title == 'Orange'" class=" fas fa-seedling"></i>
+          <i *ngIf=" item.bin.name == 'Landfill'" class=" fas fa-trash-alt"></i>
+          <i *ngIf=" item.bin.name == 'Recycle'" class=" fas fa-recycle"></i>
+          <i *ngIf=" item.bin.name == 'Compost'" class=" fas fa-seedling"></i>
+
+          {{ item.bin.name == 'Landfill'}}
         </a>
       </div>
 
