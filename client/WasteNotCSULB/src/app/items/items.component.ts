@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { environment } from "../../environments/environment";
 const BACKEND_URL = environment.api;
-
 
 @Component({
   selector: 'app-items',
@@ -14,7 +11,6 @@ const BACKEND_URL = environment.api;
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-
   searchTerm = '';
   itemData: any;
   totalItems: any;
@@ -32,14 +28,12 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-
-
   get lower() {
-    return 10 * (this.page - 1) + 1;
+    return 25 * (this.page - 1) + 1;
   }
 
   get upper() {
-    return Math.min(10 * this.page, this.itemData.totalItems);
+    return Math.min(25 * this.page, this.itemData.totalItems);
   }
 
   async getItems(event?: any) {

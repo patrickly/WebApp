@@ -1,19 +1,14 @@
 <div id="quiz-wrap">
     <div *ngIf="items">
-        <div class="container text-center rounded" style="background-color: whitesmoke;"> 
+        <div class="container-fluid text-center pt-4 pb-3" style="background-color: #FFEC71;"> 
             <i> Test your knowledge of proper disposal with 10 questions! </i>
         </div>
-        <!--
-        <div class="container">
-            <h4 *ngIf="!quizFinished" class="text-sm-center">{{idx+1}}. Which bin should this item go into?</h4>
-        </div>
-        -->
+
+        <!-- Test begins here -->
         <div [ngSwitch]="idx">
-            <!--
-            Question #1
-            
-            -->
-            <div *ngSwitchCase="0" class="item-title rounded text-center"> {{idx+1}}. {{items[0].title}}</div>
+
+            <!-- (begins) Question #1  -->
+            <div *ngSwitchCase="0" class="item-title"> {{idx+1}}. {{items[0].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -36,11 +31,10 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #2
-            
-            -->
-            <div *ngSwitchCase="1" class="item-title rounded text-center"> {{idx+1}}. {{items[1].title}}</div>
+            <!-- (ends) Question #1 -->
+
+            <!-- Question #2 -->
+            <div *ngSwitchCase="1" class="item-title"> {{idx+1}}. {{items[1].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -63,11 +57,10 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #3
-            
-            -->
-            <div *ngSwitchCase="2" class="item-title rounded text-center"> {{idx+1}}. {{items[2].title}}</div>
+            <!-- (ends) Question #2 -->
+
+            <!-- (begins) Question #3 -->
+            <div *ngSwitchCase="2" class="item-title"> {{idx+1}}. {{items[2].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -90,17 +83,16 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #4
-            
-            -->
-            <div *ngSwitchCase="3" class="item-title rounded text-center"> {{idx+1}}. {{items[3].title}}</div>
+            <!-- (ends) Question #3 -->
+
+            <!-- (begins) Question #4 -->
+            <div *ngSwitchCase="3" class="item-title"> {{idx+1}}. {{items[3].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="3">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -117,17 +109,16 @@
                     </div>
                 </div>
             </div>
-            <!--
-            Question #5
-            
-            -->
-            <div *ngSwitchCase="4" class="item-title rounded text-center"> {{idx+1}}. {{items[4].title}}</div>
+            <!-- (ends) Question #4 -->
+
+            <!-- (begins) Question #5 -->
+            <div *ngSwitchCase="4" class="item-title"> {{idx+1}}. {{items[4].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="4">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -144,17 +135,19 @@
                     </div>
                 </div>
             </div>
+            <!-- (ends) Question #5 -->
+            
             <!--
             Question #6
             
             -->
-            <div *ngSwitchCase="5" class="item-title rounded text-center"> {{idx+1}}. {{items[5].title}}</div>
+            <div *ngSwitchCase="5" class="item-title"> {{idx+1}}. {{items[5].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="5">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -175,13 +168,13 @@
             Question #7
             
             -->
-            <div *ngSwitchCase="6" class="item-title rounded text-center"> {{idx+1}}. {{items[6].title}}</div>
+            <div *ngSwitchCase="6" class="item-title"> {{idx+1}}. {{items[6].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="6">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -202,13 +195,13 @@
             Question #8
             
             -->
-            <div *ngSwitchCase="7" class="item-title rounded text-center"> {{idx+1}}. {{items[7].title}}</div>
+            <div *ngSwitchCase="7" class="item-title"> {{idx+1}}. {{items[7].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="7">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -229,13 +222,13 @@
             Question #9
             
             -->
-            <div *ngSwitchCase="8" class="item-title rounded text-center"> {{idx+1}}. {{items[8].title}}</div>
+            <div *ngSwitchCase="8" class="item-title"> {{idx+1}}. {{items[8].title}}</div>
           
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="8">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -256,13 +249,13 @@
             Question #10
             
             -->
-            <div *ngSwitchCase="9" class="item-title rounded text-center"> {{idx+1}}. {{items[9].title}}</div>
+            <div *ngSwitchCase="9" class="item-title"> {{idx+1}}. {{items[9].title}}</div>
 
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 mx-auto" id="quizimage">
                         <div *ngSwitchCase="9">
-                            <img class="none" [src]="items[idx].image" height="225" width="330">
+                            <img class="rounded image-obj" [src]="items[idx].image" height="225" width="330">
                         </div>
                     </div>
                 </div>
@@ -285,8 +278,8 @@
     </div>
     <!-- items -->
     <div class="container">
-        <div class="row">
-            <div class=" mx-auto mt-5 text-center">
+        <div class="row p-2">
+            <div class="mx-auto text-center">
                 <div *ngIf="!btnDisabled" class="next-button">
                     <button class="buttonlol btn" type="button " (click)="myFunction() " [disabled]="btnDisabled">Next Question</button>
                 </div>
@@ -298,7 +291,7 @@
                     <h4 class="text-danger ">{{questionResultWrong}}</h4>
                     <h4>Score: {{scorePercent | number : '1.2-2'}}%</h4>
                 </div>
-                <div class="rounded answer-box" *ngIf="questionResultWrong">
+                <div class="rounded" id="answer-box" *ngIf="questionResultWrong">
                     <h4 *ngIf="items[0].answered && idx==0"> Correct choice: {{items[0].bin.name}} </h4>
                     <h4 *ngIf="items[1].answered && idx==1"> Correct choice: {{items[1].bin.name}} </h4>
                     <h4 *ngIf="items[2].answered && idx==2"> Correct choice: {{items[2].bin.name}} </h4>
@@ -325,4 +318,6 @@
             </div>
         </div>
     </div>
+
+    <hr style="margin-top: 15rem;">
 </div>

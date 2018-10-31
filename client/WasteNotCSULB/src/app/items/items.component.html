@@ -14,18 +14,9 @@
           <div class="input-group-prepend">
             <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
           </div>
-          <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
-            placeholder="Search Items" ngDefaultControl>
-          <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-          <div class="input-group-append">
-            <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
-              ngDefaultControl>
-              <i class="fa fa-search" aria-hidden="true"></i></button>
-          </div>
         </div>
       </div>
     </div>
-
     <!-- spinner icon -->
     <div *ngIf="!itemData" class="m-auto">
       <h1 class="text-center display-3 mt-5">
@@ -39,7 +30,13 @@
       <hr>
       <!-- display items -->
       <div class="item list-group" *ngFor="let item of itemData.items">
-        <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+        <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+          <i *ngIf=" item.bin.name == 'Landfill'" class=" fas fa-trash-alt"></i>
+          <i *ngIf=" item.bin.name == 'Recycle'" class=" fas fa-recycle"></i>
+          <i *ngIf=" item.bin.name == 'Compost'" class=" fas fa-seedling"></i>
+
+          {{ item.title}}
+        </a>
       </div>
 
       <hr>

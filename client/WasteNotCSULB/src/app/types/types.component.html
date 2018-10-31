@@ -1,19 +1,36 @@
 <section id="types">
   <div class="container p-5">
     <app-message></app-message>
-    <h4 class="display-4">types</h4>
+
+    <!-- (begins) Type description -->
+    <h1 class="display-4 text-center p-2">Types</h1>
+      <p class="lead">
+        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+      </p>
     <hr>
+    <!-- (ends) Type description -->
+
+    <!-- (begin) loading spinner icon -->
     <div *ngIf="!types" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
+    <!-- (ends) loading spinner icon -->
+
+    <!-- (begins) list types -->
     <div *ngIf="types" class="list-group">
       <a *ngFor="let type of types" routerLink="/types/{{ type._id }}" class="list-group-item list-group-item-action">
       {{ type.name }}
       </a>
     </div>
+    <!-- (ends) list types -->
+
     <hr style="margin-top: 15rem;">
+  </div>
+</section>
+
+
    <!--
     <div class="card bg-light mt-5">
       <div class="card-body">
@@ -29,5 +46,6 @@
       </div>
     </div>  
   -->
-  </div>
-</section>
+
+
+
