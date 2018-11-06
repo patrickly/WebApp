@@ -1,37 +1,39 @@
 <section id="search">
   <div class="container p-3 p-md-5">
     <app-message></app-message>
+
+    <!-- spinner icon -->
     <div *ngIf="!content" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <h3 *ngIf="content && !content.nbHits" class="display-2 text-center mt-5">No Results</h3>
+    <!-- (end) spinner icon -->
+    
+    <!-- item is not found -->
+    <h3 *ngIf="content && !content.nbHits" class="display-2 text-center mt-5">No Results Found</h3>
+    <!-- (end) -->
+
+    <!-- results: item found -->
     <div *ngIf="content && content.nbHits">
+      
       <p>{{ lower }}-{{ upper }} of {{ content.nbHits }} results for
         <span class="text-primary">"{{ query }}"</span>
       </p>
+
       <hr>
-      <div class="item" *ngFor="let item of content.hits">
-        <div class="row">
-          <div class="col-5 col-md-2">
-            <a routerLink="/item/{{ item.objectID }}">
-              <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
-            </a>
-          </div>
-          <div class="col-5 col-md-8">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <h5>
-                  <a routerLink="/item/{{ item.objectID }}">{{ item.title }}</a>
-                </h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
+      
+      <!-- display items -->
+      <div class="item list-group" *ngFor="let item of content.hits">
+        <a routerLink="/item/{{ item.objectID }}" class="list-group-item list-group-item-action">
+          {{ item.title }}
+        </a>
       </div>
-      <ngb-pagination [collectionSize]="content.nbHits" [pageSize]="20" [(page)]="page" (pageChange)="getItems()"></ngb-pagination>
+      <!-- ends -->
+      <hr>
+
+      <!-- page size -->
+      <ngb-pagination [collectionSize]="content.nbHits" [pageSize]="25" [(page)]="page" (pageChange)="getItems()"></ngb-pagination>
     </div>
   </div>
 </section>

@@ -8,7 +8,7 @@
         <div [ngSwitch]="idx">
 
             <!-- (begins) Question #1  -->
-            <div *ngSwitchCase="0" class="item-title"> {{idx+1}}. {{items[0].title}}</div>
+            <div *ngSwitchCase="0" class="item-title text-center"> {{idx+1}}. {{items[0].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -34,7 +34,7 @@
             <!-- (ends) Question #1 -->
 
             <!-- Question #2 -->
-            <div *ngSwitchCase="1" class="item-title"> {{idx+1}}. {{items[1].title}}</div>
+            <div *ngSwitchCase="1" class="item-title text-center"> {{idx+1}}. {{items[1].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -60,7 +60,7 @@
             <!-- (ends) Question #2 -->
 
             <!-- (begins) Question #3 -->
-            <div *ngSwitchCase="2" class="item-title"> {{idx+1}}. {{items[2].title}}</div>
+            <div *ngSwitchCase="2" class="item-title text-center"> {{idx+1}}. {{items[2].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -86,7 +86,7 @@
             <!-- (ends) Question #3 -->
 
             <!-- (begins) Question #4 -->
-            <div *ngSwitchCase="3" class="item-title"> {{idx+1}}. {{items[3].title}}</div>
+            <div *ngSwitchCase="3" class="item-title text-center"> {{idx+1}}. {{items[3].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -112,7 +112,7 @@
             <!-- (ends) Question #4 -->
 
             <!-- (begins) Question #5 -->
-            <div *ngSwitchCase="4" class="item-title"> {{idx+1}}. {{items[4].title}}</div>
+            <div *ngSwitchCase="4" class="item-title text-center"> {{idx+1}}. {{items[4].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -141,7 +141,7 @@
             Question #6
             
             -->
-            <div *ngSwitchCase="5" class="item-title"> {{idx+1}}. {{items[5].title}}</div>
+            <div *ngSwitchCase="5" class="item-title text-center"> {{idx+1}}. {{items[5].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -168,7 +168,7 @@
             Question #7
             
             -->
-            <div *ngSwitchCase="6" class="item-title"> {{idx+1}}. {{items[6].title}}</div>
+            <div *ngSwitchCase="6" class="item-title text-center"> {{idx+1}}. {{items[6].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -195,7 +195,7 @@
             Question #8
             
             -->
-            <div *ngSwitchCase="7" class="item-title"> {{idx+1}}. {{items[7].title}}</div>
+            <div *ngSwitchCase="7" class="item-title text-center"> {{idx+1}}. {{items[7].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -222,7 +222,7 @@
             Question #9
             
             -->
-            <div *ngSwitchCase="8" class="item-title"> {{idx+1}}. {{items[8].title}}</div>
+            <div *ngSwitchCase="8" class="item-title text-center"> {{idx+1}}. {{items[8].title}}</div>
           
             <div class="container">
                 <div class="row">
@@ -249,7 +249,7 @@
             Question #10
             
             -->
-            <div *ngSwitchCase="9" class="item-title"> {{idx+1}}. {{items[9].title}}</div>
+            <div *ngSwitchCase="9" class="item-title text-center"> {{idx+1}}. {{items[9].title}}</div>
 
             <div class="container">
                 <div class="row">
@@ -309,7 +309,7 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto">
-                <div class="summaryClass " *ngIf="quizFinished ">
+                <div class="summaryClass " *ngIf="quizFinished">
                     <h4>Summary</h4>
                     <h4>Final Score: {{scorePercent | number : '1.2-2'}}%</h4>
                     <button class="btn" type="button" (click)="exitQuiz() ">Exit Quiz</button>
