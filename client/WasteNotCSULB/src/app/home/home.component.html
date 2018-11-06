@@ -1,36 +1,12 @@
-<div class="container text-center p-5">
-  <!--
-    <h1 class="display-4">Waste Not</h1>
-  -->
+<div class="container text-center pt-5">
   <img src="./assets/img/waste_not3.png" class="img-fluid">
   <p class="lead">
-    Want to learn where to dispose of something? Search for it here!
-  </p>
-  <!-- search bar -->
-  <div class="row pt-4">
-    <div class="col-sm-12">
-      <div class="input-group justify-content-center">
-        <div class="input-group-prepend">
-          <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
-        </div>
-        <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
-          placeholder="Search Items" ngDefaultControl>
-        <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-        <div class="input-group-append">
-          <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
-            ngDefaultControl>
-            <i class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container text-center">
-  <p class="lead">
+    Want to learn where to dispose of something? Search for it up there! <br>
     Or check out the main disposable categories below.
   </p>
 </div>
-<!-- mobile-friendly quick access navs-->
+
+<!-- home CRL mobile-friendly quick access navs-->
 <div class="container pl-4 pr-4 pb-4">
   <div class="row">
     <div class="col-12 col-sm-4">
@@ -59,6 +35,7 @@
     </div>
   </div>
 </div>
+<!-- (ends) home CRL mobile-friendly quick access navs-->
 
 <hr class="my-4">
 

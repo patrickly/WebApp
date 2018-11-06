@@ -1,3 +1,4 @@
+<!-- navbar -->
 <nav class="navbar navbar-light p-2">
     <a class="navbar-brand p-2" routerLink="/" (click)="collapse()">
         Waste Not
@@ -67,9 +68,38 @@
         </div>
     </div>            
 </nav>
+<!-- (ends) navbar -->
+
+<div class="container text-center pr-5 pl-5 pb-5">
+    <!-- search bar -->
+    <div class="row pt-4">
+        <div class="col-sm-12">
+            <div class="input-group justify-content-center">
+            <div class="input-group-prepend">
+                <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
+            </div>
+            <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
+                placeholder="Search Items" ngDefaultControl>
+            <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
+            <div class="input-group-append">
+                <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
+                ngDefaultControl>
+                <i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) search bar -->
+</div>
 
 <!-- routes the html of all the ..\app\.. -->
 <router-outlet> </router-outlet>
+
+<div class="container-fluid text-right">
+    <a (click)="jumpToTopPage()">
+        <button type="button" class="btn btn-dark fixed-bottom"><i class="fas fa-chevron-circle-up"></i></button>
+    </a>
+</div>
 
 <div class="ml-2" id="google_translate_element"></div>
 

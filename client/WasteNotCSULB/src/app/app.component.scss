@@ -20,3 +20,24 @@
   margin: .125rem 2.5rem .125rem 1rem;
 }
 
+.container {
+  background-color: whitesmoke;
+}
+
+.search {
+  min-width: 50%;
+  font-size: 20px;
+}
+
+input::placeholder {
+  font-size: 14px;
+  text-align: center;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0.5em;
+  bottom: 1em;
+  left: unset;
+  z-index: 1030;
+}
