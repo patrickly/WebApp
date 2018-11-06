@@ -10,7 +10,7 @@ const verifyAdmin = require('../middlewares/verifyAdmin');
 // waste not
 // status: good
 router.get('/items', (req, res, next) => {
-  const perPage = 25;
+  const perPage = 100;
   const page = req.query.page;
   async.parallel(
     [
@@ -53,7 +53,7 @@ router.get('/items', (req, res, next) => {
 // waste not
 // status: good
 router.get('/itemsRandom', (req, res, next) => {
-  const perPage = 25;
+  const perPage = 100;
   const page = req.query.page;
   async.parallel(
     [
@@ -179,7 +179,7 @@ router
 // Change to "Type"
 
 router.get('/bins/:id', (req, res, next) => {
-  const perPage = 25;
+  const perPage = 100;
   const page = req.query.page;
 
   async.parallel(
@@ -225,7 +225,7 @@ router.get('/bins/:id', (req, res, next) => {
 });
 
 router.get('/types/:id', (req, res, next) => {
-  const perPage = 25;
+  const perPage = 100;
   const page = req.query.page;
   async.parallel(
     [

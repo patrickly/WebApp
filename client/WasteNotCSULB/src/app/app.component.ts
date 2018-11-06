@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +14,7 @@ import { DataService } from './data.service';
 export class AppComponent {
   searchTerm = '';
   isCollapsed = true;
+  //name = new FormControl('');
 
   constructor(
     private router: Router,

@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { MatAutocompleteModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
@@ -63,7 +65,11 @@ import { TypesComponent } from './types/types.component';
     AppRoutingModule,
     NgbModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    //MatAutocompleteModule, 
+    //MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [RestApiService, DataService, AuthGuardService],
   bootstrap: [AppComponent]

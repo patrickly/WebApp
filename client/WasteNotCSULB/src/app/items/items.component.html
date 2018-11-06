@@ -31,7 +31,7 @@
       <hr>
       <!-- page count -->
       <p>{{ lower }}-{{ upper }} of {{ itemData.totalItems }} items</p>
-      <ngb-pagination [collectionSize]="itemData.totalItems" [pageSize]="25" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <ngb-pagination [collectionSize]="itemData.totalItems" [pageSize]="100" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
     </div>
     <!-- (ends) page count -->
 
