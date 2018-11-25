@@ -6,18 +6,21 @@
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" 
-        class="collapse navbar-collapse flex-column">
+    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column">
         <div class="w-100">
             <ul class="navbar-nav ml-3">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         Bins
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ace82a94561ae0ecf27a16a" routerLinkActive="active">Compost</a>
-                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d9d027d2834db315428" routerLinkActive="active">Recycle</a>
-                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d8e027d2834db315427" routerLinkActive="active">Landfill</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ace82a94561ae0ecf27a16a"
+                            routerLinkActive="active">Compost</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d9d027d2834db315428"
+                            routerLinkActive="active">Recycle</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d8e027d2834db315427"
+                            routerLinkActive="active">Landfill</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -66,7 +69,7 @@
                 -->
             </ul>
         </div>
-    </div>            
+    </div>
 </nav>
 <!-- (ends) navbar -->
 
@@ -75,17 +78,29 @@
     <div class="row pt-4">
         <div class="col-sm-12">
             <div class="input-group justify-content-center">
-            <div class="input-group-prepend">
-                <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5" alt="Algolia Logo"></a>
-            </div>
-            <input type="text" name="text" class="form-control" [(ngModel)]="searchTerm" (keyup.enter)="search()"
-                placeholder="Search Items" ngDefaultControl>
-            <!--  <input type="submit" name="submit" class="submit" (click)="search()">  -->
-            <div class="input-group-append">
-                <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm" (click)="search()"
-                ngDefaultControl>
-                <i class="fa fa-search" aria-hidden="true"></i></button>
-            </div>
+                <div class="input-group-prepend">
+                    <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5"
+                            alt="Algolia Logo"></a>
+                </div>
+                <input type="text" list="items" name="items" class="form-control" [(ngModel)]="selected" (keyup.enter)="search()"
+                    (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl>
+                <datalist id="items">
+
+
+                    <select>
+                        <option *ngFor=" let i of itemArray" [value]="i.title"></option>
+                    </select>
+
+
+
+                </datalist>
+                <!--  <input type="
+                            submit" name="submit" class="submit" (click)="search()"> -->
+                <div class="input-group-append">
+                    <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm"
+                        (click)="search()" ngDefaultControl>
+                        <i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -133,5 +148,4 @@
         </div>
     </div>
 </footer>
-
 

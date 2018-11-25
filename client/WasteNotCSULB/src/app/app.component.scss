@@ -50,3 +50,9 @@ footer div.grid-fluid {
   margin: 0 0 40px;
 }
 
+
+
+input::-webkit-calendar-picker-indicator {
+  display: none; 
+}
+
