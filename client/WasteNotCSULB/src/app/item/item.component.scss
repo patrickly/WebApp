@@ -1,0 +1,17 @@
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.5rem;
+}
+@media only screen and (min-width: 768px) {
+    .card{
+        max-width: 50%;
+        margin-left: 25%;
+    }
+    #title{
+        margin-left: 12.5%;
+        margin-right: 12.5%;
+    }
+}

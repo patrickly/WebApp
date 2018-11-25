@@ -10,19 +10,28 @@
       </h1>
     </div>
 
-    <div *ngIf="item">
-
-      <div class="row m-3">
-        <div class="col text-center ">
-          <img [src]="item.image" alt="itemImage" class="img-fluid rounded mw-75">
-        </div>
-      </div>
-
-      <div class="row text-center m-3"> 
-        <div class="col-12 mb-1 mt-1">
+    <div class="row" id="title">
+      <div class="col">
+        <div class="shadow bg-white text-center rounded pb-1 pt-3">
           <h4>{{ item.title }}</h4>
         </div>
-        <div class="col m-1">
+      </div>
+    </div>
+    
+    <div *ngIf="item">
+      <div class="row pt-4 text-center">
+        <div class="col-12 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <img [src]="item.image" alt="itemImage" class="img-fluid rounded mw-75">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="row text-center">
+        <div class="col-6 col-md-3 ml-md-auto pt-3">
           <div [ngSwitch]="binType">
               <div *ngSwitchCase="1">
                 <img src="./assets/img/wastenot_compost.png" height="100" width="120">
@@ -35,9 +44,21 @@
               </div>  
           </div>
         </div>
-
+        <div class="col-6 col-md-3 mr-md-auto pt-3">
+          <div [ngSwitch]="binType">
+              <div *ngSwitchCase="1">
+                <img src="./assets/img/wastenot_compost.png" height="100" width="120">
+              </div>
+              <div  *ngSwitchCase="2">
+                <img src="./assets/img/wastenot_recycle.png" height="100" width="120">
+              </div>
+              <div *ngSwitchCase="3">
+                <img src="./assets/img/wastenot_landfill.png" height="100" width="120">
+              </div>  
+          </div>
+        </div>
       </div>
-      
+
       <hr>
 
       <div class="row mt-2 mb-3">
@@ -58,5 +79,5 @@
       </div>
   
     </div>
-  </div>
+  
 </section>

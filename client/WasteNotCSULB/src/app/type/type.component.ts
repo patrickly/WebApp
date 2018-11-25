@@ -49,6 +49,7 @@ export class TypeComponent implements OnInit {
       data['success']
         ? (this.type = data)
         : this.data.error(data['message']);
+        console.log(this.type);
     } catch (error) {
       this.data.error(error['message']);
     }

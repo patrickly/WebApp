@@ -1,40 +1,42 @@
 <section id="type">
   <div class="container p-3 p-md-5">
     <app-message></app-message>
+
+    <!-- spinner -->
     <div *ngIf="!type" class="m-auto">
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
+    <!-- (ends) spinner -->
+
+    <!-- if type list is empty -->
     <h3 *ngIf="type && !type.items.length" class="display-2 text-center mt-5">No Items inside type</h3>
+    <!-- (ends) if type list is empty -->
+    
     <div *ngIf="type && type.items.length">
-      <p>{{ lower }}-{{ upper }} of {{ type.totalItems }} items in {{ type.typeName }}</p>
+      <h1 class="display-4 text-center p-2">{{ type.binName }}</h1>
+      <p class="lead">
+        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+      </p>
+
       <hr>
-      <div class="item" *ngFor="let item of type.items">
-        <div class="row">
-          <div class="col-5 col-md-2">
-            <a routerLink="/item/{{ item._id }}">
-              <img [src]="item.image" alt="itemImage" class="img-fluid img-thumbnail">
-            </a>
-          </div>
-          <div class="col-5 col-md-8">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <h5>
-                  <a routerLink="/item/{{ item._id }}">{{ item.title }}</a>
-                </h5>
-                <p>
-                  <small class="text-muted">{{ item.type.id }}</small>
-                </p>
-              </div>
-              <div class="col-md-6">
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
+      <!-- display items -->
+      <div class="item list-group" *ngFor="let item of type.items">
+        <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+          <i *ngIf="item.bin == '5ae79d8e027d2834db315427'" class="fas fa-trash-alt pr-2"></i>
+          <i *ngIf="item.bin == '5ae79d9d027d2834db315428'" class="fas fa-recycle pr-2"></i>
+          <i *ngIf="item.bin == '5ace82a94561ae0ecf27a16a'" class="fas fa-seedling pr-2"></i>
+          {{ item.title }}
+        </a>
       </div>
+      <!-- (ends) display items -->
+      <hr>
+      
+      <!-- page count -->
+      <p>{{ lower }}-{{ upper }} of {{ type.totalItems }} items in {{ type.binName }}</p>
       <ngb-pagination [collectionSize]="type.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
     </div>
+    <!-- (ends) page count -->
   </div>
 </section>

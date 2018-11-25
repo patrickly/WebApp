@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { MapComponent } from './map/map.component';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { NewsComponent } from './news/news.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
   },
   {
     path: 'summary',
