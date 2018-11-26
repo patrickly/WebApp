@@ -19,7 +19,7 @@ export class ItemComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private data: DataService,
+    public data: DataService,
     private rest: RestApiService,
     private router: Router
   ) { }
