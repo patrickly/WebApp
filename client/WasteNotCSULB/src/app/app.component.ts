@@ -116,7 +116,7 @@ export class AppComponent {
     }
     try {
       const data = await this.rest.get(
-        BACKEND_URL + `/items/?page=${this
+        BACKEND_URL + `/itemsAll/?page=${this
           .page - 1}` ,
         //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );
