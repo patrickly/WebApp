@@ -9,7 +9,7 @@ const config = require('./config'); // requirement to establish connection with 
 
 const app = express(); // for connecting all the dependencies
 
- // connecting to mongoose db
+// connecting to mongoose db
 mongoose.connect(config.database, err => {
   if (err) {
     console.log(err);
@@ -26,13 +26,13 @@ app.use(cors());
 const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/account');
 const adminRoutes = require('./routes/admin');
-const itemSearchRoutes = require('./routes/item-search');
+//const itemSearchRoutes = require('./routes/item-search');
 
 
 app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/search', itemSearchRoutes);
+//app.use('/api/search', itemSearchRoutes);
 
 
 

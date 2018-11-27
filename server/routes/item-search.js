@@ -1,3 +1,4 @@
+/*
 const router = require('express').Router();
 
 const algoliasearch = require('algoliasearch');
@@ -25,3 +26,4 @@ router.get('/', (req, res, next) => {
 });
 
 module.exports = router;
+*/

@@ -78,9 +78,11 @@
     <div class="row pt-4">
         <div class="col-sm-12">
             <div class="input-group justify-content-center">
-                <div class="input-group-prepend">
-                    <a href="https://www.algolia.com/"><img src="./assets/img/algolia_logo.png" height="37.5" width="37.5"
-                            alt="Algolia Logo"></a>
+
+                <div class="input-group-append">
+                    <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm"
+                        (click)="search()" ngDefaultControl>
+                        <i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
                 <input type="text" list="items" name="items" class="form-control" [(ngModel)]="selected" (keyup.enter)="search()"
                     (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl>
