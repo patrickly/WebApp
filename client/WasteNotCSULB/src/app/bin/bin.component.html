@@ -7,13 +7,7 @@
       <div *ngSwitchCase="1">
         <h1 class="display-4 text-center p-2">Compost</h1>
         <p class="lead">
-          Unfortunately, there are currently no local facilities available that can properly process our compostable
-          materials (food waste combined with soiled paper). The University is commited to finding a solution for
-          diverting compostable materials from landfill! For now, we are composting "behind the scenes". Compost bins
-          will be strategically placed in food prep and other back-of-the-house areas on campus, but we are looking to
-          expand the composting program in the near future. Until we do, we ask that you: 1.) Do all you can to
-          minimize the waste you produce, and 2.) Discard food scraps and soiled paper (i.e. napkins, places, cups) in
-          the Landfill/Trash bin.
+          All food waste and wet/soiled paper goes in the compost bin.
         </p>
 
 
@@ -46,7 +40,7 @@
 
     <!-- display item list -->
     <!-- if there list is empty -->
-    <h3 *ngIf="bin && !bin.items.length" class="display-4 text-center mt-5">Database is empty</h3>
+    <h3 *ngIf="bin && !bin.items.length" class="display-4 text-center mt-5">List is empty</h3>
 
     <!-- if list is not empty -->
     <div *ngIf="bin && bin.items.length">
