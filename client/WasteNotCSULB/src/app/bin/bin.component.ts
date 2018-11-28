@@ -32,11 +32,11 @@ export class BinComponent implements OnInit {
   }
 
   get lower() {
-    return 25 * (this.page - 1) + 1;
+    return 100 * (this.page - 1) + 1;
   }
 
   get upper() {
-    return Math.min(25 * this.page, this.bin.totalItems);
+    return Math.min(100 * this.page, this.bin.totalItems);
   }
 
   async getItems(event?: any) {

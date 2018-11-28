@@ -76,7 +76,7 @@
       <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
 
       <!-- display page numbers -->
-      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="25" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="100" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
     </div>
     <!-- display item list -->
 
