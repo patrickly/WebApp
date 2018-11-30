@@ -23,7 +23,7 @@
   margin: .125rem 2.5rem .125rem 1rem;
 }
 
-.container {
+.container-fluid {
   background-color: rgb(200, 216, 180);
 }
 
@@ -57,8 +57,6 @@ footer a {
     color: white;
   }
 }
-
-
 
 input::-webkit-calendar-picker-indicator {
   display: none; 

@@ -13,7 +13,7 @@
     <!-- if type list is empty -->
     <h3 *ngIf="type && !type.items.length" class="display-2 text-center mt-5">No Items inside type</h3>
     <!-- (ends) if type list is empty -->
-    
+
     <div *ngIf="type && type.items.length">
       <h1 class="display-4 text-center p-2">{{ type.binName }}</h1>
       <p class="lead">
@@ -32,10 +32,10 @@
       </div>
       <!-- (ends) display items -->
       <hr>
-      
+
       <!-- page count -->
       <p>{{ lower }}-{{ upper }} of {{ type.totalItems }} items in {{ type.binName }}</p>
-      <ngb-pagination [collectionSize]="type.totalItems" [pageSize]="10" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <ngb-pagination [collectionSize]="type.totalItems" [pageSize]="100" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
     </div>
     <!-- (ends) page count -->
   </div>

@@ -73,10 +73,10 @@
 </nav>
 <!-- (ends) navbar -->
 
-<div class="container text-center pr-3 pl-3 pb-3" style="box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);">
+<div class="container-fluid text-center pr-3 pl-3 pb-3" style="box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);">
     <!-- SEARCH BAR -->
     <div class="row pt-4">
-        <div class="col-sm-12">
+        <div class="col-12 col-md-6 offset-md-3">
             <div class="input-group justify-content-center">
 
                 <div class="input-group-append">
@@ -86,16 +86,13 @@
                 </div>
                 <input type="text" list="items" name="items" class="form-control" [(ngModel)]="selected" (keyup.enter)="search()"
                     (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl>
+                <!-- auto-search completion -->
                 <datalist id="items">
-
-
                     <select>
-                        <option *ngFor=" let i of itemArray" [value]="i.title"></option>
+                        <option *ngFor="let i of itemArray" [value]="i.title"></option>
                     </select>
-
-
-
                 </datalist>
+                <!-- (ends) auto-search completion -->
                 <!--  <input type="
                             submit" name="submit" class="submit" (click)="search()"> -->
                 <div class="input-group-append">
@@ -122,11 +119,13 @@
 </p>
 -->
 
+<!-- jump to top button -->
 <div class="container-fluid text-right">
     <a (click)="jumpToTopPage()">
         <button type="button" class="btn btn-dark fixed-bottom"><i class="fas fa-chevron-circle-up"></i></button>
     </a>
 </div>
+<!-- (ends) jump to top button -->
 
 <!-- Footer -->
 <footer class="page-footer">
