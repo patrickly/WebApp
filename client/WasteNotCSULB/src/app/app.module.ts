@@ -60,7 +60,7 @@ import { MapComponent } from './map/map.component';
     EditItemComponent,
     TypeComponent,
     TypesComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +71,9 @@ import { MapComponent } from './map/map.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+
   ],
   providers: [RestApiService, DataService, AuthGuardService],
   bootstrap: [AppComponent]

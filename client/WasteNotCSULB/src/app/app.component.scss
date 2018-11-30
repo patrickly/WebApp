@@ -1,9 +1,12 @@
 .nav-item a {
   color: black;
 }
-
 .nav-item a:hover{
-  color: rgb(255, 255, 255);
+  color: white;
+}
+
+.nav-item .dropdown-menu a:hover{
+  background-color: lightgray;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -42,11 +45,17 @@ input::placeholder {
   z-index: 1030;
 }
 
-footer div.grid-fluid {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  margin: 0 0 40px;
+footer ul li {
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+footer a {
+  color: black;
+
+  a:hover {
+    color: white;
+  }
 }
 
 input::-webkit-calendar-picker-indicator {

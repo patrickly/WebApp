@@ -7,21 +7,24 @@
       <div *ngSwitchCase="1">
         <h1 class="display-4 text-center p-2">Compost</h1>
         <p class="lead">
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+          All food waste and wet/soiled paper goes in the compost bin.
         </p>
+
+
       </div>
-      
+
       <div *ngSwitchCase="2">
         <h1 class="display-4 text-center p-2">Recycle</h1>
         <p class="lead">
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+          Glass, plastics (#1 - 7), metal, cardboard, and most clean paper all go into the mixed recycling bins. If
+          paper does not have food waste or liquids on it, it is recycleable.
         </p>
       </div>
 
       <div *ngSwitchCase="3">
         <h1 class="display-4 text-center p-2">Landfill</h1>
         <p class="lead">
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+          This bin is for materials that cannot be recycled.
         </p>
       </div>
     </div>
@@ -36,39 +39,39 @@
     <!-- spinner -->
 
     <!-- display item list -->
-      <!-- if there list is empty -->
-      <h3 *ngIf="bin && !bin.items.length" class="display-2 text-center mt-5">No Items inside bin</h3>
-    
-      <!-- if list is not empty -->
-      <div *ngIf="bin && bin.items.length">
-        <hr>
+    <!-- if there list is empty -->
+    <h3 *ngIf="bin && !bin.items.length" class="display-4 text-center mt-5">List is empty</h3>
 
-        <!-- display items -->
-        <div class="item list-group" *ngFor="let item of bin.items">
-          <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
-            
-            <span [ngSwitch]="binType" class="pr-2">
-              <span *ngSwitchCase="1">
-                <i class="fas fa-seedling"></i>
-              </span>
-              <span *ngSwitchCase="2">
-                <i class="fas fa-recycle"></i>
-              </span>
-              <span *ngSwitchCase="3">
-                <i class="far fa-trash-alt"></i>
-              </span>
+    <!-- if list is not empty -->
+    <div *ngIf="bin && bin.items.length">
+      <hr>
+
+      <!-- display items -->
+      <div class="item list-group" *ngFor="let item of bin.items">
+        <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+
+          <span [ngSwitch]="binType" class="pr-2">
+            <span *ngSwitchCase="1">
+              <i class="fas fa-seedling"></i>
             </span>
+            <span *ngSwitchCase="2">
+              <i class="fas fa-recycle"></i>
+            </span>
+            <span *ngSwitchCase="3">
+              <i class="far fa-trash-alt"></i>
+            </span>
+          </span>
 
-            {{ item.title }}</a>
-        </div>
-
-        <hr>
-        <!-- page numbers -->
-        <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
-
-        <!-- display page numbers -->
-        <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="25" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+          {{ item.title }}</a>
       </div>
+
+      <hr>
+      <!-- page numbers -->
+      <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
+
+      <!-- display page numbers -->
+      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="100" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+    </div>
     <!-- display item list -->
 
   </div>

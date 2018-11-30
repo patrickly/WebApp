@@ -30,7 +30,7 @@ export class TypeComponent implements OnInit {
   }
 
   get lower() {
-    return 10 * (this.page - 1) + 1;
+    return 100 * (this.page - 1) + 1;
   }
 
   get upper() {
@@ -49,7 +49,7 @@ export class TypeComponent implements OnInit {
       data['success']
         ? (this.type = data)
         : this.data.error(data['message']);
-        console.log(this.type);
+      console.log(this.type);
     } catch (error) {
       this.data.error(error['message']);
     }

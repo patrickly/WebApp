@@ -19,13 +19,14 @@ const BACKEND_URL = environment.api;
 })
 export class AppComponent {
 
+  itemIndex: any;
   itemData: any;
   itemArray: any[];
   totalItems: any;
   page = 1;
 
   selected: string = "";
-
+  directSelect: any = false;
 
   searchTerm = '';
   isCollapsed = true;
@@ -64,7 +65,11 @@ export class AppComponent {
   search() {
     if (this.searchTerm) {
       this.collapse();
-      this.router.navigate(['search', { query: this.searchTerm }]);
+      //this.router.navigate(['search', { query: this.searchTerm }]);
+
+      //
+
+
     }
     this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
   }
@@ -76,14 +81,29 @@ export class AppComponent {
   selectItemName(name) {
     // console.log(name);
     // console.log("this selected: " + this.selected);
+    this.itemIndex = 0;
+    for (var i = 0; i < this.itemArray.length; i++) {
+      if (this.itemArray[i].title === name) {
+        this.itemIndex = i;
+
+
+        this.directSelect = true;
+
+      }
+    }
+
 
 
     if (name) {
       this.collapse();
-      this.router.navigate(['search', { query: name }]);
+      if (this.directSelect) {
+        this.router.navigate(['/item/' + this.itemArray[this.itemIndex]._id]);
+      } else {
+        this.router.navigate(['search', { query: name }]);
+      }
     }
     this.selected = null; // 
-
+    this.directSelect = false;
   }
 
   onChange(deviceValue) {
@@ -96,7 +116,7 @@ export class AppComponent {
     }
     try {
       const data = await this.rest.get(
-        BACKEND_URL + `/items/?page=${this
+        BACKEND_URL + `/itemsAll/?page=${this
           .page - 1}` ,
         //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );

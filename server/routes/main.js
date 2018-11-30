@@ -50,10 +50,53 @@ router.get('/items', (req, res, next) => {
   );
 });
 
+
+router.get('/itemsAll', (req, res, next) => {
+  const perPage = 100000;
+  const page = req.query.page;
+  async.parallel(
+    [
+      function (callback) {
+        Item.count({}, (err, count) => {
+          var totalItems = count;
+          callback(err, totalItems);
+        });
+      },
+      function (callback) {
+        Item.find({})
+          .collation({ locale: 'en', strength: 2 })
+          .sort({ title: 1 })
+          .skip(perPage * page)
+          .limit(perPage)
+          .populate('bin')
+          .populate('type')
+          .exec((err, items) => {
+            if (err) return next(err);
+            callback(err, items);
+          });
+      }
+    ],
+    function (err, results) {
+      var totalItems = results[0];
+      var items = results[1];
+
+      res.json({
+        success: true,
+        message: 'bin',
+        //message: 'type',
+        items: items,
+        totalItems: totalItems,
+        pages: Math.ceil(totalItems / perPage)
+      });
+    }
+  );
+});
+
+
 // waste not
 // status: good
 router.get('/itemsRandom', (req, res, next) => {
-  const perPage = 100;
+  const perPage = 100000;
   const page = req.query.page;
   async.parallel(
     [

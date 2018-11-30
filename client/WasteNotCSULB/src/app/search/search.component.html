@@ -9,34 +9,24 @@
       </h1>
     </div>
     <!-- (end) spinner icon -->
-    
-    <!-- item is not found -->
-    <h3 *ngIf="content && !content.nbHits" class="display-2 text-center mt-5">No Results Found</h3>
-    <!-- (end) -->
+
+
 
     <!-- results: item found -->
-    <div *ngIf="content && content.nbHits">
-      
-      <p>{{ lower }}-{{ upper }} of {{ content.nbHits }} results for
+    <div *ngIf="content">
+      <p> Results for
         <span class="text-primary">"{{ query }}"</span>
       </p>
-
-      <hr>
-      
-      <!-- display items -->
-      <div class="item list-group" *ngFor="let item of content.hits">
-        <a routerLink="/item/{{ item.objectID }}" class="list-group-item list-group-item-action">
-          {{ item.title }}
-        </a>
-      </div>
-      <!-- ends -->
-      <hr>
-
-      <!-- page size -->
-      <ngb-pagination [collectionSize]="content.nbHits" [pageSize]="25" [(page)]="page" (pageChange)="getItems()"></ngb-pagination>
     </div>
+    <div class="item list-group" *ngFor="let item of content">
+      <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+        {{ item.title }}
+      </a>
+    </div>
+
   </div>
 </section>
+
 
 <ng-template #t let-fill="fill">
   <span *ngIf="fill === 100" class="star full">&#9733;</span>
