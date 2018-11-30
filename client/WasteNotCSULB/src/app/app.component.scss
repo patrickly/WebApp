@@ -20,7 +20,7 @@
   margin: .125rem 2.5rem .125rem 1rem;
 }
 
-.container {
+.container-fluid {
   background-color: rgb(200, 216, 180);
 }
 
@@ -42,15 +42,12 @@ input::placeholder {
   z-index: 1030;
 }
 
-
 footer div.grid-fluid {
   display: flex;
   justify-content: center;
   text-align: left;
   margin: 0 0 40px;
 }
-
-
 
 input::-webkit-calendar-picker-indicator {
   display: none; 
