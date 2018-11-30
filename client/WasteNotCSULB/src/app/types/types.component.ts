@@ -50,4 +50,7 @@ export class TypesComponent implements OnInit {
     this.btnDisabled = false;
   }
 
+  goBack() {
+    window.history.back();
+  }
 }

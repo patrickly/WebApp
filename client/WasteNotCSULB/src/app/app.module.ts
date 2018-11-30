@@ -12,9 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { NewsComponent } from './news/news.component';
 import { ItemsComponent } from './items/items.component';
-import { BinsComponent } from './bins/bins.component';
 import { RestApiService } from './rest-api.service';
 import { DataService } from './data.service';
 import { MessageComponent } from './message/message.component';
@@ -41,9 +39,7 @@ import { MapComponent } from './map/map.component';
     AppComponent,
     HomeComponent,
     QuizComponent,
-    NewsComponent,
     ItemsComponent,
-    BinsComponent,
     MessageComponent,
     RegistrationComponent,
     LoginComponent,

@@ -132,4 +132,8 @@ export class QuizComponent implements OnInit {
   update(): void {
     this.ngOnInit();
   }
+  
+  goBack() {
+    window.history.back();
+  }
 }

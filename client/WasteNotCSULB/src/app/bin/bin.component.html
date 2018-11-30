@@ -2,33 +2,37 @@
   <div class="container p-3 p-md-5">
     <app-message></app-message>
 
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()">
+        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
+
     <!-- bin description -->
     <div [ngSwitch]="binType">
       <div *ngSwitchCase="1">
-        <h1 class="display-4 text-center p-2">Compost</h1>
-        <p class="lead">
+        <h1 class="display-4 text-center">Compost</h1>
+        <p class="lead text-center">
           All food waste and wet/soiled paper goes in the compost bin.
         </p>
-
-
       </div>
 
       <div *ngSwitchCase="2">
-        <h1 class="display-4 text-center p-2">Recycle</h1>
-        <p class="lead">
+        <h1 class="display-4 text-center">Recycle</h1>
+        <p class="lead text-center">
           Glass, plastics (#1 - 7), metal, cardboard, and most clean paper all go into the mixed recycling bins. If
           paper does not have food waste or liquids on it, it is recycleable.
         </p>
       </div>
 
       <div *ngSwitchCase="3">
-        <h1 class="display-4 text-center p-2">Landfill</h1>
-        <p class="lead">
+        <h1 class="display-4 text-center">Landfill</h1>
+        <p class="lead text-center">
           This bin is for materials that cannot be recycled.
         </p>
       </div>
     </div>
-    <!-- bin description -->
+    <!-- (ends) bin description -->
 
     <!-- loading spinner icon -->
     <div *ngIf="!bin" class="m-auto">
@@ -36,8 +40,8 @@
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
     </div>
-    <!-- spinner -->
-
+    <!-- (ends) loading spinner icon -->
+    
     <!-- display item list -->
     <!-- if there list is empty -->
     <h3 *ngIf="bin && !bin.items.length" class="display-4 text-center mt-5">List is empty</h3>
@@ -61,7 +65,6 @@
               <i class="far fa-trash-alt"></i>
             </span>
           </span>
-
           {{ item.title }}</a>
       </div>
 

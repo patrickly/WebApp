@@ -1,6 +1,12 @@
 <section id="type">
   <div class="container p-3 p-md-5">
     <app-message></app-message>
+    
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()">
+        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
 
     <!-- spinner -->
     <div *ngIf="!type" class="m-auto">
@@ -16,9 +22,6 @@
 
     <div *ngIf="type && type.items.length">
       <h1 class="display-4 text-center p-2">{{ type.binName }}</h1>
-      <p class="lead">
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
-      </p>
 
       <hr>
       <!-- display items -->

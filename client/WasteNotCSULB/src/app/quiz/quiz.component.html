@@ -1,5 +1,13 @@
 <div id="quiz-wrap">
     <div *ngIf="items">
+        <div class="container pt-3 pl-4">
+        <!-- back button -->
+        <button type="button" class="btn btn-light" (click)="goBack()">
+            <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+        </button>
+        <!-- (ends) back button -->
+        </div>
+
         <div class="container-fluid text-center pt-4 pb-3">
             <i> Test your knowledge of proper disposal with 10 questions! </i>
         </div>

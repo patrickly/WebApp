@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,HostListener,ElementRef,Directive } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './data.service';
 
@@ -36,13 +36,35 @@ export class AppComponent {
     private router: Router,
     private data: DataService,
     private activatedRoute: ActivatedRoute,
-    private rest: RestApiService
+    private rest: RestApiService,
+    private eleRef:ElementRef
   ) {
     this.data.getProfile();
     this.activatedRoute.params.subscribe(res => {
       this.getItems();
     });
   }
+
+  onActivate(event){
+    window.scrollTo(0, 0);
+  }
+
+   // TODO
+  disableBtn:boolean=true;
+  top:number;
+  offSetHeight:number;
+  scrollHeight:number;
+
+  
+  @HostListener('scroll') onScrollEvent(event:Event){
+      if(window.screenTop === 0){
+        this.disableBtn=true;
+      }
+      if(this.top>this.scrollHeight-this.offSetHeight-1){
+        this.disableBtn=false;
+      }
+  }
+   // (ends) TODO
 
   get token() {
     return localStorage.getItem('token');
@@ -72,10 +94,6 @@ export class AppComponent {
 
     }
     this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
-  }
-
-  jumpToTopPage() {
-    window.scrollTo(0, 0);
   }
 
   selectItemName(name) {

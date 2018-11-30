@@ -34,7 +34,7 @@ export class ItemComponent implements OnInit {
             ? (this.item = data['item'])
             : this.router.navigate(['/']);
           if (data['success']) {
-            console.log( data);
+            console.log(data);
             if (this.item.bin.name === 'Compost') {
               this.binType = 1;
             } else if (this.item.bin.name === 'Recycle') {
@@ -82,5 +82,9 @@ export class ItemComponent implements OnInit {
     //console.log('http://localhost:3030/api/item/edit' + this.item._id);
 
     this.router.navigate(['/item/edit/' + this.item._id]);
+  }
+
+  goBack() {
+    window.history.back();
   }
 } // class

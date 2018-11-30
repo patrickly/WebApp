@@ -62,4 +62,7 @@ export class ItemsComponent implements OnInit {
     this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
   }
 
+  goBack() {
+    window.history.back();
+  }
 } // class

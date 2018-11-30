@@ -1,9 +1,9 @@
 <!-- navbar -->
 <nav class="navbar navbar-light p-2">
     <a class="navbar-brand p-2" routerLink="/" (click)="collapse()">
-        Waste Not
+        <i class="fas fa-home pr-2"></i> <img src="./assets/img/waste_not3.png" style="height: 35px" alt="Waste Not logo">
     </a>
-    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" aria-label="navigation bar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column">
@@ -37,12 +37,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" (click)="collapse()" routerLink="/map" routerLinkActive="active">Map</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="collapse()" routerLink="#" routerLinkActive="active">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="collapse()" routerLink="/about" routerLinkActive="active">About</a>
                 </li>
                 <!-- ADMIN ACCOUNT
                     <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
@@ -78,14 +72,8 @@
     <div class="row pt-4">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="input-group justify-content-center">
-
-                <div class="input-group-append">
-                    <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm"
-                        (click)="search()" ngDefaultControl>
-                        <i class="fa fa-search" aria-hidden="true"></i></button>
-                </div>
                 <input type="text" list="items" name="items" class="form-control" [(ngModel)]="selected" (keyup.enter)="search()"
-                    (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl>
+                    (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl aria-label="search an item inside the database">
                 <!-- auto-search completion -->
                 <datalist id="items">
                     <select>
@@ -97,7 +85,7 @@
                             submit" name="submit" class="submit" (click)="search()"> -->
                 <div class="input-group-append">
                     <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm"
-                        (click)="search()" ngDefaultControl>
+                        (click)="search()" ngDefaultControl aria-label="search bar">
                         <i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </div>
@@ -119,33 +107,33 @@
 </p>
 -->
 
-<!-- jump to top button -->
+
+<!-- TODO jump to top button
 <div class="container-fluid text-right">
-    <a (click)="jumpToTopPage()">
-        <button type="button" class="btn btn-dark fixed-bottom"><i class="fas fa-chevron-circle-up"></i></button>
-    </a>
+    <button type="button" [disabled]="disableBtn" class="btn btn-dark fixed-bottom" (activate)="onActivate($event)" aria-label="move to the top page"><i class="fas fa-chevron-circle-up"></i></button>
 </div>
+ -->
 <!-- (ends) jump to top button -->
 
 <!-- Footer -->
 <footer class="page-footer">
 
     <!-- Footer Elements -->
-    <div class="container p-3">
+    <div class="container-fluid pt-3 pb-2">
 
       <!-- Social buttons -->
       <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item">
-            <a class="link" routerLink="/about" routerLinkActive="active" title="About">about</a>
+            <a class="link pr-2" (click)="jumpToTopPage()" routerLink="/about" routerLinkActive="active" title="About the web app">About</a>
         </li>
         <li class="list-inline-item">
-            <a class="link" href="http://www.csulb.edu/" target="_blank" title="CSULB website">csulb</a>
+            <a class="link pr-2" href="http://www.csulb.edu/" target="_blank" title="CSULB web link">CSULB</a>
         </li>
         <li class="list-inline-item">
-            <a class="link" href="http://www.csulb.edu/sustainability" target="_blank" title="Sustainability website">sustainbility</a>
+            <a class="link pr-2" href="http://www.csulb.edu/sustainability" target="_blank" title="CSULB's sustainability web link">Sustainbility</a>
         </li>
         <li class="list-inline-item">
-            <div class="ml-2" id="google_translate_element"></div>
+            <div id="google_translate_element"></div>
         </li>
       </ul>
       <!-- Social buttons -->
@@ -154,3 +142,5 @@
     <!-- Footer Elements -->
   </footer>
   <!-- Footer -->
+
+  

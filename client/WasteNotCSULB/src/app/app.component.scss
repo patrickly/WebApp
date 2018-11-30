@@ -45,18 +45,14 @@ input::placeholder {
   z-index: 1030;
 }
 
-footer ul li {
-  font-family: 'Montserrat', sans-serif;
-  
-}
-
 footer a {
   color: black;
-
-  a:hover {
-    color: white;
-  }
 }
+
+footer a:hover {
+  color: white;
+}
+
 
 input::-webkit-calendar-picker-indicator {
   display: none; 

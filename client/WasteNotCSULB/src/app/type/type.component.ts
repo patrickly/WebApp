@@ -54,4 +54,8 @@ export class TypeComponent implements OnInit {
       this.data.error(error['message']);
     }
   }
+  
+  goBack() {
+    window.history.back();
+  }
 }

@@ -4,10 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { MapComponent } from './map/map.component';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { NewsComponent } from './news/news.component';
 import { ItemComponent } from './item/item.component';
 import { ItemsComponent } from './items/items.component';
-import { BinsComponent } from './bins/bins.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -70,10 +68,6 @@ const routes: Routes = [
     component: SummaryComponent
   },
   {
-    path: 'news',
-    component: NewsComponent
-  },
-  {
     path: 'items',
     component: ItemsComponent
   },
@@ -84,10 +78,6 @@ const routes: Routes = [
   {
     path: 'item/edit/:id',
     component: EditItemComponent
-  },
-  {
-    path: 'bins',
-    component: BinsComponent
   },
   {
     path: 'bins/:id',
