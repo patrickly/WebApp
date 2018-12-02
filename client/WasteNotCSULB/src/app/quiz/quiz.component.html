@@ -2,7 +2,7 @@
     <div *ngIf="items">
         <div class="container pt-3 pl-4">
         <!-- back button -->
-        <button type="button" class="btn btn-light" (click)="goBack()">
+        <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
             <i class="fas fa-long-arrow-alt-left fa-2x"></i>
         </button>
         <!-- (ends) back button -->
@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="mx-auto" id="quizimage">
                         <div *ngSwitchCase="0">
-                            <img class="rounded image-obj" [src]="items[idx].image">
+                            <img class="rounded image-obj" [src]="items[idx].image" [alt]="items[idx].title">
                         </div>
                     </div>
                 </div>

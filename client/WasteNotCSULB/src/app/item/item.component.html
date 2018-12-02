@@ -10,7 +10,7 @@
       </h1>
     </div>
 
-    <button type="button" class="btn btn-light" (click)="goBack()">
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
       <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
 
@@ -27,7 +27,7 @@
         <div class="col-12 col-sm-12">
           <div class="card">
             <div class="card-body">
-              <img [src]="item.image" alt="itemImage" class="img-fluid rounded mw-75">
+              <img [src]="item.image" alt="{{ item.title }}" class="img-fluid rounded mw-75">
             </div>
           </div>
         </div>
@@ -38,18 +38,18 @@
         <div class="col-6 col-md-3 ml-md-auto pt-3">
           <div [ngSwitch]="binType">
               <div *ngSwitchCase="1">
-                <img src="./assets/img/wastenot_compost.png" height="100" width="120">
+                <img src="./assets/img/wastenot_compost.png" height="100" width="120" alt="Compost bin">
               </div>
               <div  *ngSwitchCase="2">
-                <img src="./assets/img/wastenot_recycle.png" height="100" width="120">
+                <img src="./assets/img/wastenot_recycle.png" height="100" width="120" alt="Recycle bin">
               </div>
               <div *ngSwitchCase="3">
-                <img src="./assets/img/wastenot_landfill.png" height="100" width="120">
+                <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
               </div>  
           </div>
         </div>
         <div class="col-6 col-md-3 mr-md-auto pt-3">
-            <h5 class="pt-4">Type: {{item.type.name}}</h5>
+            <h5 class="pt-4">Type: {{ item.type.name }}</h5>
         </div>
       </div>
 
