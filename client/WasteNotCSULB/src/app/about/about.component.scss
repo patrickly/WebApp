@@ -1,56 +1,7 @@
-html, body{
-    margin:0px;
-    padding:0px;
+.lead {
+	font-size: 14px;
 }
-.p, .li {
-	
-}
-.starter-template {
-    text-align: center;
-  }
-#top-banner {
-	padding: 1em 1em;
-}
-#banner-items {
-	display: inline-block;
-}
-#banner-items-logo {
-	width: 50%;
-	height: 50%;
-}
-#item-logo {
-	display: inline-block;
-}
-.item-wrap {
-	text-align: left;
-	padding: 1em 1em;
-}
-#second-wrap {
-	background-color: rgb(168, 202, 141);
-}
-#third-wrap {
-	background-color: rgb(99, 168, 103);
-}
-#features {
-	background-color: rgb(142, 202, 224);
-}
-#comp-and-dep {
-	background-color: rgb(95, 153, 177);
-}
-#documentation {
-	background-color: rgb(64, 116, 138);
-	text-align: left;
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-left: 1em;
-	padding-bottom: 1em;
-}
-#support {
-	background-color: rgb(155, 155, 155);
-	text-align: left;
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-left: 1em;
-	padding-bottom: 1em;
 
+dt {
+	font-size: 16px;
 }

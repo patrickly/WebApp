@@ -45,26 +45,9 @@ export class AppComponent {
     });
   }
 
-  onActivate(event){
+  jumpToTopPage(){
     window.scrollTo(0, 0);
   }
-
-   // TODO
-  disableBtn:boolean=true;
-  top:number;
-  offSetHeight:number;
-  scrollHeight:number;
-
-  
-  @HostListener('scroll') onScrollEvent(event:Event){
-      if(window.screenTop === 0){
-        this.disableBtn=true;
-      }
-      if(this.top>this.scrollHeight-this.offSetHeight-1){
-        this.disableBtn=false;
-      }
-  }
-   // (ends) TODO
 
   get token() {
     return localStorage.getItem('token');
