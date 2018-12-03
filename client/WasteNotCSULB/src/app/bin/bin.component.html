@@ -67,11 +67,11 @@
       </div>
 
       <hr>
-      <!-- page numbers -->
-      <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
-
       <!-- display page numbers -->
-      <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="50" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <div class="text-center">
+        <p>{{ lower }}-{{ upper }} of {{ bin.totalItems }} items in {{ bin.binName }}</p>
+        <ngb-pagination [collectionSize]="bin.totalItems" [pageSize]="50" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      </div>
     </div>
     <!-- display item list -->
 

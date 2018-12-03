@@ -37,8 +37,11 @@
       <hr>
 
       <!-- page count -->
-      <p>{{ lower }}-{{ upper }} of {{ type.totalItems }} items in {{ type.binName }}</p>
-      <ngb-pagination [collectionSize]="type.totalItems" [pageSize]="50" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      <div class="text-center">
+        <p>{{ lower }}-{{ upper }} of {{ type.totalItems }} items in {{ type.binName }}</p>
+        <ngb-pagination [collectionSize]="type.totalItems" [pageSize]="50" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      </div>
+
     </div>
     <!-- (ends) page count -->
   </div>
