@@ -6,6 +6,7 @@
   margin: 1em;
   text-align: center;
   border-width: 0.25em;
+  border-radius: 0.75rem;
 }
 
 .search {
@@ -16,4 +17,28 @@
 input::placeholder {
   font-size: 14px;
   text-align: center;
+}
+
+.lead {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.h1, h1 {
+  font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  .pl-5, .px-5 {
+    padding-left: 1rem!important;
+  }
+  .pr-5, .px-5 {
+    padding-right: 1rem!important;
+  }
+  .pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+  }
+  .pt-3, .py-3 {
+    padding-top: 1rem!important;
+  }
 }

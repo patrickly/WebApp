@@ -5,25 +5,25 @@
     <app-message></app-message>
     
     <div *ngIf="!item" class="m-auto">
-      <h1 class="text-center display-3 mt-5">
+      <p class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
-      </h1>
+      </p>
     </div>
 
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
       <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
 
-    <div class="row" id="title">
+    <div class="row" id="title-border">
       <div class="col">
         <div class="shadow bg-white text-center rounded pb-1 pt-3">
-          <h4>{{ item.title }}</h4>
+          <h1>{{ item.title }}</h1>
         </div>
       </div>
     </div>
     
     <div *ngIf="item">
-      <div class="row pt-4 text-center">
+      <div class="row pt-5 text-center">
         <div class="col-12 col-sm-12">
           <div class="card">
             <div class="card-body">
@@ -35,7 +35,7 @@
     </div>
       
       <div class="row text-center">
-        <div class="col-6 col-md-3 ml-md-auto pt-3">
+        <div class="col-6 col-md-3 ml-md-auto pt-3 pb-1">
           <div [ngSwitch]="binType">
               <div *ngSwitchCase="1">
                 <img src="./assets/img/wastenot_compost.png" height="100" width="120" alt="Compost bin">
@@ -48,8 +48,8 @@
               </div>  
           </div>
         </div>
-        <div class="col-6 col-md-3 mr-md-auto pt-3">
-            <h5 class="pt-4">Type: {{ item.type.name }}</h5>
+        <div class="col-6 col-md-3 mr-md-auto pt-3 pb-1">
+            <p class="lead pt-4">Type: {{ item.type.name }}</p>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
 
       <div class="row mt-2 mb-3">
         <div class="col">
-          <p class="lead">{{ item.description }}</p>
+          <p class="lead p-2">{{ item.description }}</p>
         </div>
       </div>
 

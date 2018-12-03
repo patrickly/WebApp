@@ -12,4 +12,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
+  goBack() {
+    window.history.back();
+  }
 }
