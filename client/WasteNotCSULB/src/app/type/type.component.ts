@@ -30,7 +30,7 @@ export class TypeComponent implements OnInit {
   }
 
   get lower() {
-    return 100 * (this.page - 1) + 1;
+    return 50 * (this.page - 1) + 1;
   }
 
   get upper() {
