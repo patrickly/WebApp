@@ -34,7 +34,7 @@ export class TypeComponent implements OnInit {
   }
 
   get upper() {
-    return Math.min(10 * this.page, this.type.totalItems);
+    return Math.min(50 * this.page, this.type.totalItems);
   }
 
   async getItems(event?: any) {
@@ -54,7 +54,7 @@ export class TypeComponent implements OnInit {
       this.data.error(error['message']);
     }
   }
-  
+
   goBack() {
     window.history.back();
   }

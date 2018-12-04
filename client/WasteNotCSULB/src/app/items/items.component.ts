@@ -29,7 +29,7 @@ export class ItemsComponent implements OnInit {
   }
 
   get lower() {
-    return 5 * (this.page - 1) + 1;
+    return 50 * (this.page - 1) + 1;
   }
 
   get upper() {
