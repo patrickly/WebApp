@@ -1,11 +1,11 @@
 <div id="quiz-wrap">
     <div *ngIf="items">
         <div class="container pt-3 pl-4">
-        <!-- back button -->
-        <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
-            <i class="fas fa-long-arrow-alt-left fa-2x"></i>
-        </button>
-        <!-- (ends) back button -->
+            <!-- back button -->
+            <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+                <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+            </button>
+            <!-- (ends) back button -->
         </div>
 
         <div class="container-fluid text-center pt-4 pb-3">
@@ -38,6 +38,8 @@
                             (click)="submitAnswer(0, 9)" *ngSwitchCase="0">
                     </div>
                 </div>
+
+
             </div>
             <!-- (ends) Question #1 -->
 
@@ -298,6 +300,40 @@
                 <div class="rounded answer-score text-center" *ngIf="questionResultWrong ">
                     <h4 class="text-danger ">{{questionResultWrong}}</h4>
                 </div>
+
+
+                <div class="rounded" id="answer-box" *ngIf="questionResultRight">
+
+
+                    <h4 *ngIf="items[0].answered && idx==0"> Correct choice: {{items[0].bin.name}} </h4>
+                    <h4 *ngIf="items[1].answered && idx==1"> Correct choice: {{items[1].bin.name}} </h4>
+                    <h4 *ngIf="items[2].answered && idx==2"> Correct choice: {{items[2].bin.name}} </h4>
+                    <h4 *ngIf="items[3].answered && idx==3"> Correct choice: {{items[3].bin.name}} </h4>
+                    <h4 *ngIf="items[4].answered && idx==4"> Correct choice: {{items[4].bin.name}} </h4>
+                    <h4 *ngIf="items[5].answered && idx==5"> Correct choice: {{items[5].bin.name}} </h4>
+                    <h4 *ngIf="items[6].answered && idx==6"> Correct choice: {{items[6].bin.name}} </h4>
+                    <h4 *ngIf="items[7].answered && idx==7"> Correct choice: {{items[7].bin.name}} </h4>
+                    <h4 *ngIf="items[8].answered && idx==8"> Correct choice: {{items[8].bin.name}} </h4>
+                    <h4 *ngIf="items[9].answered && idx==9"> Correct choice: {{items[9].bin.name}} </h4>
+
+
+
+
+                    <div class="container-fluid text-center pt-4 pb-3">
+                        <i *ngIf="items[0].answered && idx==0"> {{items[0].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[1].answered && idx==1"> {{items[1].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[2].answered && idx==2"> {{items[2].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[3].answered && idx==3"> {{items[3].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[4].answered && idx==4"> {{items[4].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[5].answered && idx==5"> {{items[5].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[6].answered && idx==6"> {{items[6].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[7].answered && idx==7"> {{items[7].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[8].answered && idx==8"> {{items[8].correctAnswerFeedback}} </i>
+                        <i *ngIf="items[9].answered && idx==9"> {{items[9].correctAnswerFeedback}} </i>
+                    </div>
+
+                </div>
+
                 <div class="rounded" id="answer-box" *ngIf="questionResultWrong">
                     <h4 *ngIf="items[0].answered && idx==0"> Correct choice: {{items[0].bin.name}} </h4>
                     <h4 *ngIf="items[1].answered && idx==1"> Correct choice: {{items[1].bin.name}} </h4>
@@ -309,6 +345,63 @@
                     <h4 *ngIf="items[7].answered && idx==7"> Correct choice: {{items[7].bin.name}} </h4>
                     <h4 *ngIf="items[8].answered && idx==8"> Correct choice: {{items[8].bin.name}} </h4>
                     <h4 *ngIf="items[9].answered && idx==9"> Correct choice: {{items[9].bin.name}} </h4>
+
+
+
+                    <div class="container-fluid text-center pt-4 pb-3">
+
+
+                        <i *ngIf="items[0].answered && idx==0 && answerCompost"> {{items[0].tipCompostWrong }}</i>
+                        <i *ngIf="items[0].answered && idx==0 && answerRecycle"> {{items[0].tipRecycleWrong }}</i>
+                        <i *ngIf="items[0].answered && idx==0 && answerLandfill"> {{items[0].tipLandfillWrong }}</i>
+
+                        <i *ngIf="items[1].answered && idx==1 && answerCompost"> {{items[1].tipCompostWrong }}</i>
+                        <i *ngIf="items[1].answered && idx==1 && answerRecycle"> {{items[1].tipRecycleWrong }}</i>
+                        <i *ngIf="items[1].answered && idx==1 && answerLandfill"> {{items[1].tipLandfillWrong }}</i>
+
+
+                        <i *ngIf="items[2].answered && idx==2 && answerCompost"> {{items[2].tipCompostWrong }}</i>
+                        <i *ngIf="items[2].answered && idx==2 && answerRecycle"> {{items[2].tipRecycleWrong }}</i>
+                        <i *ngIf="items[2].answered && idx==2 && answerLandfill"> {{items[2].tipLandfillWrong }}</i>
+
+
+                        <i *ngIf="items[3].answered && idx==3 && answerCompost"> {{items[3].tipCompostWrong }}</i>
+                        <i *ngIf="items[3].answered && idx==3 && answerRecycle"> {{items[3].tipRecycleWrong }}</i>
+                        <i *ngIf="items[3].answered && idx==3 && answerLandfill"> {{items[3].tipLandfillWrong }}</i>
+
+
+                        <i *ngIf="items[4].answered && idx==4 && answerCompost"> {{items[4].tipCompostWrong }}</i>
+                        <i *ngIf="items[4].answered && idx==4 && answerRecycle"> {{items[4].tipRecycleWrong }}</i>
+                        <i *ngIf="items[4].answered && idx==4 && answerLandfill"> {{items[4].tipLandfillWrong }}</i>
+
+
+                        <i *ngIf="items[5].answered && idx==5 && answerCompost"> {{items[5].tipCompostWrong }}</i>
+                        <i *ngIf="items[5].answered && idx==5 && answerRecycle"> {{items[5].tipRecycleWrong }}</i>
+                        <i *ngIf="items[5].answered && idx==5 && answerLandfill"> {{items[5].tipLandfillWrong }}</i>
+
+                        <i *ngIf="items[6].answered && idx==6 && answerCompost"> {{items[6].tipCompostWrong }}</i>
+                        <i *ngIf="items[6].answered && idx==6 && answerRecycle"> {{items[6].tipRecycleWrong }}</i>
+                        <i *ngIf="items[6].answered && idx==6 && answerLandfill"> {{items[6].tipLandfillWrong }}</i>
+
+
+                        <i *ngIf="items[7].answered && idx==7 && answerCompost"> {{items[7].tipCompostWrong }}</i>
+                        <i *ngIf="items[7].answered && idx==7 && answerRecycle"> {{items[7].tipRecycleWrong }}</i>
+                        <i *ngIf="items[7].answered && idx==7 && answerLandfill"> {{items[7].tipLandfillWrong }}</i>
+
+
+
+                        <i *ngIf="items[8].answered && idx==8 && answerCompost"> {{items[8].tipCompostWrong }}</i>
+                        <i *ngIf="items[8].answered && idx==8 && answerRecycle"> {{items[8].tipRecycleWrong }}</i>
+                        <i *ngIf="items[8].answered && idx==8 && answerLandfill"> {{items[8].tipLandfillWrong }}</i>
+
+                        <i *ngIf="items[9].answered && idx==9 && answerCompost"> {{items[9].tipCompostWrong }}</i>
+                        <i *ngIf="items[9].answered && idx==9 && answerRecycle"> {{items[9].tipRecycleWrong }}</i>
+                        <i *ngIf="items[9].answered && idx==9 && answerLandfill"> {{items[9].tipLandfillWrong }}</i>
+
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

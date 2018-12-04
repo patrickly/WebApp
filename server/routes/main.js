@@ -350,81 +350,61 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
   });
 });
 
+
 /*
- 
-  router.route('/items')
-    .get(checkJWT, (req, res, next) => {
-      Item.find({})
-        .populate('type')
-        .exec((err, items) => {
-          if (items) {
-            res.json({
-              success: true,
-              message: "Items",
-              items: items
-            });
-          }
-        });
-    })
-    .post(checkJWT, (req, res, next) => {
-      let item = new Item();
-      item.type = req.body.type;
-     // console.log("204 reqbody " + req.body.type);
-     // console.log(JSON.stringify(req.body));
- 
-    //  console.log("404 title reqbody " + req.body.title);
- 
-      item.title = req.body.title;
-      item.description = req.body.description;
-      item.image = req.body.image;
-      item.save();
-      res.json({
-        success: true,
-        message: 'Successfully Added the item',
-      });
-    });
- 
- 
-    // status GET: Good but must be logged in
-// status POST: Good 
-router.route('/profile')
-  .get(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
-      res.json({
-        success: true,
-        user: user,
-        message: "Successful"
-      });
-    });
-  })
-  .post(checkJWT, (req, res, next) => {
-    User.findOne({ _id: req.decoded.user._id }, (err, user) => {
-      if (err) return next(err);
- 
-      if (req.body.name) user.name = req.body.name;
-      if (req.body.email) user.email = req.body.email;
-      if (req.body.password) user.password = req.body.password;
- 
-      user.isAdmin = req.body.isAdmin;
- 
-      user.save();
-      res.json({
-        success: true,
-        message: 'Successfully edited your profile'
-      });
-    });
-  });
+Edit an Item
 */
 
 router.post('/item/:id', checkJWT, verifyAdmin, (req, res, next) => {
   Item.findOne({ _id: req.params.id }, (err, item) => {
     if (err) return next(err);
 
+
+    console.log("&&&& req body tipRecycleWrong");
+    console.log(req.body.tipRecycleWrong);
+
+
     if (req.body.title) item.title = req.body.title;
     if (req.body.description) item.description = req.body.description;
     if (req.body.image) item.image = req.body.image;
     if (req.body.type) item.type = req.body.type;
     if (req.body.bin) item.bin = req.body.bin;
+    if (req.body.isCompostAndLandfill) {
+      item.isCompostAndLandfill = req.body.isCompostAndLandfill;
+    } else {
+      item.isCompostAndLandfill = false;
+    }
+
+    if (req.body.tipCompostWrong) {
+      item.tipCompostWrong = req.body.tipCompostWrong;
+    } else {
+      item.tipCompostWrong = "";
+
+    }
+
+
+    if (req.body.tipRecycleWrong) {
+      item.tipRecycleWrong = req.body.tipRecycleWrong;
+
+    } else {
+      item.tipRecycleWrong = "";
+    }
+
+
+    if (req.body.tipLandfillWrong) {
+      item.tipLandfillWrong = req.body.tipLandfillWrong;
+    } else {
+      item.tipLandfillWrong = "";
+
+    }
+
+    if (req.body.correctAnswerFeedback) {
+      item.correctAnswerFeedback = req.body.correctAnswerFeedback;
+    } else {
+      item.correctAnswerFeedback = "";
+
+    }
+
 
     item.save();
     res.json({

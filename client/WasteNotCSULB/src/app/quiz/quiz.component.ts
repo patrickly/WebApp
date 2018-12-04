@@ -22,6 +22,10 @@ export class QuizComponent implements OnInit {
     answered: false
   };
 
+  answerCompost: any = false;
+  answerRecycle: any = false;
+  answerLandfill: any = false;
+
   questionResultRight: any = null;
   questionResultWrong: any = null;
   totalRight: number = 0.0;
@@ -64,6 +68,9 @@ export class QuizComponent implements OnInit {
     this.btnDisabled = true;
     this.questionResultRight = null;
     this.questionResultWrong = null;
+    this.answerCompost = false;
+    this.answerRecycle = false;
+    this.answerLandfill = false;
     this.idx += 1;
   }
 
@@ -72,18 +79,41 @@ export class QuizComponent implements OnInit {
 
     if (choiceNum === 7) {
       tempChoice = 'Compost';
+      this.answerCompost = true;
+
     }
     if (choiceNum === 8) {
       tempChoice = 'Recycle';
+      this.answerRecycle = true;
+
     }
     if (choiceNum === 9) {
       tempChoice = 'Landfill';
+      this.answerLandfill = true;
+
     }
 
-    if (tempChoice.includes(this.items[itemIndex].bin.name)) {
+
+    if (choiceNum === 7 && this.items[itemIndex].isCompostAndLandfill) {
       this.questionResultRight = 'Correct';
       this.totalRight += 1;
-    } else {
+      this.items[itemIndex].bin.name = this.items[itemIndex].bin.name + ' or Landfill';
+
+    }
+    else if (tempChoice.includes(this.items[itemIndex].bin.name)) {
+      this.questionResultRight = 'Correct';
+      this.totalRight += 1;
+    } else if (choiceNum === 9 && this.items[itemIndex].isCompostAndLandfill) {
+      this.questionResultRight = 'Correct';
+      this.totalRight += 1;
+      this.items[itemIndex].bin.name = this.items[itemIndex].bin.name + ' or Landfill';
+
+    }
+    else if (choiceNum === 8 && this.items[itemIndex].isCompostAndLandfill) {
+      this.questionResultWrong = 'Incorrect';
+      this.items[itemIndex].bin.name = this.items[itemIndex].bin.name + ' or Landfill';
+    }
+    else {
       this.questionResultWrong = 'Incorrect';
     }
 
@@ -132,7 +162,7 @@ export class QuizComponent implements OnInit {
   update(): void {
     this.ngOnInit();
   }
-  
+
   goBack() {
     window.history.back();
   }

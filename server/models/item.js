@@ -9,6 +9,11 @@ const ItemSchema = new Schema({
   title: String,
   image: String,
   description: String,
+  tipCompostWrong: { type: String, default: undefined },
+  tipRecycleWrong: { type: String, default: undefined },
+  tipLandfillWrong: { type: String, default: undefined },
+  correctAnswerFeedback: { type: String, default: undefined },
+  isCompostAndLandfill: { type: Boolean, default: false },
   created: { type: Date, default: Date.now }
 });
 

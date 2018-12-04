@@ -17,7 +17,13 @@ export class EditItemComponent implements OnInit {
     binId: '',
     typeId: '',
     description: '',
-    image: ''
+    image: '',
+
+    correctAnswerFeedback: '',
+    tipCompostWrong: '',
+    tipRecycleWrong: '',
+    tipLandfillWrong: '',
+    isCompostAndLandfill: false,
   };
 
   currentBinID: any = null;
@@ -142,6 +148,9 @@ export class EditItemComponent implements OnInit {
     console.log('checking for type id: ' + item.typeId); // undefined
     console.log('checking for type id agains: ' + item.type._id); // id is printed
 
+
+
+
     if (item.title) {
       if (item.bin._id) {
         if (item.image) {
@@ -164,11 +173,17 @@ export class EditItemComponent implements OnInit {
   //             "http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/" + this.item._id,
 
   async post() {
+
+
     this.btnDisabled = true;
     try {
+
+
       if (this.validate(this.item)) {
         console.log('$$$$ item  is ' + this.item);
+        console.log(this.item);
         console.log(this.itemID);
+
 
 
         const data = await this.rest.post(
@@ -178,15 +193,32 @@ export class EditItemComponent implements OnInit {
             type: this.item.typeId,
             title: this.item.title,
             description: this.item.description,
-            image: this.item.image
+            image: this.item.image,
+
+
+            correctAnswerFeedback: this.item.correctAnswerFeedback,
+            tipCompostWrong: this.item.tipCompostWrong,
+            tipRecycleWrong: this.item.tipRecycleWrong,
+            tipLandfillWrong: this.item.tipLandfillWrong,
+            isCompostAndLandfill: this.item.isCompostAndLandfill
+
           }
         );
-        data['success']
-          ? this.router
+
+
+
+
+
+        if (data['success']) {
+          console.log(data);
+          console.log(this.item);
+          this.router
             .navigate(['/items/'])
             .then(() => this.data.success(data['message']))
-            .catch(error => this.data.error(error))
-          : this.data.error(data['message']);
+            .catch(error => this.data.error(error));
+        } else {
+          this.data.error(data['message']);
+        }
       }
     } catch (error) {
       this.data.error(error['message']);
