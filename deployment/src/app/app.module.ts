@@ -57,7 +57,6 @@ import { MapComponent } from './map/map.component';
     TypeComponent,
     TypesComponent,
     MapComponent,
-
   ],
   imports: [
     BrowserModule,

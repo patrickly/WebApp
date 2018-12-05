@@ -11,7 +11,7 @@
     <div *ngIf="data.user" class="row mt-5">
 
       <div class="col-md-8 ml-3">
-        <p id="name" class="lead">Username: {{ data.user.name }}</p>
+        <h3>Username: {{ data.user.name }}</h3>
         <br>
         <a routerLink="/profile/settings" class="btn btn-primary">Change Account Settings</a>
         <br>
@@ -24,6 +24,10 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <a routerLink="/profile/postitem" class="btn btn-outline-success btn-block">Add new Item</a>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <a (click)="logout()" class=" btn btn-outline-danger btn-block">Logout</a>
             </div>
           </div>
         </div>
