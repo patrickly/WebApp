@@ -1,0 +1,49 @@
+<section id="items">
+  <div class="container p-3 p-md-5">
+    <app-message></app-message>
+
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
+
+    <h1 class="display-4 text-center">Browse</h1>
+    <p class="lead text-center">
+      This is a list of all of the disposable items in our database.
+    </p>
+
+    <!-- spinner icon -->
+    <div *ngIf="!itemData" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <h3 *ngIf="itemData && !itemData.items.length" class="display-2 text-center mt-5">No Items</h3>
+    <!-- (ends) spinner -->
+
+    <div *ngIf="itemData && itemData.items.length">
+      <hr>
+      <!-- display items -->
+      <div class="item list-group" *ngFor="let item of itemData.items">
+        <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+          <i *ngIf="item.bin.name == 'Landfill'" class="fas fa-trash-alt pr-2"></i>
+          <i *ngIf="item.bin.name == 'Recycle'" class="fas fa-recycle pr-2"></i>
+          <i *ngIf="item.bin.name == 'Compost'" class="fas fa-seedling pr-2"></i>
+          {{ item.title}}
+        </a>
+      </div>
+      <!-- (ends) display items -->
+      <hr>
+      <!-- page count -->
+
+      <div class="text-center">
+        <p>{{ lower }}-{{ upper }} of {{ itemData.totalItems }} items</p>
+        <ngb-pagination [collectionSize]="itemData.totalItems" [pageSize]="50" [(page)]="page" (pageChange)="getItems($event)"></ngb-pagination>
+      </div>
+
+    </div>
+    <!-- (ends) page count -->
+
+  </div>
+</section>

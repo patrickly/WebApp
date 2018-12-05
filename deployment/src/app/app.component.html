@@ -1,0 +1,146 @@
+<!-- navbar -->
+<nav class="navbar navbar-light p-2">
+    <a class="navbar-brand p-2" routerLink="/" (click)="collapse()">
+        <i class="fas fa-home pr-2"></i> <img src="./assets/img/waste_not3.png" style="height: 35px" alt="Waste Not logo">
+    </a>
+    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" aria-label="navigation bar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column">
+        <div class="w-100">
+            <ul class="navbar-nav ml-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Bins
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ace82a94561ae0ecf27a16a"
+                            routerLinkActive="active">Compost</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d9d027d2834db315428"
+                            routerLinkActive="active">Recycle</a>
+                        <a (click)="collapse()" class="dropdown-item" routerLink="/bins/5ae79d8e027d2834db315427"
+                            routerLinkActive="active">Landfill</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLink="/items" routerLinkActive="active">Browse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLink="/types" routerLinkActive="active">Types</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLink="/quiz" routerLinkActive="active">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" href="http://www.csulb.edu/sustainability/news" target="_blank">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="collapse()" routerLink="/map" routerLinkActive="active">Map</a>
+                </li>
+                <!-- ADMIN ACCOUNT
+                    <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                        <i class="fa fa-user mr-1"></i>
+                        <span *ngIf="!token">Accounts</span>
+                        <span *ngIf="data.user">{{ data.user.name }}</span>
+                    </a>
+                    <div ngbDropdownMenu class="dropdown-menu">
+                        <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();" routerLink="/profile" class="dropdown-item">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i> Profile
+                        </a>
+                        <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/login" class="dropdown-item">
+                        <i class="fa fa-key" aria-hidden="true"></i> Login
+                        </a>
+                        <a *ngIf="token" (click)="closeDropdown(dropdown);collapse();logout();" class="dropdown-item">
+                        <i class="fa fa-key" aria-hidden="true"></i> Logout
+                        </a>
+                        <a *ngIf="!token" (click)="closeDropdown(dropdown);collapse();" routerLink="/register" class="dropdown-item">
+                        <i class="fa fa-group" aria-hidden="true"></i> Register
+                        </a>
+                    </div>
+                    </li>
+                -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- (ends) navbar -->
+
+<div class="container-fluid text-center pr-3 pl-3 pb-3" style="box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);">
+    <!-- SEARCH BAR -->
+    <div class="row pt-4">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="input-group justify-content-center">
+                <input type="text" list="items" name="items" class="form-control" [(ngModel)]="selected" (keyup.enter)="search()"
+                    (change)="selectItemName(selected)" placeholder="Search Items" ngDefaultControl aria-label="search an item inside the database">
+                <!-- auto-search completion -->
+                <datalist id="items">
+                    <select>
+                        <option *ngFor="let i of itemArray" [value]="i.title"></option>
+                    </select>
+                </datalist>
+                <!-- (ends) auto-search completion -->
+                <!--  <input type="
+                            submit" name="submit" class="submit" (click)="search()"> -->
+                <div class="input-group-append">
+                    <button class="btn btn-success submit" type="submit" name="somename" [(ngModel)]="searchTerm"
+                        (click)="search()" ngDefaultControl aria-label="search bar">
+                        <i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- (end) search bar -->
+</div>
+
+<!-- routes the html of all the ..\app\.. -->
+<router-outlet> </router-outlet>
+
+<!-- 
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+</label>
+<p>
+    Value: {{ name.value }}
+</p>
+-->
+
+
+<!-- TODO jump to top button
+<div class="container-fluid text-right">
+    <button type="button" [disabled]="disableBtn" class="btn btn-dark fixed-bottom" (activate)="onActivate($event)" aria-label="move to the top page"><i class="fas fa-chevron-circle-up"></i></button>
+</div>
+ -->
+<!-- (ends) jump to top button -->
+
+<!-- Footer -->
+<footer class="page-footer">
+
+    <!-- Footer Elements -->
+    <div class="container-fluid pt-3 pb-2">
+
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="nav-link pr-2" (click)="jumpToTopPage()" routerLink="/about" routerLinkActive="active" title="About the web app">About</a>
+        </li>
+        <li class="list-inline-item">
+            <a class="nav-link pr-2" href="http://www.csulb.edu/" target="_blank" title="CSULB web link">CSULB</a>
+        </li>
+        <li class="list-inline-item">
+            <a class="nav-link pr-4" href="http://www.csulb.edu/sustainability" target="_blank" title="CSULB's sustainability web link">Sustainbility</a>
+        </li>
+        <li class="list-inline-item">
+            <div id="google_translate_element"></div>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+
+    </div>
+    <!-- Footer Elements -->
+  </footer>
+  <!-- Footer -->
+
+  

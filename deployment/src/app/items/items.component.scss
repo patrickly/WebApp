@@ -1,0 +1,13 @@
+.search {
+    min-width: 50%;
+    font-size: 20px;
+  }
+  
+input::placeholder {
+    font-size: 14px;
+    text-align: center;
+}
+
+ngb-pagination {
+    display: inline-flex;
+ }

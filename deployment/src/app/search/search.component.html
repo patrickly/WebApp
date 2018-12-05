@@ -1,0 +1,37 @@
+<section id="search">
+  <div class="container p-3 p-md-5">
+    <app-message></app-message>
+
+    <!-- spinner icon -->
+    <div *ngIf="!content" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <!-- (end) spinner icon -->
+
+
+
+    <!-- results: item found -->
+    <div *ngIf="content">
+      <p> Results for
+        <span class="text-primary">"{{ query }}"</span>
+      </p>
+    </div>
+    <div class="item list-group" *ngFor="let item of content">
+      <a routerLink="/item/{{ item._id }}" class="list-group-item list-group-item-action">
+        {{ item.title }}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<ng-template #t let-fill="fill">
+  <span *ngIf="fill === 100" class="star full">&#9733;</span>
+  <span *ngIf="fill === 0" class="star">&#9733;</span>
+  <span *ngIf="fill < 100 && fill > 0" class="star">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>

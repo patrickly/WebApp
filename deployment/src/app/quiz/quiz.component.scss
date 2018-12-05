@@ -1,0 +1,75 @@
+#imageChoice {
+	margin: 0.5rem 0.5rem 1.5rem;
+}
+
+.item-title[_ngcontent-c1] {
+	width: 100%;
+	padding: 0.5em 0.5em;
+	font-size: 1.25rem;
+	text-align: center;
+}
+
+.image-obj[_ngcontent-c1][_ngcontent-c1] {
+	height: 240px;
+	text-align: center;
+	margin: 1rem;
+}
+
+.compost {
+	max-height: 100px;
+	max-width: 100px;
+	background-color: rgb(168, 202, 141);
+}
+.recycle {
+	max-height: 100px;
+	max-width: 100px;
+	background-color:rgb(142, 202, 224);
+}
+.landfill {
+	max-height: 100px;
+	max-width: 100px;
+	background-color:rgb(165, 165, 165);
+}
+
+.q-prompt {
+	position: absolute;
+	top: 80px;
+}
+.image-obj {
+	max-width: 100%;
+	height: 240px;
+}
+.answer-score {
+	padding: 1em 1em;
+	margin: 0.5em 0.5em;
+	background-color: rgba(81,169,216,0.85);
+	border: 1px solid black;
+}
+.answer-box {
+	background-color: rgba(152,154,165,0.85);
+	margin: 0.5em 0.5em;
+	padding: 0.5em 0.5em;
+	border: 1px solid black;
+}
+.buttonlol {
+	background-color: rgba(255,236,113,0.85);
+	color: black;
+	border-color: black;
+}
+.item-title {
+	width: 100%;
+	padding: 0.5em 0.5em;
+	font-size: 1.25rem;
+}
+
+.item-hl {
+  border: 1px solid #333;
+  width: 30%;
+  height: 30%;
+
+}
+
+.summaryClass {
+  margin-bottom: 100px;
+}
+

@@ -1,0 +1,56 @@
+<section id="types">
+  <div class="container p-5">
+    <app-message></app-message>
+
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
+
+    <!-- (begins) Type description -->
+    <h1 class="display-4 text-center">Types</h1>
+      <p class="lead text-center">
+        Material composition of recyclable items can be found here.
+      </p>
+    <hr>
+    <!-- (ends) Type description -->
+
+    <!-- (begin) loading spinner icon -->
+    <div *ngIf="!types" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <!-- (ends) loading spinner icon -->
+
+    <!-- (begins) list types -->
+    <div *ngIf="types" class="list-group">
+      <a *ngFor="let type of types" routerLink="/types/{{ type._id }}" class="list-group-item list-group-item-action">
+      {{ type.name }}
+      </a>
+    </div>
+    <!-- (ends) list types -->
+
+  </div>
+</section>
+
+
+   <!--
+    <div class="card bg-light mt-5">
+      <div class="card-body">
+        <h4 class="card-title">Add New type</h4>
+        <hr>
+        <div class="form">
+          <div class="form-group">
+            <label>type</label>
+            <input type="text" name="newtype" class="form-control" [(ngModel)]="newtype">
+          </div>
+          <button type="button" class="btn btn-info" (click)="addtype()" [disabled]="btnDisabled">Add type</button>
+        </div>
+      </div>
+    </div>  
+  -->
+
+
+

@@ -1,0 +1,82 @@
+<section id="item">
+  <div class="container-fluid p-5">
+
+    <!-- loading icon -->
+    <app-message></app-message>
+
+    <div *ngIf="!item" class="m-auto">
+      <p class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </p>
+    </div>
+
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+
+    <div class="row" id="title-border">
+      <div class="col">
+        <div class="shadow bg-white text-center rounded pb-1 pt-3">
+          <h1>{{ item.title }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="item">
+      <div class="row pt-5 text-center">
+        <div class="col-12 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <img [src]="item.image" alt="{{ item.title }}" class="img-fluid rounded mw-75">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-6 col-md-3 ml-md-auto pt-3 pb-1">
+        <div [ngSwitch]="binType">
+          <div *ngSwitchCase="1">
+            <img src="./assets/img/wastenot_compost.png" height="100" width="120" alt="Compost bin">
+          </div>
+          <div *ngSwitchCase="2">
+            <img src="./assets/img/wastenot_recycle.png" height="100" width="120" alt="Recycle bin">
+          </div>
+          <div *ngSwitchCase="3">
+            <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
+          </div>
+
+
+        </div>
+        <div *ngIf="item.isCompostAndLandfill">
+          <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
+        </div>
+
+      </div>
+      <div class="col-6 col-md-3 mr-md-auto pt-3 pb-1">
+        <p class="lead pt-4">Type: {{ item.type.name }}</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row mt-2 mb-3">
+      <div class="col">
+        <p class="lead p-2">{{ item.description }}</p>
+      </div>
+    </div>
+
+    <!--
+        <button type="button" class="btn btn-warning" routerLink="/item/edit/${item._id}"" [disabled]="btnDisabled">Edit</button>
+        - For admin editing/deleting
+      -->
+    <div *ngIf="data.user">
+      <div *ngIf=" data.user.isAdmin ">
+        <button type="button " class="btn btn-success " (click)="edit() " [disabled]="btnDisabled ">Edit</button>
+        <button type="button " class="btn btn-danger " (click)="delete() " [disabled]="btnDisabled ">Delete</button>
+      </div>
+    </div>
+
+  </div>
+</section>

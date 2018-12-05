@@ -1,0 +1,65 @@
+.nav-item a {
+  color: black;
+}
+.nav-item a:hover{
+  color: white;
+}
+
+.nav-item .dropdown-menu a:hover{
+  background-color: lightgray;
+  color: black;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.navbar {
+  background-color: rgb(200, 216, 180);
+}
+
+.dropdown-menu {
+  margin: .125rem 2.5rem .125rem 1rem;
+}
+
+.dropdown-item{
+  font-size: 14px;
+}
+
+.container-fluid {
+  background-color: rgb(200, 216, 180);
+}
+
+.search {
+  min-width: 50%;
+  font-size: 20px;
+}
+
+input::placeholder {
+  font-size: 14px;
+  text-align: center;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0.5em;
+  bottom: 1em;
+  left: unset;
+  z-index: 1030;
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  color: white;
+}
+
+
+input::-webkit-calendar-picker-indicator {
+  display: none; 
+}
+
