@@ -31,6 +31,7 @@ import { EditItemComponent } from './edit-item/edit-item.component';
 import { TypeComponent } from './type/type.component';
 import { TypesComponent } from './types/types.component';
 import { MapComponent } from './map/map.component';
+import { UserManualComponent } from './user-manual/user-manual.component';
 
 
 
@@ -57,6 +58,7 @@ import { MapComponent } from './map/map.component';
     TypeComponent,
     TypesComponent,
     MapComponent,
+    UserManualComponent,
   ],
   imports: [
     BrowserModule,

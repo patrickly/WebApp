@@ -18,7 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { TypeComponent } from './type/type.component';
 import { TypesComponent } from './types/types.component';
-
+import { UserManualComponent } from './user-manual/user-manual.component';
 import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
@@ -94,6 +94,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'user-manual',
+    component: UserManualComponent
   },
   {
     path: '**',

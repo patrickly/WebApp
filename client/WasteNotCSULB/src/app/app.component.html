@@ -1,14 +1,17 @@
 <!-- navbar -->
 <nav class="navbar navbar-light p-2">
   <a class="navbar-brand p-2" routerLink="/" (click)="collapse()">
-    <i class="fas fa-home pr-2"></i> <img src="./assets/img/waste_not3.png" style="height: 35px" alt="Waste Not logo">
+    <img src="./assets/img/waste_not3.png" class="pl-3" style="height: 35px" alt="Waste Not logo">
   </a>
-  <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" aria-label="navigation bar">
+  <button class="navbar-toggler mr-4 mt-1" (click)="isCollapsed = !isCollapsed" aria-label="navigation bar">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div [ngbCollapse]="isCollapsed" style="align-items: left; margin-left: 10px;" class="collapse navbar-collapse flex-column">
     <div class="w-100">
       <ul class="navbar-nav ml-3">
+        <li class="nav-item">
+          <a class="nav-link" (click)="collapse()" routerLink="#" routerLinkActive="active">Home</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -128,6 +131,9 @@
     <ul class="list-unstyled list-inline text-center">
       <li class="list-inline-item">
         <a class="nav-link pr-2" (click)="jumpToTopPage()" routerLink="/about" routerLinkActive="active" title="About the web app">About</a>
+      </li>
+      <li class="list-inline-item">
+        <a class="nav-link pr-2" (click)="jumpToTopPage()" routerLink="/user-manual" routerLinkActive="active" title="User manual">User Manual</a>
       </li>
       <li class="list-inline-item">
         <a class="nav-link pr-2" href="http://www.csulb.edu/" target="_blank" title="CSULB web link">CSULB</a>
