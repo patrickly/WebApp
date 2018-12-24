@@ -85,4 +85,7 @@ export class SettingsComponent implements OnInit {
     this.btnDisabled = false;
   }
 
+  goBack() {
+    window.history.back();
+  }
 }

@@ -2,7 +2,7 @@
   <div class="container p-5">
     <!-- back button -->
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
-        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
     <!-- (ends) back button -->
     <h1 class="text-center">Account Settings</h1>
@@ -21,7 +21,7 @@
             <input type="text" name="name" class="form-control" [(ngModel)]="currentSettings.name" aria-label="Profile name">
           </div>
           <div class="form-group">
-              <div class="p-1">Email</div>
+            <div class="p-1">Email</div>
             <input type="email" name="email" class="form-control" [(ngModel)]="currentSettings.email" aria-label="Email login">
           </div>
           <!--
@@ -37,7 +37,8 @@
           </div>
           <div class="form-group">
             <div class="p-1">Confirm Password</div>
-            <input type="password" name="pwdConfirm" class="form-control" [(ngModel)]="currentSettings.pwdConfirm" aria-label="Confirm password">
+            <input type="password" name="pwdConfirm" class="form-control" [(ngModel)]="currentSettings.pwdConfirm"
+              aria-label="Confirm password">
           </div>
           <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled" aria-label="Update button">Update</button>
         </form>

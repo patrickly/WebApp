@@ -48,7 +48,6 @@ export class EditItemComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    //ngOnInit() will be run everytime the page(item) is visited
     this.activatedRoute.params.subscribe(res => {
       this.rest
         .get(BACKEND_URL + `/item/${res['id']}`)
@@ -57,16 +56,6 @@ export class EditItemComponent implements OnInit {
             ? (this.item = data['item'])
             : this.router.navigate(['/news']);
           if (data['success']) {
-            console.log('ngOnInit in editItem component');
-            console.log(res);
-            console.log(this.item);
-            //     this.currentBin = data['item'].bin.name;
-            console.log(data['item'].bin.name);
-            console.log(data['item'].bin);
-
-            console.log(data['item'].type.name);
-            console.log(data['item'].type);
-
 
             this.currentBinID = data['item'].bin._id;
             this.item.binId = data['item'].bin._id;
@@ -77,21 +66,9 @@ export class EditItemComponent implements OnInit {
             this.currentBinName = data['item'].bin.name;
             this.currentTypeName = data['item'].type.name;
 
-
-            console.log(this.currentBinID);
-            console.log(this.currentBinName);
-
-            console.log(this.currentTypeID);
-            console.log(this.currentTypeName);
-
             this.item.image = data['item'].image;
 
             this.itemID = res.id;
-            //   this.itemIDstr = this.itemID.toString;
-
-            console.log(this.itemID);
-            //   console.log(this.itemIDstr);
-
 
           }
         })
@@ -104,8 +81,7 @@ export class EditItemComponent implements OnInit {
         ? (this.bins = data2['bins'])
         : this.data.error(data2['message']);
 
-      console.log(this.bins);
-      console.log(this.item);
+
     } catch (error) {
       this.data.error(error['message']);
     }
@@ -116,40 +92,16 @@ export class EditItemComponent implements OnInit {
         ? (this.types = data3['types'])
         : this.data.error(data3['message']);
 
-      console.log(this.types);
-      console.log(this.item);
+
     } catch (error) {
       this.data.error(error['message']);
     }
 
-  } //ngOnInit
+  }
 
-  /*
-    try {
-      const data2 = await this.rest.get(
-        'http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/bins'
-      );
-      data2['success']
-        ? (this.bins = data2['bins'])
-        : this.data.error(data2['message']);
-    } catch (error) {
-      this.data.error(error['message']);
-    }
 
-*/
 
   validate(item) {
-    console.log('33post-item ' + item);
-    console.log(JSON.stringify(item));
-
-    console.log('checking for bin id: ' + item.binId); // undefined
-    console.log('checking for bin id agains: ' + item.bin._id); // id is printed
-
-    console.log('checking for type id: ' + item.typeId); // undefined
-    console.log('checking for type id agains: ' + item.type._id); // id is printed
-
-
-
 
     if (item.title) {
       if (item.bin._id) {
@@ -170,7 +122,6 @@ export class EditItemComponent implements OnInit {
     }
   }
 
-  //             "http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items/" + this.item._id,
 
   async post() {
 
@@ -180,11 +131,6 @@ export class EditItemComponent implements OnInit {
 
 
       if (this.validate(this.item)) {
-        console.log('$$$$ item  is ' + this.item);
-        console.log(this.item);
-        console.log(this.itemID);
-
-
 
         const data = await this.rest.post(
           BACKEND_URL + '/item/' + this.itemID,
@@ -206,12 +152,7 @@ export class EditItemComponent implements OnInit {
         );
 
 
-
-
-
         if (data['success']) {
-          console.log(data);
-          console.log(this.item);
           this.router
             .navigate(['/items/'])
             .then(() => this.data.success(data['message']))
@@ -224,5 +165,9 @@ export class EditItemComponent implements OnInit {
       this.data.error(error['message']);
     }
     this.btnDisabled = false;
+  }
+
+  goBack() {
+    window.history.back();
   }
 }

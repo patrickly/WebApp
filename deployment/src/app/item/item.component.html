@@ -10,9 +10,11 @@
       </p>
     </div>
 
+    <!-- back button -->
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
       <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
+    <!-- (ends) back button -->
 
     <div class="row" id="title-border">
       <div class="col">
@@ -46,15 +48,18 @@
           <div *ngSwitchCase="3">
             <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
           </div>
-
-
         </div>
-        <div *ngIf="item.isCompostAndLandfill">
-          <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
-        </div>
-
       </div>
-      <div class="col-6 col-md-3 mr-md-auto pt-3 pb-1">
+
+      <div class="pt-3 pb-1" *ngIf="item.isCompostAndLandfill">
+        <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
+      </div>
+
+      <div class="col-6 col-md-3 mr-md-auto pt-3 pb-1" *ngIf="!item.isCompostAndLandfill">
+        <p class="lead pt-4">Type: {{ item.type.name }}</p>
+      </div>
+
+      <div class="col-12 col-md-3 mr-md-auto pt-3 pb-1" *ngIf="item.isCompostAndLandfill">
         <p class="lead pt-4">Type: {{ item.type.name }}</p>
       </div>
     </div>

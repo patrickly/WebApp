@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['']);
   }
-  
+
   goBack() {
     window.history.back();
   }

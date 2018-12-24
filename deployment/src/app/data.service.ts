@@ -46,7 +46,6 @@ export class DataService {
           BACKEND_URL + '/accounts/profile',
         );
         this.user = data['user'];
-        console.log(this.user);
       }
     } catch (e) {
       this.error(e);

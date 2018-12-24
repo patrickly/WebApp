@@ -1,4 +1,4 @@
-import { Component,HostListener,ElementRef,Directive } from '@angular/core';
+import { Component, HostListener, ElementRef, Directive } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from './data.service';
 
@@ -30,14 +30,13 @@ export class AppComponent {
 
   searchTerm = '';
   isCollapsed = true;
-  //name = new FormControl('');
 
   constructor(
     private router: Router,
     private data: DataService,
     private activatedRoute: ActivatedRoute,
     private rest: RestApiService,
-    private eleRef:ElementRef
+    private eleRef: ElementRef
   ) {
     this.data.getProfile();
     this.activatedRoute.params.subscribe(res => {
@@ -45,7 +44,7 @@ export class AppComponent {
     });
   }
 
-  jumpToTopPage(){
+  jumpToTopPage() {
     window.scrollTo(0, 0);
   }
 
@@ -70,18 +69,13 @@ export class AppComponent {
   search() {
     if (this.searchTerm) {
       this.collapse();
-      //this.router.navigate(['search', { query: this.searchTerm }]);
-
-      //
-
 
     }
-    this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
+    this.searchTerm = null;
   }
 
   selectItemName(name) {
-    // console.log(name);
-    // console.log("this selected: " + this.selected);
+
     this.itemIndex = 0;
     for (var i = 0; i < this.itemArray.length; i++) {
       if (this.itemArray[i].title === name) {
@@ -108,7 +102,6 @@ export class AppComponent {
   }
 
   onChange(deviceValue) {
-    console.log(deviceValue);
   }
 
   async getItems(event?: any) {
@@ -119,7 +112,6 @@ export class AppComponent {
       const data = await this.rest.get(
         BACKEND_URL + `/itemsAll/?page=${this
           .page - 1}` ,
-        //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );
       if (data['success']) {
         this.itemData = data;
@@ -127,8 +119,7 @@ export class AppComponent {
       } else {
         this.data.error(data['message']);
       }
-      //      console.log(this.itemData);
-      //      console.log(this.itemArray);
+
 
     } catch (error) {
       this.data.error(error['message']);

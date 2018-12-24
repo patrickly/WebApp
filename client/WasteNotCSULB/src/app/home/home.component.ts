@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     private data: DataService,
   ) {
   }
-  
+
   search() {
     if (this.searchTerm) {
       this.router.navigate(['search', { query: this.searchTerm }]);

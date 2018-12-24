@@ -44,12 +44,10 @@ export class ItemsComponent implements OnInit {
       const data = await this.rest.get(
         BACKEND_URL + `/items/?page=${this
           .page - 1}` ,
-        //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );
       data['success']
         ? (this.itemData = data)
         : this.data.error(data['message']);
-      console.log(this.itemData);
     } catch (error) {
       this.data.error(error['message']);
     }
@@ -59,7 +57,7 @@ export class ItemsComponent implements OnInit {
     if (this.searchTerm) {
       this.router.navigate(['search', { query: this.searchTerm }]);
     }
-    this.searchTerm = null; // https://stackoverflow.com/questions/41483914/clearing-an-input-text-field-in-angular2
+    this.searchTerm = null;
   }
 
   goBack() {

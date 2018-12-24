@@ -1,6 +1,11 @@
 <section id="profile">
   <div class="container p-5">
-    <h4 class="display-4 text-center">My Profile</h4>
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
+    <h1 class="text-center">Profile</h1>
     <hr>
     <app-message></app-message>
     <div *ngIf="!data.user" class="m-auto">
@@ -9,17 +14,13 @@
       </h1>
     </div>
     <div *ngIf="data.user" class="row mt-5">
-
       <div class="col-md-8 ml-3">
-        <h3>Username: {{ data.user.name }}</h3>
+        <h2>Username: {{ data.user.name }}</h2>
         <br>
         <a routerLink="/profile/settings" class="btn btn-primary">Change Account Settings</a>
         <br>
         <div *ngIf="data.user.isAdmin">
           <p class="lead mt-5">Admin Actions</p>
-          <p>Note:</p>
-          <p> Having issues with admin actions?</p>
-          <p> Solution: Log out and log back in.</p>
           <hr>
           <div class="row">
             <div class="col-md-6 mb-3">

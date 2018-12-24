@@ -7,8 +7,7 @@ const Type = require('../models/type');
 const checkJWT = require('../middlewares/check-jwt');
 const verifyAdmin = require('../middlewares/verifyAdmin');
 
-// waste not
-// status: good
+
 router.get('/items', (req, res, next) => {
   const perPage = 50;
   const page = req.query.page;
@@ -41,7 +40,6 @@ router.get('/items', (req, res, next) => {
       res.json({
         success: true,
         message: 'bin',
-        //message: 'type',
         items: items,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
@@ -83,7 +81,6 @@ router.get('/itemsAll', (req, res, next) => {
       res.json({
         success: true,
         message: 'bin',
-        //message: 'type',
         items: items,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
@@ -93,8 +90,7 @@ router.get('/itemsAll', (req, res, next) => {
 });
 
 
-// waste not
-// status: good
+
 router.get('/itemsRandom', (req, res, next) => {
   const perPage = 100000;
   const page = req.query.page;
@@ -111,7 +107,6 @@ router.get('/itemsRandom', (req, res, next) => {
           .collation({ locale: 'en', strength: 2 })
           .sort({ title: 1 })
           .populate('bin')
-          //.populate('type')
           .exec((err, items) => {
             if (err) return next(err);
             callback(err, items);
@@ -126,7 +121,6 @@ router.get('/itemsRandom', (req, res, next) => {
       res.json({
         success: true,
         message: 'bin',
-        //message: 'type',
         items: items,
         totalItems: totalItems,
         pages: Math.ceil(totalItems / perPage)
@@ -136,7 +130,6 @@ router.get('/itemsRandom', (req, res, next) => {
 });
 
 function shuffle(array) {
-  console.log('333shufffling');
   let counter = array.length;
 
   // While there are elements in the array
@@ -169,7 +162,6 @@ router
   })
   .post((req, res, next) => {
     Bin.find({ name: req.body.bin }, (err, bin) => {
-      /* https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value */
       if (bin[0]) {
         res.json({
           message: bin[0].name + ' already exists'
@@ -199,7 +191,6 @@ router
   })
   .post((req, res, next) => {
     Type.find({ name: req.body.type }, (err, type) => {
-      https://stackoverflow.com/questions/23507807/json-object-returns-undefined-value 
       if (type[0]) {
         res.json({
           message: type[0].name + ' already exists'
@@ -216,10 +207,7 @@ router
     });
   });
 
-// waste not
-// status: good
 
-// Change to "Type"
 
 router.get('/bins/:id', (req, res, next) => {
   const perPage = 50;
@@ -312,8 +300,7 @@ router.get('/types/:id', (req, res, next) => {
   );
 });
 
-// wastenot
-// status: good
+
 router.get('/item/:id', (req, res, next) => {
   Item.findById({ _id: req.params.id })
     .populate('bin')
@@ -336,8 +323,6 @@ router.get('/item/:id', (req, res, next) => {
 });
 
 router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
-  //console.log(JSON.stringify(req.body));
-  console.log(req.params.id);
   Item.remove({ _id: req.params.id }, function (err) {
     if (err) {
       return err;
@@ -351,18 +336,10 @@ router.delete('/itemDelete/:id', checkJWT, verifyAdmin, (req, res, next) => {
 });
 
 
-/*
-Edit an Item
-*/
 
 router.post('/item/:id', checkJWT, verifyAdmin, (req, res, next) => {
   Item.findOne({ _id: req.params.id }, (err, item) => {
     if (err) return next(err);
-
-
-    console.log("&&&& req body tipRecycleWrong");
-    console.log(req.body.tipRecycleWrong);
-
 
     if (req.body.title) item.title = req.body.title;
     if (req.body.description) item.description = req.body.description;

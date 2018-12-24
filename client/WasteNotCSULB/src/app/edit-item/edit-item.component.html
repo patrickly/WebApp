@@ -2,7 +2,7 @@
   <div class="container p-5">
     <!-- back button -->
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
-        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
     <!-- (ends) back button -->
     <h1 class="text-center">Edit Item</h1>
@@ -52,31 +52,36 @@
           <div class="form-group">
             <div class="p-1">Correct Answer Feedback</div>
             <textarea class="form-control" name="correctAnswerFeedback" rows="5" [(ngModel)]="item.correctAnswerFeedback
-            " aria-label="Correct Answer Feedback"></textarea>
+            "
+              aria-label="Correct Answer Feedback"></textarea>
           </div>
 
           <div class="form-group">
             <div class="p-1">Wrong Answer Tip (Compost chosen)</div>
             <textarea class="form-control" name="Wrong Answer Tip for Compost choice" rows="5" [(ngModel)]="item.tipCompostWrong
-            " aria-label="Wrong Answer Tip (Compost chosen)"></textarea>
+            "
+              aria-label="Wrong Answer Tip (Compost chosen)"></textarea>
           </div>
 
           <div class="form-group">
             <div class="p-1">Wrong Answer Tip (Recycle chosen)</div>
             <textarea class="form-control" name="Wrong Answer Tip for Recycle choice" rows="5" [(ngModel)]="item.tipRecycleWrong
-            " aria-label="Wrong Answer Tip (Recycle chosen)"></textarea>
+            "
+              aria-label="Wrong Answer Tip (Recycle chosen)"></textarea>
           </div>
 
 
           <div class="form-group">
             <div class="p-1">Wrong Answer Tip (Landfill chosen)</div>
             <textarea class="form-control" name="Wrong Answer Tip for Landfill choice" rows="5" [(ngModel)]="item.tipLandfillWrong
-            " aria-label="Wrong Answer Tip (Landfill chosen)"></textarea>
+            "
+              aria-label="Wrong Answer Tip (Landfill chosen)"></textarea>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" name="isAdmin" class="form-check-input" [(ngModel)]="item.isCompostAndLandfill" aria-label="Compost or Landfill checkbox">
+              <input type="checkbox" name="isAdmin" class="form-check-input" [(ngModel)]="item.isCompostAndLandfill"
+                aria-label="Compost or Landfill checkbox">
               This item goes inside either the Compost or Landfill bin (depending on location).
             </label>
           </div>

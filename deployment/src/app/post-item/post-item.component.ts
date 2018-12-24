@@ -67,8 +67,6 @@ export class PostItemComponent implements OnInit {
 
   validate(item) {
 
-    // console.log("33post-item " + item);
-    //  console.log(JSON.stringify(item));
     if (item.title) {
       if (item.binId) {
         if (item.typeId) {
@@ -100,7 +98,6 @@ export class PostItemComponent implements OnInit {
     try {
       if (this.validate(this.item)) {
 
-        console.log("$$$$ binID is " + this.item.binId);
         const data = await this.rest.post(
           BACKEND_URL + '/admin/items',
           {
@@ -120,10 +117,6 @@ export class PostItemComponent implements OnInit {
         );
         if (data['success']) {
 
-          console.log("post-item ts: " + data);
-          console.log(data);
-
-
           this.router.navigate(['/profile/'])
             .then(() => this.data.success(data['message']))
             .catch(error => this.data.error(error))
@@ -138,4 +131,7 @@ export class PostItemComponent implements OnInit {
     this.btnDisabled = false;
   }
 
+  goBack() {
+    window.history.back();
+  }
 }

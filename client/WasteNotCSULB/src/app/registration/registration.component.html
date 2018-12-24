@@ -9,28 +9,26 @@
             <hr>
             <form (keyup.enter)="register()">
               <div class="form-group">
-                <label class="form-control-label">Name</label>
-                <input type="text" name="name" class="form-control" [(ngModel)]="name">
+                <div class="p-1">Name</div>
+
+                <input type="text" name="name" class="form-control" [(ngModel)]="name" aria-label="Name">
               </div>
               <div class="form-group">
-                <label class="form-control-label">Email</label>
-                <input type="email" name="email" class="form-control" [(ngModel)]="email">
+                <div class="p-1">Email</div>
+
+                <input type="email" name="email" class="form-control" [(ngModel)]="email" aria-label="Email">
               </div>
               <div class="form-group">
-                <label class="form-control-label">Password</label>
-                <input type="password" name="password" class="form-control" [(ngModel)]="password">
+                <div class="p-1">Password</div>
+
+                <input type="password" name="password" class="form-control" [(ngModel)]="password" aria-label="Password">
               </div>
               <div class="form-group">
-                <label class="form-control-label">Confirm Password</label>
-                <input type="password" name="password1" class="form-control" [(ngModel)]="password1">
+                <div class="p-1">Confirm Password</div>
+
+                <input type="password" name="password1" class="form-control" [(ngModel)]="password1" aria-label="Confirm Password">
               </div>
-              <!--
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" name="isAdmin" class="form-check-input" [(ngModel)]="isAdmin"> Register as an Admin
-                </label>
-              </div>
-            -->
+
               <hr>
               <button type="button" class="btn btn-primary btn-block" (click)="register()" [disabled]="btnDisabled">Register</button>
             </form>

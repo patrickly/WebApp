@@ -1,6 +1,11 @@
 <section id="settings">
   <div class="container p-5">
-    <h4 class="display-4">My Account Settings</h4>
+    <!-- back button -->
+    <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+    </button>
+    <!-- (ends) back button -->
+    <h1 class="text-center">Account Settings</h1>
     <hr>
     <app-message></app-message>
     <div *ngIf="!currentSettings" class="m-auto">
@@ -12,12 +17,12 @@
       <div class="card-body">
         <form (keyup.enter)="update()">
           <div class="form-group">
-            <label class="form-control-label">Name</label>
-            <input type="text" name="name" class="form-control" [(ngModel)]="currentSettings.name">
+            <div class="p-1">Name</div>
+            <input type="text" name="name" class="form-control" [(ngModel)]="currentSettings.name" aria-label="Profile name">
           </div>
           <div class="form-group">
-            <label class="form-control-label">Email</label>
-            <input type="email" name="email" class="form-control" [(ngModel)]="currentSettings.email">
+            <div class="p-1">Email</div>
+            <input type="email" name="email" class="form-control" [(ngModel)]="currentSettings.email" aria-label="Email login">
           </div>
           <!--
           <div class="form-check">
@@ -27,14 +32,15 @@
           </div>
           -->
           <div class="form-group">
-            <label class="form-control-label">New Password</label>
-            <input type="password" name="newPwd" class="form-control" [(ngModel)]="currentSettings.newPwd">
+            <div class="p-1">New Password</div>
+            <input type="password" name="newPwd" class="form-control" [(ngModel)]="currentSettings.newPwd" aria-label="New password">
           </div>
           <div class="form-group">
-            <label class="form-control-label">Confirm Password</label>
-            <input type="password" name="pwdConfirm" class="form-control" [(ngModel)]="currentSettings.pwdConfirm">
+            <div class="p-1">Confirm Password</div>
+            <input type="password" name="pwdConfirm" class="form-control" [(ngModel)]="currentSettings.pwdConfirm"
+              aria-label="Confirm password">
           </div>
-          <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled">Update</button>
+          <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled" aria-label="Update button">Update</button>
         </form>
       </div>
     </div>

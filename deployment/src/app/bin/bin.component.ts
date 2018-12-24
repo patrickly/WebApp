@@ -48,7 +48,6 @@ export class BinComponent implements OnInit {
         BACKEND_URL + `/bins/${this.binId}?page=${this
           .page - 1}`,
       );
-      console.log(data);
       data['success']
         ? (this.bin = data)
         : this.data.error(data['message']);

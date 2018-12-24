@@ -24,7 +24,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { BinComponent } from './bin/bin.component';
 import { ItemComponent } from './item/item.component';
-import { SummaryComponent } from './summary/summary.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
@@ -51,7 +50,6 @@ import { UserManualComponent } from './user-manual/user-manual.component';
     PostItemComponent,
     BinComponent,
     ItemComponent,
-    SummaryComponent,
     AboutComponent,
     SearchComponent,
     EditItemComponent,

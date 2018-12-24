@@ -28,12 +28,7 @@ var upload = multer({
   })
 });
 
-// waste not
-// status: GET good
-// status: POST good
-// In the amazono web app, we have to find the owner of the item,
-// but in the zero waste item, there is no sellers so we don't need owners
-// However the user must be admin to post or add a new item
+
 router
   .route('/items')
   .get(checkJWT, (req, res, next) => {
@@ -54,11 +49,6 @@ router
     let item = new Item();
     item.type = req.body.type;
     item.bin = req.body.bin
-    //   console.log("204 reqbody " + req.body.bin);
-    // console.log(JSON.stringify(req.body));
-
-    // console.log("404 title reqbody " + req.body.title);
-
     item.title = req.body.title;
     item.description = req.body.description;
     item.image = req.body.image;
@@ -72,8 +62,7 @@ router
       item.isCompostAndLandfill = req.body.isCompostAndLandfill;
     }
 
-    console.log("205 reqbody.isCandL " + (req.body.isCompostAndLandfill == ""));
-    console.log(JSON.stringify(req.body));
+
     item.save();
     res.json({
       success: true,

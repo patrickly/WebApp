@@ -34,7 +34,6 @@ export class SearchComponent implements OnInit {
     this.activatedRoute.params.subscribe(res => {
       this.query = res['query'];
       this.page = 1;
-      // this.getItems();
       this.getItemsFuse();
     });
   }
@@ -73,7 +72,6 @@ export class SearchComponent implements OnInit {
       const data = await this.rest.get(
         BACKEND_URL + `/itemsAll/?page=${this
           .page - 1}` ,
-        //"http://wastenotcsulb-env.aewuadnmmg.us-east-1.elasticbeanstalk.com/api/items"
       );
       if (data['success']) {
         this.itemData = data;
@@ -81,8 +79,7 @@ export class SearchComponent implements OnInit {
       } else {
         this.data.error(data['message']);
       }
-      //console.log(this.itemData);
-      //console.log(this.itemArray);
+
 
       this.fuseSearch();
 
@@ -93,7 +90,6 @@ export class SearchComponent implements OnInit {
 
   fuseSearch() {
 
-    //console.log("333 fuse search called")
     var options = {
       shouldSort: true,
       threshold: 0.4,
@@ -107,26 +103,17 @@ export class SearchComponent implements OnInit {
     };
 
 
-    // let list: any[] = [{ "title": "pizza" }, { "title": "boxing" }];
-    //let list: any[] = this.itemData.items;
-    // console.log("alpha kenny you 123: " + this.itemData.items);
-    //console.log("alpha kenny you 123: " + JSON.stringify(this.itemArray));
     let list: any[] = this.itemArray;
 
     let queryS: string = "my query";
 
     let fuseOpts: IFuseOptions = {
-      //options
       threshold: 0.4,
-
       keys: ["title"]
     };
-    //console.log("2222434 fuseResults");
 
     let fuseSearch = new Fuse(list, fuseOpts);
     let fuseResults: any[] = fuseSearch.search(this.query);
-    //console.log("343434 fuseResults");
-    //console.log(fuseResults);
 
     this.content = fuseResults;
   }

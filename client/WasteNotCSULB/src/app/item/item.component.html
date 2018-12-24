@@ -54,14 +54,14 @@
       <div class="pt-3 pb-1" *ngIf="item.isCompostAndLandfill">
         <img src="./assets/img/wastenot_landfill.png" height="100" width="120" alt="Landfill bin">
       </div>
-      
+
       <div class="col-6 col-md-3 mr-md-auto pt-3 pb-1" *ngIf="!item.isCompostAndLandfill">
         <p class="lead pt-4">Type: {{ item.type.name }}</p>
       </div>
 
       <div class="col-12 col-md-3 mr-md-auto pt-3 pb-1" *ngIf="item.isCompostAndLandfill">
-          <p class="lead pt-4">Type: {{ item.type.name }}</p>
-        </div>
+        <p class="lead pt-4">Type: {{ item.type.name }}</p>
+      </div>
     </div>
 
     <hr>

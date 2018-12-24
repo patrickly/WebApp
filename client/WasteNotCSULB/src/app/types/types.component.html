@@ -4,15 +4,15 @@
 
     <!-- back button -->
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
-        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
     <!-- (ends) back button -->
 
     <!-- (begins) Type description -->
     <h1 class="display-4 text-center">Types</h1>
-      <p class="lead text-center">
-        Material composition of recyclable items can be found here.
-      </p>
+    <p class="lead text-center">
+      Material composition of recyclable items can be found here.
+    </p>
     <hr>
     <!-- (ends) Type description -->
 
@@ -27,7 +27,7 @@
     <!-- (begins) list types -->
     <div *ngIf="types" class="list-group">
       <a *ngFor="let type of types" routerLink="/types/{{ type._id }}" class="list-group-item list-group-item-action">
-      {{ type.name }}
+        {{ type.name }}
       </a>
     </div>
     <!-- (ends) list types -->
@@ -36,7 +36,7 @@
 </section>
 
 
-   <!--
+<!--
     <div class="card bg-light mt-5">
       <div class="card-body">
         <h4 class="card-title">Add New type</h4>
@@ -51,6 +51,3 @@
       </div>
     </div>  
   -->
-
-
-

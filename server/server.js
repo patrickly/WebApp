@@ -26,13 +26,11 @@ app.use(cors());
 const mainRoutes = require('./routes/main');
 const userRoutes = require('./routes/account');
 const adminRoutes = require('./routes/admin');
-//const itemSearchRoutes = require('./routes/item-search');
 
 
 app.use('/api', mainRoutes);
 app.use('/api/accounts', userRoutes);
 app.use('/api/admin', adminRoutes);
-//app.use('/api/search', itemSearchRoutes);
 
 
 

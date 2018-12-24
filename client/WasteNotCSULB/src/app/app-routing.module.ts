@@ -12,7 +12,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { BinComponent } from './bin/bin.component';
-import { SummaryComponent } from './summary/summary.component';
 import { SearchComponent } from './search/search.component';
 import { AboutComponent } from './about/about.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
@@ -64,10 +63,6 @@ const routes: Routes = [
     component: MapComponent
   },
   {
-    path: 'summary',
-    component: SummaryComponent
-  },
-  {
     path: 'items',
     component: ItemsComponent
   },
@@ -109,4 +104,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

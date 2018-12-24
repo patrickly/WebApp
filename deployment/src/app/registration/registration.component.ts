@@ -83,5 +83,4 @@ export class RegistrationComponent implements OnInit {
     this.btnDisabled = false;
   }
 
-
 }

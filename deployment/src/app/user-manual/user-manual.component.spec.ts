@@ -8,9 +8,9 @@ describe('UserManualComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserManualComponent ]
+      declarations: [UserManualComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
