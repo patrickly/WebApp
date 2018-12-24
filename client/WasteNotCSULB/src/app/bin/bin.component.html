@@ -4,7 +4,7 @@
 
     <!-- back button -->
     <button type="button" class="btn btn-light" (click)="goBack()" aria-label="go back to previous page button">
-        <i class="fas fa-long-arrow-alt-left fa-2x"></i>
+      <i class="fas fa-long-arrow-alt-left fa-2x"></i>
     </button>
     <!-- (ends) back button -->
 
@@ -13,7 +13,7 @@
       <div *ngSwitchCase="1">
         <h1 class="display-4 text-center">Compost</h1>
         <p class="lead text-center">
-          All food waste and wet/soiled paper goes in the compost bin.
+          All food waste goes in the compost bin.
         </p>
       </div>
 
@@ -39,7 +39,7 @@
       <i class="fa fa-spinner fa-spin"></i>
     </div>
     <!-- (ends) loading spinner icon -->
-    
+
     <!-- display item list -->
     <!-- if there list is empty -->
     <h3 *ngIf="bin && !bin.items.length" class="display-4 text-center mt-5">List is empty</h3>
