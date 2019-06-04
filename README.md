@@ -85,10 +85,10 @@ Contribute
 
 [https://github.com/WasteNotCSULB/WebApp](https://github.com/WasteNotCSULB/WebApp)
 
-Active Maintenance
+Contributors
 ------------------
 
-WasteNot is currently maintained by Group 9 from CESC491A Section 01:
+WasteNot was built by Group 9 from CESC491A Section 01:
 
 *   [Greg Paolo Violan](https://github.com/violangreg)
 *   [Patrick Ly](https://github.com/patrickly)
