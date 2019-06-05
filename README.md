@@ -36,7 +36,7 @@ The WasteNot system is developed through the MEAN software stack along with the 
 Documentation
 -------------
 
-For latest documentation, please visit the Specifications folder in Google Drive [project page](https://drive.google.com/drive/folders/1Tq9V7JjKrlvduev540Utot3w2N6LTzKo?usp=sharing) where you can find documentation information.
+For latest documentation, please visit the [Specifications folder in Google Drive](https://drive.google.com/drive/folders/1Tq9V7JjKrlvduev540Utot3w2N6LTzKo?usp=sharing) where you can find documentation information.
 
 
 Running 
