@@ -6,7 +6,10 @@
 What is it?
 -----------
 
-WasteNot is a web-based application for quick and accessible recycling information and protocol, developed for the California State University, Long Beach campus.
+WasteNot is a web-based application for quick and accessible recycling information and protocol, developed for the California State University, Long Beach campus. [Live website](https://csulbwastenot.appspot.com/)
+
+![Alt Text](https://i.imgur.com/O8kGbh7.png)
+*Poster made by Greg Violan
 
 Features
 --------
@@ -36,7 +39,7 @@ The WasteNot system is developed through the MEAN software stack along with the 
 Documentation
 -------------
 
-For latest documentation, please visit the WasteNot Github [project page](https://github.com/WasteNotCSULB) where you can find documentation information.
+For latest documentation, please visit the [Specifications folder in Google Drive](https://drive.google.com/drive/folders/1Tq9V7JjKrlvduev540Utot3w2N6LTzKo?usp=sharing) where you can find documentation information.
 
 
 Running 
@@ -85,10 +88,10 @@ Contribute
 
 [https://github.com/WasteNotCSULB/WebApp](https://github.com/WasteNotCSULB/WebApp)
 
-Active Maintenance
+Contributors
 ------------------
 
-WasteNot is currently maintained by Group 9 from CESC491A Section 01:
+WasteNot was built by Group 9 from CESC491A Section 01:
 
 *   [Greg Paolo Violan](https://github.com/violangreg)
 *   [Patrick Ly](https://github.com/patrickly)
